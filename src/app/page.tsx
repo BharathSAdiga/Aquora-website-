@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
 
 export default function Home() {
   return (
@@ -11,33 +12,8 @@ export default function Home() {
       
       <main className="flex-grow pt-0">
         <Hero />
+        <About />
 
-        {/* About / Features Section */}
-        <Section id="about" className="bg-velora-bg">
-          <Container>
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="font-serif text-3xl md:text-5xl text-velora-primary mb-6">Our Sanctuary</h2>
-              <p className="text-velora-muted leading-relaxed">
-                Step into a safe & secure environment designed to build a healthier mind, stronger body, and a calmer you. Our studio offers excellent ventilation, airflow, and a welcoming atmosphere for all age groups.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { title: "Yoga", desc: "For Body & Mind", icon: "🌸" },
-                { title: "Dance", desc: "For Passion", icon: "💃" },
-                { title: "Bharatanatyam", desc: "For Tradition", icon: "🕉️" },
-                { title: "All Ages", desc: "Welcome", icon: "👨‍👩‍👧‍👦" },
-              ].map((feature, i) => (
-                <div key={i} className="flex flex-col items-center text-center p-6 rounded-2xl bg-white shadow-sm border border-gray-100 transition-transform hover:-translate-y-1">
-                  <span className="text-4xl mb-4">{feature.icon}</span>
-                  <h3 className="font-serif text-xl text-velora-primary mb-2">{feature.title}</h3>
-                  <p className="text-sm text-velora-secondary font-medium tracking-wide uppercase">{feature.desc}</p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </Section>
 
         {/* Classes Overview Section */}
         <Section id="classes" className="bg-white">
