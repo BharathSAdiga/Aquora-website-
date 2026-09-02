@@ -132,7 +132,7 @@ export function Schedule() {
         {/* CTA */}
         <div className="text-center">
           <Button asChild size="lg" className="w-full sm:w-auto px-10 text-xs">
-            <a href="#contact">
+            <a href="#trial">
               BOOK A TRIAL CLASS
             </a>
           </Button>

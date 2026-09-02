@@ -123,7 +123,7 @@ export function Navbar() {
                 !isScrolled && "border-velora-accent text-velora-accent hover:bg-velora-accent hover:text-velora-primary"
               )}
             >
-              <a href="#contact">
+              <a href="#trial">
                 BOOK A TRIAL
               </a>
             </Button>
@@ -174,7 +174,7 @@ export function Navbar() {
           
           <div className="w-full max-w-xs pt-8 pb-6 border-t border-velora-primary/10 flex flex-col gap-3">
             <Button size="md" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
-              <a href="#contact" className="w-full">
+              <a href="#trial" className="w-full">
                 BOOK A TRIAL
               </a>
             </Button>

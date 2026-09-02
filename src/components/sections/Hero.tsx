@@ -90,7 +90,7 @@ export function Hero() {
             className="flex flex-col sm:flex-row w-full sm:w-auto items-center gap-3.5 md:gap-5"
           >
             <Button asChild size="lg" className="w-full sm:w-auto">
-              <a href="#contact">
+              <a href="#trial">
                 BOOK A TRIAL
               </a>
             </Button>
