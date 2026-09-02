@@ -1,11 +1,10 @@
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Classes } from "@/components/sections/Classes";
 import { Schedule } from "@/components/sections/Schedule";
+import { Studio } from "@/components/sections/Studio";
 
 export default function Home() {
   return (
@@ -17,6 +16,7 @@ export default function Home() {
         <About />
         <Classes />
         <Schedule />
+        <Studio />
       </main>
 
       <Footer />
