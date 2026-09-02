@@ -94,33 +94,33 @@ export function Schedule() {
         </div>
 
         {/* Schedule Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
           <AnimatePresence mode="popLayout">
             {filteredSchedule.map((item) => (
               <motion.div
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.2 }}
                 key={item.id}
-                className="bg-white p-8 rounded-2xl border border-velora-accent/20 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
+                className="bg-white p-6 md:p-7 rounded-xl border border-velora-accent/25 shadow-sm hover:shadow-md transition-all flex flex-col h-full"
               >
-                <div className="mb-6 flex-grow">
-                  <span className="inline-block px-3 py-1 bg-velora-secondary/10 text-velora-secondary text-xs font-bold tracking-widest uppercase rounded-full mb-4">
+                <div className="mb-5 flex-grow">
+                  <span className="inline-block px-3 py-1 bg-velora-secondary/10 text-velora-secondary text-[11px] font-bold tracking-widest uppercase rounded-full mb-3">
                     {item.category}
                   </span>
-                  <h3 className="font-serif text-2xl text-velora-primary mb-2">{item.name}</h3>
-                  <p className="text-sm font-semibold text-velora-muted uppercase tracking-wider">
+                  <h3 className="font-serif text-2xl text-velora-primary mb-1.5">{item.name}</h3>
+                  <p className="text-xs font-semibold text-velora-muted uppercase tracking-wider">
                     {item.days}
                   </p>
                 </div>
                 
-                <div className="space-y-3 pt-6 border-t border-velora-accent/20 mt-auto">
+                <div className="space-y-2.5 pt-5 border-t border-velora-accent/20 mt-auto">
                   {item.times.map((time, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-velora-accent"></div>
-                      <span className="text-velora-primary font-medium">{time}</span>
+                    <div key={i} className="flex items-center gap-2.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-velora-accent shrink-0"></div>
+                      <span className="text-velora-primary font-medium text-sm">{time}</span>
                     </div>
                   ))}
                 </div>
@@ -131,8 +131,10 @@ export function Schedule() {
 
         {/* CTA */}
         <div className="text-center">
-          <Button size="lg" className="w-full sm:w-auto px-12 py-6 text-sm">
-            BOOK A TRIAL CLASS
+          <Button asChild size="lg" className="w-full sm:w-auto px-10 text-xs">
+            <a href="#contact">
+              BOOK A TRIAL CLASS
+            </a>
           </Button>
         </div>
       </Container>

@@ -41,18 +41,18 @@ export function Contact() {
           <motion.div 
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-80px" }}
             variants={fadeUpVariant}
-            className="space-y-12 order-2 lg:order-1"
+            className="space-y-8 order-2 lg:order-1"
           >
-            <div className="bg-white p-8 md:p-10 rounded-[2rem] border border-velora-accent/20 shadow-sm">
-              <div className="flex items-start gap-5 mb-8">
-                <div className="w-12 h-12 rounded-full bg-velora-secondary/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-6 h-6 text-velora-secondary" />
+            <div className="bg-white p-6 md:p-8 rounded-xl border border-velora-accent/25 shadow-sm">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-10 h-10 rounded-full bg-velora-secondary/10 flex items-center justify-center shrink-0 mt-1">
+                  <MapPin className="w-5 h-5 text-velora-secondary" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-2xl text-velora-primary mb-3">Studio Location</h3>
-                  <p className="text-velora-muted leading-relaxed mb-6">
+                  <h3 className="font-serif text-xl text-velora-primary mb-2">Studio Location</h3>
+                  <p className="text-velora-muted text-sm leading-relaxed mb-4 font-light">
                     No. 3/1, 1st Floor,<br />
                     SkyPool Fitness Studio Building,<br />
                     4th B Main Road, Dr. Vivekananda Layout,<br />
@@ -65,45 +65,50 @@ export function Contact() {
                     href={directionsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-velora-secondary hover:text-velora-primary transition-colors group"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-velora-secondary hover:text-velora-primary transition-colors group"
                   >
                     Get Directions
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </a>
                 </div>
               </div>
               
-              <div className="w-full h-[1px] bg-velora-accent/20 mb-8"></div>
+              <div className="w-full h-[1px] bg-velora-accent/15 mb-6"></div>
               
-              <div className="flex items-start gap-5 mb-8">
-                <div className="w-12 h-12 rounded-full bg-velora-primary/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-6 h-6 text-velora-primary" />
+              <div className="flex items-start gap-4 mb-8">
+                <div className="w-10 h-10 rounded-full bg-velora-primary/10 flex items-center justify-center shrink-0 mt-1">
+                  <Phone className="w-5 h-5 text-velora-primary" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-2xl text-velora-primary mb-3">Call Us</h3>
-                  <a href={`tel:${phoneNumber}`} className="text-velora-muted hover:text-velora-primary transition-colors text-lg">
+                  <h3 className="font-serif text-xl text-velora-primary mb-1">Direct Inquiries</h3>
+                  <a href={`tel:${phoneNumber}`} className="text-velora-muted hover:text-velora-primary transition-colors text-base font-medium">
                     {displayPhone}
                   </a>
+                  <p className="text-xs text-velora-muted mt-1 font-light">Mon - Sat: 06:00 AM - 08:30 PM</p>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 mt-12">
+              <div className="flex flex-col sm:flex-row gap-3.5">
                 <Button 
-                  onClick={() => window.location.href = `tel:${phoneNumber}`}
-                  size="lg"
-                  className="w-full sm:flex-1"
+                  asChild
+                  size="md"
+                  className="w-full sm:flex-1 text-xs"
                 >
-                  CALL US
+                  <a href={`tel:${phoneNumber}`}>
+                    CALL US
+                  </a>
                 </Button>
                 
                 <Button 
-                  onClick={() => window.open(`https://wa.me/${phoneNumber.replace('+', '')}`, '_blank')}
+                  asChild
                   variant="outline"
-                  size="lg"
-                  className="w-full sm:flex-1 border-green-600 text-green-700 hover:bg-green-50"
+                  size="md"
+                  className="w-full sm:flex-1 border-velora-secondary/40 text-velora-secondary hover:bg-velora-secondary hover:text-white text-xs"
                 >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  WHATSAPP US
+                  <a href={`https://wa.me/${phoneNumber.replace('+', '')}`} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="w-4 h-4 mr-2 inline" />
+                    WHATSAPP US
+                  </a>
                 </Button>
               </div>
             </div>
@@ -113,15 +118,15 @@ export function Contact() {
           <motion.div 
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-80px" }}
             variants={fadeUpVariant}
-            className="w-full h-full min-h-[400px] lg:min-h-full rounded-[2rem] overflow-hidden border border-velora-accent/20 shadow-lg order-1 lg:order-2 bg-white flex flex-col"
+            className="w-full h-full min-h-[380px] lg:min-h-[440px] rounded-xl overflow-hidden border border-velora-accent/25 shadow-sm order-1 lg:order-2 bg-white flex flex-col"
           >
             {googleMapsApiKey ? (
               <iframe
                 width="100%"
                 height="100%"
-                style={{ border: 0, flexGrow: 1, minHeight: "400px" }}
+                style={{ border: 0, flexGrow: 1, minHeight: "380px" }}
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
@@ -129,16 +134,18 @@ export function Contact() {
                 title="Velora Studio Location"
               ></iframe>
             ) : (
-              <div className="flex-1 min-h-[400px] bg-velora-bg flex flex-col items-center justify-center text-center p-8">
-                <div className="w-20 h-20 rounded-full bg-white shadow-sm flex items-center justify-center mb-6">
-                  <MapIcon className="w-8 h-8 text-velora-accent" />
+              <div className="flex-1 min-h-[380px] bg-velora-bg/60 flex flex-col items-center justify-center text-center p-8">
+                <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-5 border border-velora-accent/25">
+                  <MapIcon className="w-7 h-7 text-velora-accent" />
                 </div>
-                <h3 className="font-serif text-2xl text-velora-primary mb-3">Map Preview Unavailable</h3>
-                <p className="text-velora-muted max-w-sm mx-auto mb-8">
-                  The interactive map will appear here once configured. You can still use the directions button below to view our location on Google Maps.
+                <h3 className="font-serif text-xl text-velora-primary mb-2">JP Nagar 7th Phase, Bengaluru</h3>
+                <p className="text-velora-muted text-xs md:text-sm max-w-xs mx-auto mb-6 leading-relaxed font-light">
+                  Dr. Vivekananda Layout, 4th B Main Road, SkyPool Fitness Studio Building
                 </p>
-                <Button onClick={() => window.open(directionsUrl, '_blank')} variant="outline">
-                  OPEN IN GOOGLE MAPS
+                <Button asChild variant="outline" size="sm" className="text-xs">
+                  <a href={directionsUrl} target="_blank" rel="noopener noreferrer">
+                    OPEN IN GOOGLE MAPS
+                  </a>
                 </Button>
               </div>
             )}
