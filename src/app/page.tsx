@@ -1,47 +1,16 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { Button } from "@/components/ui/Button";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/sections/Hero";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       
-      <main className="flex-grow pt-20">
-        {/* Hero Section */}
-        <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-velora-primary">
-          <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay">
-            {/* Using standard placeholder or user's studio-view.jpg if available */}
-            <div className="absolute inset-0 bg-gradient-to-t from-velora-primary via-transparent to-transparent z-10" />
-            <img 
-              src="/assets/studio-view.jpg" 
-              alt="Velora Studio Interior" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-          
-          <Container className="relative z-10 text-center text-white">
-            <span className="inline-block py-1 px-3 border border-velora-accent/50 rounded-full text-xs tracking-widest text-velora-accent mb-6 uppercase">
-              Move Smoothly, Breathe Deeply, Live Fully
-            </span>
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 font-bold tracking-wide">
-              VELORA
-            </h1>
-            <p className="text-lg md:text-xl text-velora-accent max-w-2xl mx-auto mb-10 font-light tracking-wide">
-              A premium sanctuary for Yoga & Dance in the heart of Bengaluru.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="w-full sm:w-auto bg-velora-accent text-velora-primary hover:bg-white">
-                Explore Classes
-              </Button>
-              <Button variant="outline" size="lg" className="w-full sm:w-auto text-white border-white hover:bg-white/10">
-                Contact Us
-              </Button>
-            </div>
-          </Container>
-        </section>
+      <main className="flex-grow pt-0">
+        <Hero />
 
         {/* About / Features Section */}
         <Section id="about" className="bg-velora-bg">
