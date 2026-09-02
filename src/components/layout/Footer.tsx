@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { MapPin, Phone, MessageCircle } from "lucide-react";
 
@@ -12,9 +13,11 @@ export function Footer() {
           <div className="flex flex-col items-start space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velora-accent rounded-sm">
               <div className="w-8 h-8 rounded-full overflow-hidden border border-velora-accent/40 shrink-0 bg-velora-bg flex items-center justify-center">
-                <img
+                <Image
                   src="/assets/velora-logo.jpg"
-                  alt="Velora Logo"
+                  alt="Velora Yoga and Dance Studio Crest"
+                  width={32}
+                  height={32}
                   className="w-full h-full object-cover object-left scale-125"
                 />
               </div>

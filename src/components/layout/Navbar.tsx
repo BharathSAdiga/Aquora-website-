@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -64,10 +65,13 @@ export function Navbar() {
           >
             <div className="relative w-9 h-9 rounded-full overflow-hidden border border-velora-accent/40 shrink-0 bg-velora-bg flex items-center justify-center">
               {/* Official brand lotus & dancer crest */}
-              <img
+              <Image
                 src="/assets/velora-logo.jpg"
-                alt="Velora Logo"
+                alt="Velora Yoga and Dance Studio Crest"
+                width={36}
+                height={36}
                 className="w-full h-full object-cover object-left scale-125"
+                priority
               />
             </div>
             <div className="flex flex-col">
