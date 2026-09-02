@@ -1,26 +1,31 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-velora-primary: #311432;
+  --color-velora-primary-hover: #4a1e4b;
+  --color-velora-secondary: #4A5D23;
+  --color-velora-secondary-hover: #5d752c;
+  --color-velora-accent: #E5D3B3;
+  --color-velora-accent-hover: #f1ebd9;
+  --color-velora-bg: #FAFAF7;
+  --color-velora-foreground: #1c191c;
+  --color-velora-muted: #8b8589;
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: var(--color-velora-bg);
+  --foreground: var(--color-velora-foreground);
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Base utility for smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
