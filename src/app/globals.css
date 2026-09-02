@@ -1,38 +1,39 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-velora-primary: #311432;
-  --color-velora-primary-hover: #4a1e4b;
-  --color-velora-secondary: #4A5D23;
-  --color-velora-secondary-hover: #5d752c;
-  --color-velora-accent: #E5D3B3;
-  --color-velora-accent-hover: #f1ebd9;
-  --color-velora-bg: #FAFAF7;
-  --color-velora-foreground: #1c191c;
-  --color-velora-muted: #8b8589;
+  --color-velora-bg: #0C0A0E;
+  --color-velora-surface: #141017;
+  --color-velora-surface-card: #19141D;
+  --color-velora-surface-hover: #221B27;
+  --color-velora-plum: #2D142D;
+  --color-velora-plum-hover: #3E1B3E;
+  --color-velora-secondary: #5A6F32;
+  --color-velora-secondary-hover: #6E873E;
+  --color-velora-accent: #C5A880;
+  --color-velora-accent-hover: #D8BF9B;
+  --color-velora-accent-light: #EFE4D2;
+  --color-velora-foreground: #FAF7F2;
+  --color-velora-primary: #FAF7F2;
+  --color-velora-muted: #A397A8;
+  --color-velora-border: rgba(197, 168, 128, 0.2);
   
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 :root {
   --background: var(--color-velora-bg);
   --foreground: var(--color-velora-foreground);
+  color-scheme: dark;
 }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-}
-
-/* Base utility for smooth scroll */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-velora-bg);
+  color: var(--color-velora-foreground);
   overflow-x: hidden;
 }

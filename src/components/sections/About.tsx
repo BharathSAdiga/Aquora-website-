@@ -24,7 +24,7 @@ export function About() {
   };
 
   return (
-    <section id="about" className="py-24 md:py-40 bg-velora-bg text-velora-foreground overflow-hidden">
+    <section id="about" className="py-24 md:py-36 bg-velora-bg text-velora-foreground overflow-hidden border-t border-velora-accent/15">
       <Container>
         {/* Section Heading */}
         <motion.div 
@@ -34,35 +34,38 @@ export function About() {
           variants={fadeUpVariant}
           className="text-center max-w-4xl mx-auto mb-20 md:mb-32"
         >
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-velora-primary leading-tight mb-8">
+          <span className="text-xs uppercase tracking-[0.3em] font-semibold text-velora-accent mb-4 block">
+            Philosophy
+          </span>
+          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-velora-foreground leading-tight mb-8">
             <span className="block mb-2">A SPACE TO MOVE.</span>
             <span className="block mb-2">A SPACE TO BREATHE.</span>
-            <span className="block text-velora-accent italic">A SPACE TO BECOME.</span>
+            <span className="block text-velora-accent italic font-light">A SPACE TO BECOME.</span>
           </h2>
-          <div className="w-24 h-1 bg-velora-accent mx-auto mb-8 rounded-full opacity-60"></div>
-          <p className="text-lg md:text-xl text-velora-muted font-light leading-relaxed max-w-2xl mx-auto">
+          <div className="w-20 h-[1.5px] bg-velora-accent/50 mx-auto mb-8 rounded-full"></div>
+          <p className="text-base md:text-lg text-velora-muted font-light leading-relaxed max-w-2xl mx-auto">
             Velora is a thoughtfully designed Yoga &amp; Dance Studio where movement, mindfulness and artistic expression come together.
           </p>
         </motion.div>
 
-        {/* Pillars - Editorial Layout (No Cards) */}
+        {/* Pillars - Editorial Layout (No Generic Cards) */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="space-y-16 md:space-y-32"
+          className="space-y-16 md:space-y-28"
         >
           {/* Pillar 1 */}
           <motion.div variants={fadeUpVariant} className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16">
             <div className="w-full md:w-1/3 flex justify-center md:justify-end">
-              <span className="font-serif text-6xl md:text-8xl text-velora-primary/10">01</span>
+              <span className="font-serif text-6xl md:text-8xl text-velora-accent/15 select-none font-light">01</span>
             </div>
-            <div className="w-full md:w-2/3 text-center md:text-left pt-2 md:pt-6 border-t md:border-t-0 md:border-l border-velora-accent/30 md:pl-16">
-              <h3 className="text-xl md:text-2xl font-serif text-velora-primary tracking-wider uppercase mb-4">
+            <div className="w-full md:w-2/3 text-center md:text-left pt-2 md:pt-6 border-t md:border-t-0 md:border-l border-velora-accent/25 md:pl-16">
+              <h3 className="text-xl md:text-2xl font-serif text-velora-foreground tracking-wider uppercase mb-3">
                 Mindful Movement
               </h3>
-              <p className="text-velora-muted leading-relaxed max-w-lg mx-auto md:mx-0">
+              <p className="text-velora-muted leading-relaxed max-w-lg mx-auto md:mx-0 font-light text-sm md:text-base">
                 Yoga practices focused on flexibility, strength, balance and wellbeing.
               </p>
             </div>
@@ -71,13 +74,13 @@ export function About() {
           {/* Pillar 2 */}
           <motion.div variants={fadeUpVariant} className="flex flex-col md:flex-row-reverse items-center md:items-start gap-8 md:gap-16">
             <div className="w-full md:w-1/3 flex justify-center md:justify-start">
-              <span className="font-serif text-6xl md:text-8xl text-velora-primary/10">02</span>
+              <span className="font-serif text-6xl md:text-8xl text-velora-accent/15 select-none font-light">02</span>
             </div>
-            <div className="w-full md:w-2/3 text-center md:text-right pt-2 md:pt-6 border-t md:border-t-0 md:border-r border-velora-accent/30 md:pr-16">
-              <h3 className="text-xl md:text-2xl font-serif text-velora-primary tracking-wider uppercase mb-4">
+            <div className="w-full md:w-2/3 text-center md:text-right pt-2 md:pt-6 border-t md:border-t-0 md:border-r border-velora-accent/25 md:pr-16">
+              <h3 className="text-xl md:text-2xl font-serif text-velora-foreground tracking-wider uppercase mb-3">
                 Creative Expression
               </h3>
-              <p className="text-velora-muted leading-relaxed max-w-lg mx-auto md:mx-0 md:ml-auto">
+              <p className="text-velora-muted leading-relaxed max-w-lg mx-auto md:mx-0 md:ml-auto font-light text-sm md:text-base">
                 Dance programs that encourage confidence, movement and self-expression.
               </p>
             </div>
@@ -86,13 +89,13 @@ export function About() {
           {/* Pillar 3 */}
           <motion.div variants={fadeUpVariant} className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16">
             <div className="w-full md:w-1/3 flex justify-center md:justify-end">
-              <span className="font-serif text-6xl md:text-8xl text-velora-primary/10">03</span>
+              <span className="font-serif text-6xl md:text-8xl text-velora-accent/15 select-none font-light">03</span>
             </div>
-            <div className="w-full md:w-2/3 text-center md:text-left pt-2 md:pt-6 border-t md:border-t-0 md:border-l border-velora-accent/30 md:pl-16">
-              <h3 className="text-xl md:text-2xl font-serif text-velora-primary tracking-wider uppercase mb-4">
+            <div className="w-full md:w-2/3 text-center md:text-left pt-2 md:pt-6 border-t md:border-t-0 md:border-l border-velora-accent/25 md:pl-16">
+              <h3 className="text-xl md:text-2xl font-serif text-velora-foreground tracking-wider uppercase mb-3">
                 Tradition &amp; Culture
               </h3>
-              <p className="text-velora-muted leading-relaxed max-w-lg mx-auto md:mx-0">
+              <p className="text-velora-muted leading-relaxed max-w-lg mx-auto md:mx-0 font-light text-sm md:text-base">
                 Bharatanatyam presented with respect for traditional Indian dance.
               </p>
             </div>

@@ -24,18 +24,18 @@ export function Studio() {
   const [activeImage, setActiveImage] = useState<string>("/assets/studio-main.jpg");
 
   return (
-    <section id="studio" className="py-20 md:py-28 bg-velora-foreground text-white overflow-hidden relative">
+    <section id="studio" className="py-24 md:py-36 bg-velora-bg text-velora-foreground overflow-hidden relative border-b border-velora-accent/15">
       <Container>
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <span className="text-xs uppercase tracking-[0.3em] font-semibold text-velora-accent mb-3 block">
             The Sanctuary
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-velora-accent mb-4 tracking-wide">
+          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-velora-foreground mb-4 tracking-wide">
             THE VELORA SPACE
           </h2>
-          <div className="w-16 h-[1.5px] bg-velora-accent/60 mx-auto mb-4"></div>
-          <p className="text-base md:text-lg font-light tracking-wide text-white/80">
+          <div className="w-20 h-[1.5px] bg-velora-accent/50 mx-auto mb-6"></div>
+          <p className="text-base md:text-lg font-light tracking-wide text-velora-muted">
             Designed for movement. Created for connection.
           </p>
         </div>
@@ -84,18 +84,18 @@ export function Studio() {
         </div>
 
         {/* Highlights Grid */}
-        <div className="pt-10 border-t border-velora-accent/20">
+        <div className="pt-12 border-t border-velora-accent/20">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
             {highlights.map((highlight, index) => (
               <div 
                 key={index} 
                 className="py-4 px-2 border-b lg:border-b-0 lg:border-r border-velora-accent/15 last:border-r-0 flex flex-col items-center justify-center group"
               >
-                <div className="w-2 h-2 rounded-full bg-velora-accent/60 mb-3 group-hover:scale-125 transition-transform" />
-                <h3 className="font-serif text-lg md:text-xl text-velora-accent mb-1 tracking-wider">
+                <div className="w-1.5 h-1.5 rounded-full bg-velora-accent mb-3 group-hover:scale-125 transition-transform" />
+                <h3 className="font-serif text-lg md:text-xl text-velora-foreground mb-1 tracking-wider">
                   {highlight.title}
                 </h3>
-                <p className="text-white/65 tracking-wider text-xs uppercase font-light">
+                <p className="text-velora-accent tracking-widest text-[11px] uppercase font-medium">
                   {highlight.subtitle}
                 </p>
               </div>

@@ -7,6 +7,7 @@ import { Classes } from "@/components/sections/Classes";
 import { Schedule } from "@/components/sections/Schedule";
 import { Studio } from "@/components/sections/Studio";
 import { Contact } from "@/components/sections/Contact";
+import { WhatsAppFloatingButton } from "@/components/ui/WhatsAppFloatingButton";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <Contact />
       </main>
 
+      <WhatsAppFloatingButton />
       <Footer />
     </>
   );

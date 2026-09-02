@@ -14,10 +14,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     
     // Premium feel: clean proportions, architectural borders, subtle luxury tones
     const variants = {
-      primary: "bg-velora-primary text-velora-accent hover:bg-velora-primary-hover shadow-sm hover:shadow-md border border-velora-primary hover:border-velora-accent/40",
-      secondary: "bg-velora-secondary text-velora-bg hover:bg-velora-secondary-hover shadow-sm hover:shadow-md border border-velora-secondary hover:border-velora-accent/40",
-      outline: "bg-transparent border border-velora-primary/30 text-velora-primary hover:bg-velora-primary hover:text-velora-accent",
-      ghost: "text-velora-primary hover:bg-velora-primary/5",
+      primary: "bg-velora-plum text-velora-accent hover:bg-velora-accent hover:text-velora-bg shadow-md border border-velora-accent/40 hover:border-velora-accent",
+      secondary: "bg-velora-secondary text-white hover:bg-velora-secondary-hover shadow-md border border-velora-secondary hover:border-velora-accent/40",
+      outline: "bg-transparent border border-velora-accent/45 text-velora-accent hover:bg-velora-accent hover:text-velora-bg shadow-sm",
+      ghost: "text-velora-foreground hover:text-velora-accent hover:bg-white/5",
     }
     
     const sizes = {

@@ -58,26 +58,26 @@ export function Hero() {
           {/* Subtle Location Indicator */}
           <motion.div 
             variants={itemVariants} 
-            className="inline-flex items-center gap-2 mb-6 md:mb-8 text-velora-secondary font-medium tracking-[0.2em] text-[11px] uppercase bg-velora-secondary/10 px-4 py-1.5 rounded-full border border-velora-secondary/25"
+            className="inline-flex items-center gap-2 mb-6 md:mb-8 text-velora-accent font-medium tracking-[0.2em] text-[11px] uppercase bg-velora-surface/80 px-4 py-1.5 rounded-full border border-velora-accent/30 backdrop-blur-sm"
           >
-            <MapPin size={13} className="text-velora-secondary" />
+            <MapPin size={13} className="text-velora-accent" />
             <span>JP Nagar • Bengaluru</span>
           </motion.div>
 
           {/* Main Typography */}
           <motion.div variants={itemVariants} className="mb-6 md:mb-10">
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.08] text-velora-primary tracking-wide mb-3">
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.05] text-velora-foreground tracking-wide mb-3">
               VELORA
             </h1>
-            <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-velora-secondary font-semibold">
+            <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-velora-accent font-semibold">
               Yoga &amp; Dance Studio
             </p>
           </motion.div>
 
           {/* Tagline & Description */}
           <motion.div variants={itemVariants} className="space-y-4 mb-8 md:mb-10">
-            <h2 className="font-serif text-2xl md:text-4xl lg:text-5xl text-velora-foreground leading-snug">
-              Move Smoothly.<br className="hidden md:block" /> Breathe Deeply.<br className="hidden md:block" /> Live Fully.
+            <h2 className="font-serif text-2xl md:text-4xl lg:text-5xl text-velora-foreground leading-snug font-normal">
+              Move Smoothly.<br className="hidden md:block" /> Breathe Deeply.<br className="hidden md:block" /> <span className="italic text-velora-accent font-light">Live Fully.</span>
             </h2>
             <p className="text-velora-muted text-sm md:text-base max-w-[460px] leading-relaxed mx-auto md:mx-0 font-normal">
               A space for mindful movement, creative expression and traditional artistry.
