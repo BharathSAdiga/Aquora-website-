@@ -83,13 +83,13 @@ export function Contact() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <span className="text-xs uppercase tracking-[0.3em] font-semibold text-velora-accent mb-3 block">
+          <span className="text-xs uppercase tracking-[0.3em] font-semibold text-velora-purple-light mb-3 block">
             Connect With Velora
           </span>
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-velora-foreground tracking-wide mb-4">
             VISIT VELORA
           </h2>
-          <div className="w-20 h-[1.5px] bg-velora-accent/50 mx-auto mb-4"></div>
+          <div className="w-20 h-[1.5px] bg-velora-purple/60 mx-auto mb-4"></div>
           <p className="text-sm md:text-base text-velora-muted font-light">
             Book a complimentary trial class or visit our sanctuary in JP Nagar, Bengaluru.
           </p>
@@ -102,10 +102,10 @@ export function Contact() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeUpVariant}
-            className="bg-velora-surface p-7 md:p-12 rounded-xl border border-velora-accent/30 shadow-2xl relative overflow-hidden"
+            className="bg-velora-surface p-7 md:p-12 rounded-xl border border-velora-purple/35 shadow-2xl relative overflow-hidden"
           >
             <div className="text-center max-w-xl mx-auto mb-8">
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-velora-accent block mb-2">
+              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-velora-purple-light block mb-2">
                 Trial Session
               </span>
               <h3 className="font-serif text-2xl md:text-3xl text-velora-foreground mb-2">
@@ -118,12 +118,12 @@ export function Contact() {
 
             {isSubmitted ? (
               <div className="text-center py-8 space-y-4">
-                <div className="w-14 h-14 bg-velora-accent/15 rounded-full flex items-center justify-center mx-auto text-velora-accent border border-velora-accent/30">
+                <div className="w-14 h-14 bg-velora-purple/30 rounded-full flex items-center justify-center mx-auto text-velora-purple-light border border-velora-purple/50">
                   <CheckCircle2 size={32} />
                 </div>
-                <h4 className="font-serif text-2xl text-velora-foreground">Trial Request Received</h4>
+                <h4 className="font-serif text-2xl text-velora-beige">Trial Request Received</h4>
                 <p className="text-xs md:text-sm text-velora-muted max-w-md mx-auto">
-                  Thank you, <span className="font-semibold text-velora-accent">{formData.fullName}</span>. We have noted your interest in <span className="font-semibold text-velora-accent">{formData.program}</span> for <span className="font-semibold text-velora-accent">{formData.batch}</span>.
+                  Thank you, <span className="font-semibold text-velora-beige">{formData.fullName}</span>. We have noted your interest in <span className="font-semibold text-velora-purple-light">{formData.program}</span> for <span className="font-semibold text-velora-purple-light">{formData.batch}</span>.
                 </p>
                 <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
                   <Button asChild size="md" className="w-full sm:w-auto">
@@ -146,7 +146,7 @@ export function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Program Selector */}
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-velora-accent mb-2">
+                  <label className="block text-xs font-semibold uppercase tracking-wider text-velora-beige mb-2">
                     1. Select Discipline
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -157,8 +157,8 @@ export function Contact() {
                         onClick={() => handleProgramChange(prog)}
                         className={`py-3 px-4 rounded-lg text-xs font-medium uppercase tracking-wider border transition-all text-center cursor-pointer ${
                           formData.program === prog
-                            ? "bg-velora-plum text-velora-accent border-velora-accent/60 shadow-md font-semibold"
-                            : "bg-velora-surface-card text-velora-muted border-velora-accent/20 hover:border-velora-accent/50 hover:text-velora-foreground"
+                            ? "bg-velora-purple text-velora-beige border-velora-purple shadow-md font-semibold"
+                            : "bg-velora-surface-card text-velora-beige/70 border-velora-purple/25 hover:border-velora-beige/50 hover:text-velora-beige"
                         }`}
                       >
                         {prog}
@@ -169,14 +169,14 @@ export function Contact() {
 
                 {/* Batch Selector */}
                 <div>
-                  <label htmlFor="batch-select" className="block text-xs font-semibold uppercase tracking-wider text-velora-accent mb-2">
+                  <label htmlFor="batch-select" className="block text-xs font-semibold uppercase tracking-wider text-velora-beige mb-2">
                     2. Select Batch &amp; Time
                   </label>
                   <select
                     id="batch-select"
                     value={formData.batch}
                     onChange={(e) => setFormData({ ...formData, batch: e.target.value })}
-                    className="w-full py-3 px-4 rounded-lg border border-velora-accent/30 bg-velora-surface-card text-xs md:text-sm text-velora-foreground focus:outline-none focus:ring-2 focus:ring-velora-accent focus:border-velora-accent"
+                    className="w-full py-3 px-4 rounded-lg border border-velora-purple/35 bg-velora-surface-card text-xs md:text-sm text-velora-foreground focus:outline-none focus:ring-2 focus:ring-velora-purple focus:border-velora-beige"
                   >
                     {PROGRAM_BATCHES[formData.program].map((batchTime) => (
                       <option key={batchTime} value={batchTime} className="bg-velora-surface text-velora-foreground">
@@ -189,7 +189,7 @@ export function Contact() {
                 {/* Personal Information */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="fullName" className="block text-xs font-semibold uppercase tracking-wider text-velora-accent mb-2">
+                    <label htmlFor="fullName" className="block text-xs font-semibold uppercase tracking-wider text-velora-beige mb-2">
                       Full Name *
                     </label>
                     <input
@@ -200,12 +200,12 @@ export function Contact() {
                       placeholder="e.g. Ananya Rao"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full py-3 px-4 rounded-lg border border-velora-accent/30 bg-velora-surface-card text-xs md:text-sm text-velora-foreground placeholder:text-velora-muted/60 focus:outline-none focus:ring-2 focus:ring-velora-accent focus:border-velora-accent"
+                      className="w-full py-3 px-4 rounded-lg border border-velora-purple/35 bg-velora-surface-card text-xs md:text-sm text-velora-foreground placeholder:text-velora-muted/60 focus:outline-none focus:ring-2 focus:ring-velora-purple focus:border-velora-beige"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-velora-accent mb-2">
+                    <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-velora-beige mb-2">
                       Phone Number *
                     </label>
                     <input
@@ -216,7 +216,7 @@ export function Contact() {
                       placeholder="e.g. +91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full py-3 px-4 rounded-lg border border-velora-accent/30 bg-velora-surface-card text-xs md:text-sm text-velora-foreground placeholder:text-velora-muted/60 focus:outline-none focus:ring-2 focus:ring-velora-accent focus:border-velora-accent"
+                      className="w-full py-3 px-4 rounded-lg border border-velora-purple/35 bg-velora-surface-card text-xs md:text-sm text-velora-foreground placeholder:text-velora-muted/60 focus:outline-none focus:ring-2 focus:ring-velora-purple focus:border-velora-beige"
                     />
                   </div>
                 </div>
@@ -243,13 +243,13 @@ export function Contact() {
             variants={fadeUpVariant}
             className="space-y-6 order-2 lg:order-1"
           >
-            <div className="bg-velora-surface p-6 md:p-8 rounded-xl border border-velora-accent/25 shadow-xl">
+            <div className="bg-velora-surface p-6 md:p-8 rounded-xl border border-velora-purple/30 shadow-xl">
               <div className="flex items-start gap-4 mb-6">
-                <div className="w-10 h-10 rounded-full bg-velora-plum/80 border border-velora-accent/30 flex items-center justify-center shrink-0 mt-1">
-                  <MapPin className="w-5 h-5 text-velora-accent" />
+                <div className="w-10 h-10 rounded-full bg-velora-purple/30 border border-velora-purple/50 text-velora-purple-light flex items-center justify-center shrink-0 mt-1">
+                  <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl text-velora-foreground mb-2">Studio Location</h3>
+                  <h3 className="font-serif text-xl text-velora-beige mb-2">Studio Location</h3>
                   <p className="text-velora-muted text-sm leading-relaxed mb-4 font-light">
                     No. 3/1, 1st Floor,<br />
                     SkyPool Fitness Studio Building,<br />
@@ -263,7 +263,7 @@ export function Contact() {
                     href={directionsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-velora-accent hover:text-velora-accent-hover transition-colors group"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-velora-purple-light hover:text-velora-beige transition-colors group"
                   >
                     Get Directions
                     <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -271,15 +271,15 @@ export function Contact() {
                 </div>
               </div>
               
-              <div className="w-full h-[1px] bg-velora-accent/20 mb-6"></div>
+              <div className="w-full h-[1px] bg-velora-purple/20 mb-6"></div>
               
               <div className="flex items-start gap-4 mb-8">
-                <div className="w-10 h-10 rounded-full bg-velora-plum/80 border border-velora-accent/30 flex items-center justify-center shrink-0 mt-1">
-                  <Phone className="w-5 h-5 text-velora-accent" />
+                <div className="w-10 h-10 rounded-full bg-velora-purple/30 border border-velora-purple/50 text-velora-purple-light flex items-center justify-center shrink-0 mt-1">
+                  <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl text-velora-foreground mb-1">Direct Inquiries</h3>
-                  <a href={`tel:${phoneNumber}`} className="text-velora-muted hover:text-velora-accent transition-colors text-base font-medium">
+                  <h3 className="font-serif text-xl text-velora-beige mb-1">Direct Inquiries</h3>
+                  <a href={`tel:${phoneNumber}`} className="text-velora-foreground hover:text-velora-beige transition-colors text-base font-medium">
                     {displayPhone}
                   </a>
                   <p className="text-xs text-velora-muted mt-1 font-light">Mon - Sat: 06:00 AM - 08:30 PM</p>
@@ -301,7 +301,7 @@ export function Contact() {
                   asChild
                   variant="outline"
                   size="md"
-                  className="w-full sm:flex-1 border-velora-accent/40 text-velora-accent hover:bg-velora-accent hover:text-velora-bg text-xs"
+                  className="w-full sm:flex-1 text-xs"
                 >
                   <a href={`https://wa.me/${phoneNumber.replace('+', '')}`} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-4 h-4 mr-2 inline" />
@@ -318,7 +318,7 @@ export function Contact() {
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
             variants={fadeUpVariant}
-            className="w-full h-full min-h-[380px] lg:min-h-[440px] rounded-xl overflow-hidden border border-velora-accent/25 shadow-xl order-1 lg:order-2 bg-velora-surface flex flex-col"
+            className="w-full h-full min-h-[380px] lg:min-h-[440px] rounded-xl overflow-hidden border border-velora-purple/30 shadow-xl order-1 lg:order-2 bg-velora-surface flex flex-col"
           >
             {googleMapsApiKey ? (
               <iframe
@@ -333,10 +333,10 @@ export function Contact() {
               ></iframe>
             ) : (
               <div className="flex-1 min-h-[380px] bg-velora-surface flex flex-col items-center justify-center text-center p-8">
-                <div className="w-16 h-16 rounded-full bg-velora-surface-card shadow-lg flex items-center justify-center mb-5 border border-velora-accent/30">
-                  <MapIcon className="w-7 h-7 text-velora-accent" />
+                <div className="w-16 h-16 rounded-full bg-velora-surface-card shadow-xl flex items-center justify-center mb-5 border border-velora-purple/40">
+                  <MapIcon className="w-7 h-7 text-velora-purple-light" />
                 </div>
-                <h3 className="font-serif text-xl text-velora-foreground mb-2">JP Nagar 7th Phase, Bengaluru</h3>
+                <h3 className="font-serif text-xl text-velora-beige mb-2">JP Nagar 7th Phase, Bengaluru</h3>
                 <p className="text-velora-muted text-xs md:text-sm max-w-xs mx-auto mb-6 leading-relaxed font-light">
                   Dr. Vivekananda Layout, 4th B Main Road, SkyPool Fitness Studio Building
                 </p>

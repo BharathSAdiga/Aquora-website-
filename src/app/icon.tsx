@@ -12,15 +12,16 @@ export default function Icon() {
     (
       <div
         style={{
-          fontSize: 24,
-          background: '#2a1b2d', // velora-primary
+          fontSize: 22,
+          background: '#42104A', // velvet purple
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#d4af37', // velora-accent
+          color: '#E6D7C3', // warm beige
           borderRadius: '50%',
+          border: '1.5px solid #E6D7C3',
           fontFamily: 'serif',
           fontWeight: 'bold',
         }}

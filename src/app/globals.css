@@ -1,21 +1,35 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-velora-bg: #0C0A0E;
-  --color-velora-surface: #141017;
-  --color-velora-surface-card: #19141D;
-  --color-velora-surface-hover: #221B27;
-  --color-velora-plum: #2D142D;
-  --color-velora-plum-hover: #3E1B3E;
-  --color-velora-secondary: #5A6F32;
-  --color-velora-secondary-hover: #6E873E;
-  --color-velora-accent: #C5A880;
-  --color-velora-accent-hover: #D8BF9B;
-  --color-velora-accent-light: #EFE4D2;
-  --color-velora-foreground: #FAF7F2;
-  --color-velora-primary: #FAF7F2;
-  --color-velora-muted: #A397A8;
-  --color-velora-border: rgba(197, 168, 128, 0.2);
+  --color-velora-bg: #0A080D;
+  --color-velora-black: #060508;
+  --color-velora-surface: #140D1B;
+  --color-velora-surface-card: #1A1124;
+  --color-velora-surface-hover: #261633;
+  
+  --color-velora-purple: #6A1E74;
+  --color-velora-purple-deep: #42104A;
+  --color-velora-purple-light: #B862C7;
+  --color-velora-purple-hover: #7D2489;
+  
+  --color-velora-plum: #42104A;
+  --color-velora-plum-hover: #56155F;
+  --color-velora-secondary: #7E2689;
+  --color-velora-secondary-hover: #9833A5;
+  
+  --color-velora-beige: #E6D7C3;
+  --color-velora-beige-light: #F7F1E8;
+  --color-velora-beige-dark: #CBB49A;
+  --color-velora-beige-border: rgba(230, 215, 195, 0.25);
+  
+  --color-velora-accent: #E6D7C3;
+  --color-velora-accent-hover: #F7F1E8;
+  --color-velora-accent-light: #FBF7F0;
+  
+  --color-velora-foreground: #F7F1E8;
+  --color-velora-primary: #F7F1E8;
+  --color-velora-muted: #BCAEBE;
+  --color-velora-border: rgba(230, 215, 195, 0.22);
   
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;

@@ -115,7 +115,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-velora-bg text-velora-foreground selection:bg-velora-accent/25 selection:text-velora-accent">
+      <body className="min-h-full flex flex-col font-sans bg-velora-bg text-velora-foreground selection:bg-velora-purple/40 selection:text-velora-beige">
         {children}
       </body>
     </html>

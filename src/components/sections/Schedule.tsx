@@ -63,17 +63,17 @@ export function Schedule() {
   );
 
   return (
-    <section id="schedule" className="py-24 md:py-36 bg-velora-bg text-velora-foreground border-b border-velora-accent/15">
+    <section id="schedule" className="py-24 md:py-36 bg-velora-bg text-velora-foreground border-b border-velora-purple/25">
       <Container>
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <span className="text-xs uppercase tracking-[0.3em] font-semibold text-velora-accent mb-3 block">
+          <span className="text-xs uppercase tracking-[0.3em] font-semibold text-velora-purple-light mb-3 block">
             Timetable
           </span>
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-velora-foreground mb-4">
             Class Schedule
           </h2>
-          <div className="w-20 h-[1.5px] bg-velora-accent/50 mx-auto rounded-full mb-6"></div>
+          <div className="w-20 h-[1.5px] bg-velora-purple/60 mx-auto rounded-full mb-6"></div>
           <p className="text-velora-muted text-base md:text-lg font-light">
             Find the perfect time to move, breathe, and express yourself.
           </p>
@@ -87,8 +87,8 @@ export function Schedule() {
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-2.5 rounded-full text-xs uppercase tracking-[0.15em] font-semibold transition-all duration-300 cursor-pointer ${
                 activeFilter === filter
-                  ? "bg-velora-accent text-velora-bg shadow-lg border border-velora-accent scale-105"
-                  : "bg-velora-surface text-velora-muted border border-velora-accent/25 hover:border-velora-accent/50 hover:text-velora-accent"
+                  ? "bg-velora-purple text-velora-beige shadow-lg border border-velora-purple scale-105"
+                  : "bg-velora-surface text-velora-beige/75 border border-velora-purple/30 hover:border-velora-beige/50 hover:text-velora-beige"
               }`}
             >
               {filter}
@@ -107,22 +107,22 @@ export function Schedule() {
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.2 }}
                 key={item.id}
-                className="bg-velora-surface p-6 md:p-7 rounded-xl border border-velora-accent/25 shadow-lg hover:border-velora-accent/50 hover:shadow-velora-accent/5 transition-all flex flex-col h-full"
+                className="bg-velora-surface p-6 md:p-7 rounded-xl border border-velora-purple/30 shadow-xl hover:border-velora-beige/40 transition-all flex flex-col h-full"
               >
                 <div className="mb-5 flex-grow">
-                  <span className="inline-block px-3 py-1 bg-velora-plum/80 text-velora-accent border border-velora-accent/30 text-[10px] font-semibold tracking-widest uppercase rounded-full mb-3">
+                  <span className="inline-block px-3 py-1 bg-velora-purple/35 text-velora-beige border border-velora-purple/50 text-[10px] font-semibold tracking-widest uppercase rounded-full mb-3">
                     {item.category}
                   </span>
-                  <h3 className="font-serif text-2xl text-velora-foreground mb-1.5">{item.name}</h3>
-                  <p className="text-xs font-semibold text-velora-muted uppercase tracking-wider">
+                  <h3 className="font-serif text-2xl text-velora-beige mb-1.5">{item.name}</h3>
+                  <p className="text-xs font-semibold text-velora-purple-light uppercase tracking-wider">
                     {item.days}
                   </p>
                 </div>
                 
-                <div className="space-y-2.5 pt-5 border-t border-velora-accent/20 mt-auto">
+                <div className="space-y-2.5 pt-5 border-t border-velora-purple/25 mt-auto">
                   {item.times.map((time, i) => (
                     <div key={i} className="flex items-center gap-2.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-velora-accent shrink-0"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-velora-purple shrink-0"></div>
                       <span className="text-velora-foreground/90 font-medium text-sm">{time}</span>
                     </div>
                   ))}
