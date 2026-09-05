@@ -117,42 +117,42 @@ Thank you.`;
   )}`;
 
   return (
-    <section id="contact" className="py-24 md:py-36 bg-aquora-bg text-aquora-foreground relative">
+    <section id="contact" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground relative">
       <Container>
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-gold mb-3 block">
             Connect &amp; Experience
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-aquora-foreground tracking-wide mb-4">
             VISIT AQUORA
           </h2>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-aquora-gold to-transparent mx-auto mb-4" />
-          <p className="text-sm md:text-base text-aquora-muted font-light">
+          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-aquora-gold to-transparent mx-auto mb-6" />
+          <p className="text-sm md:text-base text-aquora-muted font-light max-w-xl mx-auto leading-relaxed">
             Enquire for a trial class, connect with our team, or visit our studio in JP Nagar, Bengaluru.
           </p>
         </div>
 
-        {/* 3-Column Luxury Architecture: Left Info | Center Map | Right Form */}
+        {/* 3-Column Architecture: Left Info | Center Map | Right Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16">
           
           {/* ============================================================ */}
           {/* LEFT: Address, Phone, WhatsApp, Instagram & Direct CTAs (col-span-4) */}
           {/* ============================================================ */}
-          <div className="lg:col-span-4 flex flex-col justify-between bg-aquora-surface border border-aquora-gold/25 p-6 sm:p-8 shadow-[0_15px_35px_rgba(0,0,0,0.6)]">
+          <div className="lg:col-span-4 flex flex-col justify-between bg-aquora-surface/90 border border-white/10 p-7 sm:p-9 shadow-[0_15px_35px_rgba(0,0,0,0.6)]">
             <div>
               <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-aquora-gold block mb-2">
                 Studio Details
               </span>
-              <h3 className="font-serif text-2xl text-aquora-foreground mb-6 font-normal">
+              <h3 className="font-serif text-2xl text-aquora-foreground mb-7 font-normal">
                 Bengaluru Sanctuary
               </h3>
 
               {/* Address */}
               <div className="flex items-start gap-3.5 mb-6">
-                <div className="w-9 h-9 rounded-full bg-aquora-gold/10 border border-aquora-gold/30 flex items-center justify-center shrink-0 mt-1">
-                  <MapPin size={16} className="text-aquora-gold" />
+                <div className="w-9 h-9 rounded-full bg-aquora-gold/10 border border-aquora-gold/25 flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin size={15} className="text-aquora-gold" />
                 </div>
                 <div>
                   <h4 className="text-xs uppercase tracking-wider text-aquora-foreground font-semibold mb-1">
@@ -170,8 +170,8 @@ Thank you.`;
 
               {/* Phone */}
               <div className="flex items-center gap-3.5 mb-6">
-                <div className="w-9 h-9 rounded-full bg-aquora-gold/10 border border-aquora-gold/30 flex items-center justify-center shrink-0">
-                  <Phone size={16} className="text-aquora-gold" />
+                <div className="w-9 h-9 rounded-full bg-aquora-gold/10 border border-aquora-gold/25 flex items-center justify-center shrink-0">
+                  <Phone size={15} className="text-aquora-gold" />
                 </div>
                 <div>
                   <h4 className="text-[10px] uppercase tracking-wider text-aquora-gold font-medium">
@@ -188,8 +188,8 @@ Thank you.`;
 
               {/* WhatsApp */}
               <div className="flex items-center gap-3.5 mb-6">
-                <div className="w-9 h-9 rounded-full bg-aquora-green/20 border border-aquora-green/40 flex items-center justify-center shrink-0">
-                  <MessageCircle size={16} className="text-aquora-green-light" />
+                <div className="w-9 h-9 rounded-full bg-aquora-green/15 border border-aquora-green/35 flex items-center justify-center shrink-0">
+                  <MessageCircle size={15} className="text-aquora-green-light" />
                 </div>
                 <div>
                   <h4 className="text-[10px] uppercase tracking-wider text-aquora-green-light font-medium">
@@ -208,15 +208,15 @@ Thank you.`;
 
               {/* Instagram */}
               <div className="flex items-center gap-3.5 mb-8">
-                <div className="w-9 h-9 rounded-full bg-aquora-purple/20 border border-aquora-purple/40 flex items-center justify-center shrink-0">
-                  <InstagramIcon size={16} className="text-aquora-purple-light" />
+                <div className="w-9 h-9 rounded-full bg-aquora-purple/15 border border-aquora-purple/35 flex items-center justify-center shrink-0">
+                  <InstagramIcon size={15} className="text-aquora-purple-light" />
                 </div>
                 <div>
                   <h4 className="text-[10px] uppercase tracking-wider text-aquora-purple-light font-medium">
                     Instagram
                   </h4>
                   <a 
-                    href="https://instagram.com/aquora.studio"
+                    href="https://instagram.com/aquora.studio" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-sm sm:text-base font-sans text-aquora-foreground hover:text-aquora-purple-light transition-colors"
@@ -228,22 +228,22 @@ Thank you.`;
             </div>
 
             {/* Direct Action Buttons */}
-            <div className="space-y-3 pt-6 border-t border-aquora-gold/20">
-              <Button asChild variant="outline" size="sm" className="w-full justify-center">
+            <div className="space-y-3 pt-6 border-t border-white/10">
+              <Button asChild variant="outline" size="sm" className="w-full justify-center tracking-[0.16em] text-[11px]">
                 <a href={`tel:+91${phoneRaw}`}>
-                  <Phone size={14} className="mr-2 text-aquora-gold" />
+                  <Phone size={13} className="mr-2 text-aquora-gold" />
                   CALL US
                 </a>
               </Button>
-              <Button asChild variant="secondary" size="sm" className="w-full justify-center">
+              <Button asChild variant="secondary" size="sm" className="w-full justify-center tracking-[0.16em] text-[11px]">
                 <a href={whatsappDirectUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle size={14} className="mr-2 text-aquora-green-light" />
+                  <MessageCircle size={13} className="mr-2 text-aquora-green-light" />
                   WHATSAPP US
                 </a>
               </Button>
-              <Button asChild variant="outline" size="sm" className="w-full justify-center">
+              <Button asChild variant="outline" size="sm" className="w-full justify-center tracking-[0.16em] text-[11px]">
                 <a href={directionsUrl} target="_blank" rel="noopener noreferrer">
-                  <MapIcon size={14} className="mr-2 text-aquora-gold" />
+                  <MapIcon size={13} className="mr-2 text-aquora-gold" />
                   GET DIRECTIONS
                 </a>
               </Button>
@@ -253,7 +253,7 @@ Thank you.`;
           {/* ============================================================ */}
           {/* CENTER: Interactive / Fallback Map (col-span-4) */}
           {/* ============================================================ */}
-          <div className="lg:col-span-4 flex flex-col bg-aquora-surface border border-aquora-gold/25 overflow-hidden relative shadow-[0_15px_35px_rgba(0,0,0,0.6)] min-h-[380px] lg:min-h-full">
+          <div className="lg:col-span-4 flex flex-col bg-aquora-surface/90 border border-white/10 overflow-hidden relative shadow-[0_15px_35px_rgba(0,0,0,0.6)] min-h-[380px] lg:min-h-full">
             {googleMapsApiKey ? (
               <iframe
                 title="AQUORA Yoga & Dance Studio Location"
@@ -264,12 +264,12 @@ Thank you.`;
                 src={`https://www.google.com/maps/embed/v1/place?key=${googleMapsApiKey}&q=${encodedAddress}`}
               />
             ) : (
-              <div className="w-full h-full flex flex-col justify-between p-6 sm:p-8 bg-gradient-to-br from-aquora-surface-card via-aquora-surface to-aquora-black relative">
+              <div className="w-full h-full flex flex-col justify-between p-7 sm:p-9 bg-gradient-to-br from-aquora-surface-card via-aquora-surface to-aquora-black relative">
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]" />
                 
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-aquora-gold/15 border border-aquora-gold/40 flex items-center justify-center mb-4">
-                    <MapPin size={22} className="text-aquora-gold" />
+                  <div className="w-12 h-12 rounded-full bg-aquora-gold/10 border border-aquora-gold/30 flex items-center justify-center mb-5">
+                    <MapPin size={20} className="text-aquora-gold" />
                   </div>
                   <span className="text-[10px] uppercase tracking-[0.25em] text-aquora-gold font-medium block mb-1">
                     Find Us
@@ -282,7 +282,7 @@ Thank you.`;
                   </p>
                 </div>
 
-                <div className="relative z-10 pt-6 border-t border-aquora-gold/20">
+                <div className="relative z-10 pt-6 border-t border-white/10">
                   <a
                     href={directionsUrl}
                     target="_blank"
@@ -300,7 +300,7 @@ Thank you.`;
           {/* ============================================================ */}
           {/* RIGHT: Contact & Trial Class Enquiry Form (col-span-4) */}
           {/* ============================================================ */}
-          <div id="trial" className="lg:col-span-4 bg-aquora-surface border border-aquora-gold/25 p-6 sm:p-8 shadow-[0_15px_35px_rgba(0,0,0,0.6)] flex flex-col justify-between">
+          <div id="trial" className="lg:col-span-4 bg-aquora-surface/90 border border-white/10 p-7 sm:p-9 shadow-[0_15px_35px_rgba(0,0,0,0.6)] flex flex-col justify-between">
             <div>
               <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-aquora-gold block mb-1">
                 Trial Enquiry
@@ -314,7 +314,7 @@ Thank you.`;
 
               {isSubmitted ? (
                 <div className="py-10 text-center space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-aquora-gold/20 border border-aquora-gold/50 flex items-center justify-center mx-auto text-aquora-gold">
+                  <div className="w-12 h-12 rounded-full bg-aquora-gold/15 border border-aquora-gold/40 flex items-center justify-center mx-auto text-aquora-gold">
                     <CheckCircle2 size={24} />
                   </div>
                   <h4 className="font-serif text-xl text-aquora-foreground font-normal">
@@ -327,7 +327,7 @@ Thank you.`;
                     variant="outline" 
                     size="sm" 
                     onClick={() => setIsSubmitted(false)}
-                    className="mt-4"
+                    className="mt-4 tracking-[0.16em] text-xs"
                   >
                     SUBMIT ANOTHER ENQUIRY
                   </Button>
@@ -345,7 +345,7 @@ Thank you.`;
                       placeholder="Your Name"
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-aquora-gold/25 text-aquora-foreground text-xs placeholder:text-aquora-muted/50 focus:outline-none focus:border-aquora-gold"
+                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-white/10 text-aquora-foreground text-xs placeholder:text-aquora-muted/50 focus:outline-none focus:border-aquora-gold"
                     />
                   </div>
 
@@ -360,7 +360,7 @@ Thank you.`;
                       placeholder="e.g. 9876543210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-aquora-gold/25 text-aquora-foreground text-xs placeholder:text-aquora-muted/50 focus:outline-none focus:border-aquora-gold"
+                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-white/10 text-aquora-foreground text-xs placeholder:text-aquora-muted/50 focus:outline-none focus:border-aquora-gold"
                     />
                   </div>
 
@@ -378,7 +378,7 @@ Thank you.`;
                           className={`py-2 px-1 text-[10px] uppercase tracking-wider font-medium border transition-colors cursor-pointer ${
                             formData.program === prog
                               ? "bg-aquora-gold text-aquora-black border-aquora-gold font-semibold"
-                              : "bg-aquora-surface-card text-aquora-muted border-aquora-gold/20 hover:border-aquora-gold/50 hover:text-aquora-foreground"
+                              : "bg-aquora-surface-card text-aquora-muted border-white/10 hover:border-aquora-gold/50 hover:text-aquora-foreground"
                           }`}
                         >
                           {prog === "Bharatanatyam" ? "Classical" : prog}
@@ -395,7 +395,7 @@ Thank you.`;
                     <select
                       value={formData.preferredDay}
                       onChange={(e) => setFormData({ ...formData, preferredDay: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-aquora-gold/25 text-aquora-foreground text-xs focus:outline-none focus:border-aquora-gold"
+                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-white/10 text-aquora-foreground text-xs focus:outline-none focus:border-aquora-gold"
                     >
                       {PROGRAM_BATCH_OPTIONS[formData.program].days.map((day) => (
                         <option key={day} value={day} className="bg-aquora-black text-aquora-foreground">
@@ -413,7 +413,7 @@ Thank you.`;
                     <select
                       value={formData.batchTime}
                       onChange={(e) => setFormData({ ...formData, batchTime: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-aquora-gold/25 text-aquora-foreground text-xs focus:outline-none focus:border-aquora-gold"
+                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-white/10 text-aquora-foreground text-xs focus:outline-none focus:border-aquora-gold"
                     >
                       {PROGRAM_BATCH_OPTIONS[formData.program].times.map((time) => (
                         <option key={time} value={time} className="bg-aquora-black text-aquora-foreground">
@@ -424,7 +424,7 @@ Thank you.`;
                   </div>
 
                   <div className="pt-2">
-                    <Button type="submit" variant="primary" size="md" className="w-full">
+                    <Button type="submit" variant="primary" size="md" className="w-full tracking-[0.18em] text-xs font-semibold">
                       SEND ENQUIRY ON WHATSAPP
                     </Button>
                   </div>

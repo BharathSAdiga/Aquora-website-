@@ -26,7 +26,7 @@ const SCHEDULE_DATA: ScheduleItem[] = [
     badge: "For Body & Mind",
     days: "Monday – Saturday",
     times: ["06:00 AM – 07:00 AM", "07:00 AM – 08:00 AM"],
-    accentColor: "border-aquora-green/40 text-aquora-green-light",
+    accentColor: "text-aquora-green-light",
   },
   {
     id: "yoga-ladies",
@@ -35,7 +35,7 @@ const SCHEDULE_DATA: ScheduleItem[] = [
     badge: "For Body & Mind",
     days: "Monday – Saturday",
     times: ["09:00 AM – 10:00 AM"],
-    accentColor: "border-aquora-green/40 text-aquora-green-light",
+    accentColor: "text-aquora-green-light",
   },
   {
     id: "yoga-evening",
@@ -44,7 +44,7 @@ const SCHEDULE_DATA: ScheduleItem[] = [
     badge: "For Body & Mind",
     days: "Monday – Saturday",
     times: ["07:30 PM – 08:30 PM"],
-    accentColor: "border-aquora-green/40 text-aquora-green-light",
+    accentColor: "text-aquora-green-light",
   },
   {
     id: "dance-western",
@@ -53,7 +53,7 @@ const SCHEDULE_DATA: ScheduleItem[] = [
     badge: "For Passion",
     days: "Monday | Wednesday | Friday",
     times: ["04:00 PM – 05:00 PM", "05:00 PM – 06:00 PM", "06:00 PM – 07:00 PM"],
-    accentColor: "border-aquora-purple/40 text-aquora-purple-light",
+    accentColor: "text-aquora-purple-light",
   },
   {
     id: "dance-bharatanatyam",
@@ -62,7 +62,7 @@ const SCHEDULE_DATA: ScheduleItem[] = [
     badge: "For Tradition",
     days: "Tuesday | Thursday | Saturday",
     times: ["04:00 PM – 05:00 PM", "05:00 PM – 06:00 PM", "06:00 PM – 07:00 PM"],
-    accentColor: "border-aquora-gold/40 text-aquora-gold",
+    accentColor: "text-aquora-gold",
   },
 ];
 
@@ -76,10 +76,10 @@ export function Schedule() {
   );
 
   return (
-    <section id="schedule" className="py-24 md:py-36 bg-aquora-bg text-aquora-foreground border-b border-aquora-gold/20 relative">
+    <section id="schedule" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground border-b border-aquora-gold/20 relative">
       <Container>
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-18">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-gold mb-3 block">
             Weekly Timetable
           </span>
@@ -87,21 +87,21 @@ export function Schedule() {
             CLASS SCHEDULE
           </h2>
           <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-aquora-gold to-transparent mx-auto mb-6" />
-          <p className="text-aquora-muted text-base md:text-lg font-light">
+          <p className="text-aquora-muted text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
             Plan your dedicated practice across morning, afternoon, and evening sessions.
           </p>
         </div>
 
         {/* Filter Navigation Tabs */}
-        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 mb-16">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-16">
           {FILTERS.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-5 py-2.5 rounded-none text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 cursor-pointer ${
+              className={`px-6 py-2.5 rounded-none text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 cursor-pointer ${
                 activeFilter === filter
                   ? "bg-aquora-gold text-aquora-black shadow-[0_0_20px_rgba(212,175,55,0.3)] border border-aquora-gold font-semibold"
-                  : "bg-aquora-surface text-aquora-foreground/80 border border-aquora-gold/25 hover:border-aquora-gold/60 hover:text-aquora-gold-light"
+                  : "bg-aquora-surface text-aquora-foreground/80 border border-white/10 hover:border-aquora-gold/50 hover:text-aquora-gold-light"
               }`}
             >
               {filter}
@@ -110,21 +110,21 @@ export function Schedule() {
         </div>
 
         {/* Desktop Editorial Table Layout */}
-        <div className="hidden lg:block max-w-5xl mx-auto mb-16 border border-aquora-gold/30 bg-aquora-surface shadow-[0_15px_40px_rgba(0,0,0,0.6)]">
-          <div className="grid grid-cols-12 bg-aquora-surface-card border-b border-aquora-gold/25 py-4 px-6 text-[11px] uppercase tracking-[0.25em] font-semibold text-aquora-gold">
+        <div className="hidden lg:block max-w-5xl mx-auto mb-16 border border-white/10 bg-aquora-surface shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+          <div className="grid grid-cols-12 bg-aquora-surface-card border-b border-white/10 py-4 px-8 text-[11px] uppercase tracking-[0.25em] font-semibold text-aquora-gold">
             <div className="col-span-4">Program &amp; Focus</div>
             <div className="col-span-4">Weekly Schedule</div>
             <div className="col-span-4">Timings / Batches</div>
           </div>
 
-          <div className="divide-y divide-aquora-gold/15">
+          <div className="divide-y divide-white/5">
             {filteredSchedule.map((item) => (
               <div 
                 key={item.id} 
-                className="grid grid-cols-12 items-center py-5 px-6 hover:bg-aquora-surface-hover/50 transition-colors"
+                className="grid grid-cols-12 items-center py-6 px-8 hover:bg-aquora-surface-hover/60 transition-colors"
               >
                 <div className="col-span-4 pr-4">
-                  <span className="text-[10px] uppercase tracking-wider text-aquora-gold-light/80 block mb-1 font-medium">
+                  <span className={`text-[10px] uppercase tracking-wider block mb-1 font-medium ${item.accentColor}`}>
                     {item.badge}
                   </span>
                   <h3 className="font-serif text-lg text-aquora-foreground font-normal">
@@ -132,7 +132,7 @@ export function Schedule() {
                   </h3>
                 </div>
 
-                <div className="col-span-4 flex items-center gap-2 text-sm text-aquora-foreground/90">
+                <div className="col-span-4 flex items-center gap-2.5 text-sm text-aquora-foreground/80 font-light">
                   <Calendar size={14} className="text-aquora-gold shrink-0" />
                   <span>{item.days}</span>
                 </div>
@@ -161,10 +161,10 @@ export function Schedule() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.3 }}
-                className="p-6 bg-aquora-surface border border-aquora-gold/25 hover:border-aquora-gold/60 transition-colors"
+                className="p-6 bg-aquora-surface border border-white/10 hover:border-aquora-gold/40 transition-colors"
               >
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className={`text-[10px] uppercase tracking-[0.25em] font-medium px-2.5 py-0.5 border ${item.accentColor} bg-aquora-surface-card`}>
+                  <span className={`text-[10px] uppercase tracking-[0.25em] font-medium ${item.accentColor}`}>
                     {item.badge}
                   </span>
                   <span className="text-[10px] uppercase tracking-wider text-aquora-muted">
@@ -176,7 +176,7 @@ export function Schedule() {
                   {item.name}
                 </h3>
 
-                <div className="flex items-center gap-2 text-xs text-aquora-foreground/90 mb-4 pb-3 border-b border-aquora-gold/15">
+                <div className="flex items-center gap-2 text-xs text-aquora-foreground/80 mb-4 pb-3 border-b border-white/10 font-light">
                   <Calendar size={13} className="text-aquora-gold shrink-0" />
                   <span>{item.days}</span>
                 </div>
@@ -187,7 +187,7 @@ export function Schedule() {
                   </span>
                   <div className="flex flex-col gap-1.5 font-mono text-xs text-aquora-gold-light">
                     {item.times.map((time, idx) => (
-                      <div key={idx} className="flex items-center gap-2 bg-aquora-surface-card px-3 py-1.5 border border-aquora-gold/15">
+                      <div key={idx} className="flex items-center gap-2 bg-aquora-surface-card px-3 py-1.5 border border-white/10">
                         <Clock size={12} className="text-aquora-gold/80 shrink-0" />
                         <span>{time}</span>
                       </div>
@@ -201,10 +201,10 @@ export function Schedule() {
 
         {/* Action Prompt */}
         <div className="text-center pt-8 border-t border-aquora-gold/20 max-w-xl mx-auto">
-          <p className="font-serif italic text-lg text-aquora-gold-light mb-4">
+          <p className="font-serif italic text-lg text-aquora-gold-light mb-5 font-light">
             Ready to experience a trial class with our instructors?
           </p>
-          <Button asChild size="md">
+          <Button asChild size="md" className="tracking-[0.2em] text-xs">
             <a href="#trial">
               BOOK A TRIAL CLASS
             </a>
