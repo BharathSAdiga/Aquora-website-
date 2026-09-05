@@ -9,21 +9,20 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", asChild = false, children, ...props }, ref) => {
-    // Accessibility: added focus-visible styling for keyboard navigation, reduced motion support via Tailwind
-    const baseStyles = "inline-flex items-center justify-center font-sans font-medium tracking-wider transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velora-purple-light focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98] hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:transform-none cursor-pointer"
+    const baseStyles = "inline-flex items-center justify-center font-sans font-medium tracking-[0.18em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aquora-gold focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98] hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:transform-none cursor-pointer rounded-sm"
     
-    // Beige, Purple, and Black Luxury Palette
+    // Luxury Charcoal & Champagne Gold Palette
     const variants = {
-      primary: "bg-velora-purple text-velora-beige hover:bg-velora-beige hover:text-velora-black shadow-lg border border-velora-beige/40 hover:border-velora-beige font-medium",
-      secondary: "bg-velora-beige text-velora-black hover:bg-velora-beige-light hover:text-black shadow-md border border-velora-beige hover:border-velora-purple font-semibold",
-      outline: "bg-transparent border border-velora-beige/50 text-velora-beige hover:bg-velora-purple hover:border-velora-purple hover:text-velora-beige shadow-sm font-medium",
-      ghost: "text-velora-beige hover:text-white hover:bg-velora-purple/20",
+      primary: "bg-aquora-gold text-aquora-black hover:bg-aquora-gold-light hover:shadow-[0_0_20px_rgba(212,175,55,0.35)] shadow-md border border-aquora-gold font-semibold uppercase",
+      secondary: "bg-aquora-surface text-aquora-gold-light hover:bg-aquora-surface-hover hover:text-white shadow-md border border-aquora-gold/40 hover:border-aquora-gold font-medium uppercase",
+      outline: "bg-transparent border border-aquora-gold/60 text-aquora-gold hover:bg-aquora-gold/10 hover:border-aquora-gold hover:text-aquora-gold-light shadow-sm font-medium uppercase",
+      ghost: "text-aquora-gold/90 hover:text-aquora-gold-light hover:bg-aquora-gold/10 uppercase",
     }
     
     const sizes = {
-      sm: "h-9 px-5 text-xs uppercase",
-      md: "h-11 px-7 text-xs uppercase",
-      lg: "h-13 px-9 text-sm uppercase",
+      sm: "h-9 px-5 text-[11px]",
+      md: "h-11 px-7 text-xs",
+      lg: "h-13 px-9 text-xs md:text-sm",
     }
 
     const computedClassName = cn(baseStyles, variants[variant], sizes[size], className)

@@ -23,17 +23,14 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 15);
     };
     
-    // Check initial scroll position
     handleScroll();
-    
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -50,8 +47,8 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-out border-b motion-reduce:transition-none",
         isScrolled
-          ? "bg-velora-bg/95 backdrop-blur-md py-3.5 shadow-2xl border-velora-purple/30"
-          : "bg-gradient-to-b from-black/95 via-black/60 to-transparent py-4 lg:py-6 border-transparent"
+          ? "bg-aquora-bg/95 backdrop-blur-md py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)] border-aquora-gold/25"
+          : "bg-gradient-to-b from-aquora-bg/95 via-aquora-bg/70 to-transparent py-4 lg:py-6 border-transparent"
       )}
     >
       <Container>
@@ -60,27 +57,18 @@ export function Navbar() {
           {/* Logo Area */}
           <Link 
             href="/" 
-            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velora-purple-light rounded-sm py-1"
-            aria-label="Velora Yoga & Dance Studio"
+            className="flex items-center gap-3.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aquora-gold rounded-sm py-1"
+            aria-label="AQUORA Yoga & Dance Studio"
           >
-            <div className="relative w-9 h-9 rounded-full overflow-hidden border border-velora-beige/50 shrink-0 bg-velora-bg flex items-center justify-center ring-1 ring-velora-purple/40">
-              {/* Official brand lotus & dancer crest */}
+            <div className="relative h-10 w-44 sm:h-11 sm:w-48 shrink-0 flex items-center">
               <Image
-                src="/assets/velora-logo.jpg"
-                alt="Velora Yoga and Dance Studio Crest"
-                width={36}
-                height={36}
-                className="w-full h-full object-cover object-left scale-125"
+                src="/assets/aquora-logo-clean.png"
+                alt="AQUORA Yoga & Dance Studio Official Logo"
+                width={765}
+                height={177}
+                className="w-full h-full object-contain object-left filter drop-shadow-md group-hover:brightness-110 transition-all duration-300"
                 priority
               />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif font-bold tracking-[0.2em] text-xl lg:text-2xl text-velora-beige leading-none transition-colors group-hover:text-velora-purple-light">
-                VELORA
-              </span>
-              <span className="text-[8px] lg:text-[9px] tracking-[0.25em] uppercase font-semibold mt-1 text-velora-purple-light">
-                Yoga &amp; Dance Studio
-              </span>
             </div>
           </Link>
 
@@ -91,10 +79,10 @@ export function Navbar() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-200 py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velora-purple-light rounded-sm relative group text-velora-beige/85 hover:text-velora-beige"
+                    className="text-xs uppercase tracking-[0.22em] font-medium transition-colors duration-200 py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aquora-gold rounded-sm relative group text-aquora-foreground/80 hover:text-aquora-gold-light"
                   >
                     {link.name}
-                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-velora-purple transition-all duration-300 group-hover:w-full" />
+                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-aquora-gold transition-all duration-300 group-hover:w-full" />
                   </Link>
                 </li>
               ))}
@@ -102,33 +90,35 @@ export function Navbar() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-4">
             <Button 
               asChild
-              variant={isScrolled ? "primary" : "outline"} 
+              variant="primary" 
               size="sm"
-              className="tracking-wider text-xs"
+              className="tracking-[0.18em] text-[11px] font-semibold"
             >
               <a href="#trial">
-                BOOK A TRIAL
+                BOOK A TRIAL CLASS
               </a>
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="lg:hidden p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velora-purple-light transition-colors text-velora-beige hover:text-velora-purple-light"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-menu"
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {isMobileMenuOpen ? (
-              <X size={26} className="text-velora-purple-light" />
-            ) : (
-              <Menu size={26} />
-            )}
-          </button>
+          {/* Mobile Menu Hamburger */}
+          <div className="lg:hidden flex items-center gap-2">
+            <button
+              className="p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aquora-gold transition-colors text-aquora-gold hover:text-aquora-gold-light cursor-pointer"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMobileMenuOpen ? (
+                <X size={26} className="text-aquora-gold" />
+              ) : (
+                <Menu size={26} />
+              )}
+            </button>
+          </div>
         </div>
       </Container>
 
@@ -136,17 +126,17 @@ export function Navbar() {
       <div 
         id="mobile-menu"
         className={cn(
-          "fixed inset-0 top-[62px] bg-velora-bg/98 backdrop-blur-2xl z-40 lg:hidden transition-all duration-300 ease-out origin-top motion-reduce:transition-none flex flex-col border-t border-velora-purple/30",
+          "fixed inset-0 top-[60px] bg-aquora-bg/98 backdrop-blur-2xl z-40 lg:hidden transition-all duration-300 ease-out origin-top motion-reduce:transition-none flex flex-col border-t border-aquora-gold/25",
           isMobileMenuOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"
         )}
       >
-        <nav aria-label="Mobile Navigation" className="flex-1 overflow-y-auto py-10 px-6 flex flex-col items-center justify-between">
-          <ul className="flex flex-col items-center space-y-6 w-full pt-4">
+        <nav aria-label="Mobile Navigation" className="flex-1 overflow-y-auto py-8 px-6 flex flex-col items-center justify-between">
+          <ul className="flex flex-col items-center space-y-5 w-full pt-4">
             {NAV_LINKS.map((link) => (
               <li key={link.name} className="w-full text-center">
                 <Link
                   href={link.href}
-                  className="block text-lg uppercase tracking-[0.25em] font-serif text-velora-beige hover:text-velora-purple-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-velora-purple-light py-2 border-b border-velora-purple/20 max-w-xs mx-auto"
+                  className="block text-lg uppercase tracking-[0.25em] font-serif text-aquora-foreground hover:text-aquora-gold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aquora-gold py-2.5 border-b border-aquora-gold/15 max-w-xs mx-auto"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
@@ -155,19 +145,19 @@ export function Navbar() {
             ))}
           </ul>
           
-          <div className="w-full max-w-xs pt-8 pb-6 border-t border-velora-purple/30 flex flex-col gap-3">
+          <div className="w-full max-w-xs pt-8 pb-6 border-t border-aquora-gold/20 flex flex-col gap-3.5">
             <Button size="md" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
               <a href="#trial" className="w-full">
-                BOOK A TRIAL
+                BOOK A TRIAL CLASS
               </a>
             </Button>
             <a
               href="https://wa.me/916366007494"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center text-xs uppercase tracking-widest text-velora-purple-light font-semibold py-2 hover:text-velora-beige transition-colors"
+              className="text-center text-xs uppercase tracking-widest text-aquora-gold font-medium py-2 hover:text-aquora-gold-light transition-colors"
             >
-              WhatsApp +91 63660 07494
+              WhatsApp: +91 63660 07494
             </a>
           </div>
         </nav>

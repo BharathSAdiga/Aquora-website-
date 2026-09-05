@@ -24,7 +24,7 @@ export function Storytelling() {
   };
 
   return (
-    <section className="py-24 md:py-36 bg-[#130B19]/70 text-velora-foreground overflow-hidden border-y border-velora-purple/25">
+    <section className="py-24 md:py-36 bg-aquora-surface/50 text-aquora-foreground overflow-hidden border-y border-aquora-gold/20">
       <Container>
         
         {/* YOGA Section (Text Left, Image Right) */}
@@ -38,23 +38,23 @@ export function Storytelling() {
             className="w-full lg:w-1/2 order-2 lg:order-1"
           >
             <div className="max-w-lg">
-              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-velora-purple-light mb-3 block">
-                Yoga Sanctuary
+              <span className="text-xs uppercase tracking-[0.3em] font-medium text-aquora-green-light mb-3 block">
+                Mindful Practice
               </span>
-              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-velora-foreground leading-[1.12] mb-6">
-                Breathe.<br />Stretch.<br /><span className="italic text-velora-beige font-light">Balance.</span>
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-aquora-foreground leading-[1.12] mb-6">
+                Breathe.<br />Stretch.<br /><span className="italic gold-gradient-text font-light">Balance.</span>
               </h2>
               
-              <div className="w-16 h-[1.5px] bg-velora-purple/60 mb-8"></div>
+              <div className="w-16 h-[1px] bg-aquora-gold/40 mb-8" />
               
-              <p className="text-velora-muted text-base md:text-lg mb-8 leading-relaxed font-light">
-                Discover a grounded practice designed to restore vitality, align your posture, and cultivate deep stillness in daily life.
+              <p className="text-aquora-muted text-base md:text-lg mb-8 leading-relaxed font-light">
+                Discover a grounded practice designed to restore vitality, align posture, and cultivate deep stillness in everyday life.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4 border-t border-velora-purple/20">
-                {['Flexibility', 'Strength', 'Stress Reduction', 'Focus', 'Inner Peace'].map((benefit, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-velora-beige/90 font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-velora-purple shrink-0"></span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-6 border-t border-aquora-gold/20">
+                {['Flexibility & Agility', 'Functional Strength', 'Stress Reduction', 'Mindful Focus', 'Inner Composure'].map((benefit, i) => (
+                  <div key={i} className="flex items-center gap-3 text-sm text-aquora-foreground/90 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-aquora-gold shrink-0" />
                     <span>{benefit}</span>
                   </div>
                 ))}
@@ -69,14 +69,21 @@ export function Storytelling() {
             variants={imageVariants}
             className="w-full lg:w-1/2 order-1 lg:order-2"
           >
-            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md rounded-xl overflow-hidden shadow-2xl border border-velora-purple/40 bg-velora-surface-card ring-1 ring-velora-beige/15">
+            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md rounded-none overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-aquora-gold/30 bg-aquora-surface-card">
               <Image 
-                src="/assets/yoga-meditation.jpg" 
-                alt="Mindful Yoga Meditation at Velora"
+                src="/assets/aquora-yoga-photo.png" 
+                alt="Mindful Yoga Practice at AQUORA"
                 fill
-                className="object-cover object-center"
+                className="object-cover object-top filter contrast-[1.03]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-aquora-black/70 via-transparent to-transparent" />
+              
+              {/* Corner Accents */}
+              <div className="absolute top-2.5 left-2.5 w-3.5 h-3.5 border-t border-l border-aquora-gold" />
+              <div className="absolute top-2.5 right-2.5 w-3.5 h-3.5 border-t border-r border-aquora-gold" />
+              <div className="absolute bottom-2.5 left-2.5 w-3.5 h-3.5 border-b border-l border-aquora-gold" />
+              <div className="absolute bottom-2.5 right-2.5 w-3.5 h-3.5 border-b border-r border-aquora-gold" />
             </div>
           </motion.div>
           
@@ -92,24 +99,31 @@ export function Storytelling() {
             variants={imageVariants}
             className="w-full lg:w-1/2 order-1 lg:order-1"
           >
-            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md rounded-xl overflow-hidden shadow-2xl border border-velora-purple/40 bg-velora-surface-card ring-1 ring-velora-beige/15">
+            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md rounded-none overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-aquora-gold/30 bg-aquora-surface-card">
               <Image 
-                src="/assets/dance-action.jpg" 
-                alt="Dance Expression at Velora"
+                src="/assets/aquora-dance-photo.png" 
+                alt="Western Dance Expression at AQUORA"
                 fill
-                className="object-cover object-center"
+                className="object-cover object-top filter contrast-[1.03]"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              {/* Inset for Bharatanatyam traditional dance */}
-              <div className="absolute bottom-3 right-3 w-32 h-24 rounded-lg overflow-hidden border-2 border-velora-beige/60 shadow-2xl bg-velora-bg hidden sm:block">
+              <div className="absolute inset-0 bg-gradient-to-t from-aquora-black/70 via-transparent to-transparent" />
+              
+              {/* Inset for Bharatanatyam traditional classical dance */}
+              <div className="absolute bottom-4 right-4 w-36 h-28 border border-aquora-gold/60 shadow-2xl bg-aquora-black overflow-hidden hidden sm:block">
                 <Image 
-                  src="/assets/bharatanatyam-dancer.jpg" 
-                  alt="Bharatanatyam Tradition at Velora"
+                  src="/assets/aquora-bharatanatyam-photo.png" 
+                  alt="Bharatanatyam Tradition at AQUORA"
                   fill
-                  className="object-cover object-center"
-                  sizes="128px"
+                  className="object-cover object-top"
+                  sizes="150px"
                 />
               </div>
+
+              {/* Corner Accents */}
+              <div className="absolute top-2.5 left-2.5 w-3.5 h-3.5 border-t border-l border-aquora-gold" />
+              <div className="absolute top-2.5 right-2.5 w-3.5 h-3.5 border-t border-r border-aquora-gold" />
+              <div className="absolute bottom-2.5 left-2.5 w-3.5 h-3.5 border-b border-l border-aquora-gold" />
             </div>
           </motion.div>
 
@@ -121,23 +135,23 @@ export function Storytelling() {
             className="w-full lg:w-1/2 order-2 lg:order-2"
           >
             <div className="max-w-lg">
-              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-velora-purple-light mb-3 block">
+              <span className="text-xs uppercase tracking-[0.3em] font-medium text-aquora-purple-light mb-3 block">
                 Dance &amp; Artistry
               </span>
-              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-velora-foreground leading-[1.12] mb-6">
-                Move.<br />Express.<br /><span className="italic text-velora-beige font-light">Be You.</span>
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-aquora-foreground leading-[1.12] mb-6">
+                Move.<br />Express.<br /><span className="italic gold-gradient-text font-light">Be You.</span>
               </h2>
               
-              <div className="w-16 h-[1.5px] bg-velora-purple/60 mb-8"></div>
+              <div className="w-16 h-[1px] bg-aquora-gold/40 mb-8" />
               
-              <p className="text-velora-muted text-base md:text-lg mb-8 leading-relaxed font-light">
-                From rhythmic footwork in Bharatanatyam to dynamic contemporary Western choreography, express your authentic self with joy.
+              <p className="text-aquora-muted text-base md:text-lg mb-8 leading-relaxed font-light">
+                From rhythmic precision in classical Bharatanatyam to expressive contemporary Western choreography, discover your authentic movement with confidence.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4 border-t border-velora-purple/20">
-                {['Build Confidence', 'Learn New Skills', 'Express Yourself', 'For All Age Groups'].map((benefit, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-velora-beige/90 font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-velora-purple shrink-0"></span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-6 border-t border-aquora-gold/20">
+                {['Build Self-Confidence', 'Learn Technical Skills', 'Express Your Creativity', 'Welcoming All Age Groups'].map((benefit, i) => (
+                  <div key={i} className="flex items-center gap-3 text-sm text-aquora-foreground/90 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-aquora-gold shrink-0" />
                     <span>{benefit}</span>
                   </div>
                 ))}

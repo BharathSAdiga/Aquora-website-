@@ -1,6 +1,6 @@
-# Velora Yoga & Dance Studio — Production Deployment Guide
+# AQUORA Yoga & Dance Studio — Production Deployment Guide
 
-This guide provides step-by-step instructions for deploying and running the **Velora Yoga & Dance Studio** web application in a production environment on **Vercel**.
+This guide provides step-by-step instructions for deploying and running the **AQUORA Yoga & Dance Studio** web application in a production environment on **Vercel**.
 
 ---
 
@@ -11,7 +11,7 @@ Ensure you have **Node.js 18.17+** or **Node.js 20+** installed on your system.
 ```bash
 # Clone the repository (if on a new machine)
 git clone <repository-url>
-cd "Velora dance studio"
+cd "aquora-studio"
 
 # Install production dependencies
 npm install
@@ -71,7 +71,7 @@ Vercel is the recommended hosting platform for Next.js applications.
 1. Push your repository to **GitHub**, **GitLab**, or **Bitbucket**.
 2. Log in to [Vercel](https://vercel.com).
 3. Click **"Add New..."** > **"Project"**.
-4. Import your Velora repository.
+4. Import your Aquora repository.
 5. In **Build and Output Settings**:
    - **Framework Preset**: Next.js (automatically detected)
    - **Root Directory**: `./`
@@ -102,7 +102,7 @@ vercel --prod
 ## 5. Add Custom Domain
 
 1. In the Vercel Dashboard, navigate to your Project > **Settings** > **Domains**.
-2. Enter your custom domain (e.g. `velorastudio.com` or `velora.in`).
+2. Enter your custom domain (e.g. `aquora.studio`).
 3. Configure your DNS provider with the records provided by Vercel:
    - **A Record**: Point `@` to `76.76.21.21`
    - **CNAME Record**: Point `www` to `cname.vercel-dns.com`
@@ -140,15 +140,15 @@ Verify that the direct WhatsApp links work across mobile and desktop:
    - Header / Mobile drawer WhatsApp action
    - Contact section "WHATSAPP US" button
    - Footer WhatsApp link
-   - Trial Booking Form "CONFIRM ON WHATSAPP" confirmation button
+   - Trial Enquiry Form submit button
 2. The URL must target `https://wa.me/916366007494`.
-3. In the Trial Booking Form, verify that the submitted name, phone number, chosen program, and preferred batch are pre-filled in the WhatsApp message text.
+3. In the Trial Enquiry Form, verify that the submitted name, phone number, chosen program, and preferred batch are pre-filled in the WhatsApp message text without falsely claiming a confirmed booking.
 
 ---
 
 ## 8. Test Google Maps
 
-1. Scroll to the **Visit Velora** section (`#contact`).
+1. Scroll to the **Visit Aquora** section (`#contact`).
 2. If the API key is configured, verify that the Google Map iframe loads showing the studio location:
    `No. 3/1, 1st Floor, SkyPool Fitness Studio Building, 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, J.P. Nagar, Bengaluru - 560078`
 3. Click **"Get Directions"** or **"Open in Google Maps"** to confirm that the directions URL opens Google Maps with the destination pre-filled.
@@ -159,11 +159,11 @@ Verify that the direct WhatsApp links work across mobile and desktop:
 
 Test the site on mobile viewports (e.g. 375px, 390px, 430px) using Chrome DevTools or a physical device:
 
-- [ ] Sticky header height is compact with the logo and hamburger toggle.
+- [ ] Sticky header height is compact with the Aquora logo and hamburger toggle.
 - [ ] Mobile navigation drawer opens smoothly, locks body scroll, and auto-closes on link click.
 - [ ] No horizontal scrolling or content cutoff occurs (`overflow-x: hidden`).
 - [ ] Tap targets for buttons and form fields are comfortable (minimum 44px height).
-- [ ] Architectural gallery thumbnails in "The Velora Space" respond to touch.
+- [ ] Architectural gallery thumbnails in "The Aquora Space" respond to touch.
 - [ ] Phone call buttons trigger `tel:+916366007494` directly.
 
 ---

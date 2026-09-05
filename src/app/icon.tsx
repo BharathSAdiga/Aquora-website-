@@ -12,21 +12,21 @@ export default function Icon() {
     (
       <div
         style={{
-          fontSize: 22,
-          background: '#42104A', // velvet purple
+          fontSize: 20,
+          background: '#08070A',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#E6D7C3', // warm beige
+          color: '#D4AF37',
           borderRadius: '50%',
-          border: '1.5px solid #E6D7C3',
+          border: '1.5px solid #D4AF37',
           fontFamily: 'serif',
-          fontWeight: 'bold',
+          fontWeight: 700,
         }}
       >
-        V
+        A
       </div>
     ),
     {

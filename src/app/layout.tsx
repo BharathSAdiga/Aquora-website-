@@ -15,32 +15,41 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Velora Yoga & Dance Studio | Yoga, Dance & Bharatanatyam in JP Nagar",
-  description: "Velora Yoga & Dance Studio in JP Nagar, Bengaluru, offering yoga, Western dance and Bharatanatyam classes for different age groups.",
-  keywords: ["Yoga Studio JP Nagar", "Dance Studio JP Nagar", "Bharatanatyam Classes Bengaluru", "Western Dance Bengaluru", "Yoga Classes Bengaluru"],
-  authors: [{ name: "Velora Yoga & Dance Studio" }],
-  creator: "Velora Yoga & Dance Studio",
-  publisher: "Velora Yoga & Dance Studio",
+  title: "AQUORA Yoga & Dance Studio | Yoga, Dance & Bharatanatyam in JP Nagar",
+  description: "AQUORA Yoga & Dance Studio in JP Nagar, Bengaluru. A space for mindful movement, creative expression and holistic wellness offering Yoga, Western Dance and Bharatanatyam.",
+  keywords: [
+    "AQUORA Yoga & Dance Studio",
+    "Aquora JP Nagar",
+    "Yoga Studio JP Nagar",
+    "Dance Studio JP Nagar",
+    "Bharatanatyam Classes Bengaluru",
+    "Western Dance Bengaluru",
+    "Yoga Classes Bengaluru",
+    "Move Breathe Transform"
+  ],
+  authors: [{ name: "AQUORA Yoga & Dance Studio" }],
+  creator: "AQUORA Yoga & Dance Studio",
+  publisher: "AQUORA Yoga & Dance Studio",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://velora.in"), // Placeholder domain
+  metadataBase: new URL("https://aquora.studio"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Velora Yoga & Dance Studio",
-    description: "Velora Yoga & Dance Studio in JP Nagar, Bengaluru, offering yoga, Western dance and Bharatanatyam classes for different age groups.",
-    url: "https://velora.in",
-    siteName: "Velora Yoga & Dance Studio",
+    title: "AQUORA Yoga & Dance Studio | Move. Breathe. Transform.",
+    description: "A space for mindful movement, creative expression and holistic wellness in JP Nagar, Bengaluru. Offering Yoga, Western Dance and Bharatanatyam.",
+    url: "https://aquora.studio",
+    siteName: "AQUORA Yoga & Dance Studio",
     images: [
       {
-        url: "/assets/studio-view.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Velora Yoga & Dance Studio in JP Nagar",
+        url: "/assets/aquora-reference-board.jpeg",
+        width: 1280,
+        height: 960,
+        alt: "AQUORA Yoga & Dance Studio in JP Nagar",
       }
     ],
     locale: "en_IN",
@@ -48,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Velora Yoga & Dance Studio",
-    description: "Velora Yoga & Dance Studio in JP Nagar, Bengaluru, offering yoga, Western dance and Bharatanatyam classes for different age groups.",
-    images: ["/assets/studio-view.jpg"],
+    title: "AQUORA Yoga & Dance Studio",
+    description: "A space for mindful movement, creative expression and holistic wellness in JP Nagar, Bengaluru.",
+    images: ["/assets/aquora-reference-board.jpeg"],
   },
   robots: {
     index: true,
@@ -68,9 +77,9 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Velora Yoga & Dance Studio",
-  "image": "https://velora.in/assets/studio-view.jpg",
-  "url": "https://velora.in",
+  "name": "AQUORA Yoga & Dance Studio",
+  "image": "https://aquora.studio/assets/aquora-reference-board.jpeg",
+  "url": "https://aquora.studio",
   "telephone": "+916366007494",
   "address": {
     "@type": "PostalAddress",
@@ -82,7 +91,7 @@ const localBusinessSchema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 12.9063, // Approximate for JP Nagar 7th Phase
+    "latitude": 12.9063,
     "longitude": 77.5857 
   },
   "openingHoursSpecification": [
@@ -115,7 +124,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-velora-bg text-velora-foreground selection:bg-velora-purple/40 selection:text-velora-beige">
+      <body className="min-h-full flex flex-col font-sans bg-aquora-bg text-aquora-foreground selection:bg-aquora-gold/30 selection:text-aquora-gold-light">
         {children}
       </body>
     </html>

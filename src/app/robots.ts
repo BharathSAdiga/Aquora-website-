@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://velora.in/sitemap.xml',
+    sitemap: 'https://aquora.studio/sitemap.xml',
   }
 }

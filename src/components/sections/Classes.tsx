@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { Check } from "lucide-react";
+import { Clock, Calendar, Sparkles } from "lucide-react";
 
 export function Classes() {
   const fadeUpVariant = {
@@ -17,7 +17,7 @@ export function Classes() {
   };
 
   return (
-    <section id="classes" className="py-24 md:py-36 bg-velora-bg text-velora-foreground overflow-hidden border-b border-velora-purple/25">
+    <section id="classes" className="py-24 md:py-36 bg-aquora-bg text-aquora-foreground overflow-hidden border-b border-aquora-gold/20">
       <Container>
         {/* Section Heading */}
         <motion.div 
@@ -27,161 +27,327 @@ export function Classes() {
           variants={fadeUpVariant}
           className="text-center max-w-3xl mx-auto mb-20 md:mb-28"
         >
-          <span className="text-xs uppercase tracking-[0.3em] font-semibold text-velora-purple-light mb-3 block">
-            Our Offerings
+          <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-gold mb-3 block">
+            Signature Disciplines
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-velora-foreground tracking-wide mb-4">
-            MOVE. BREATHE. EXPRESS.
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-aquora-foreground tracking-wide mb-4">
+            OUR PROGRAMS
           </h2>
-          <div className="w-20 h-[1.5px] bg-velora-purple/60 mx-auto mb-4"></div>
-          <p className="text-velora-muted text-sm md:text-base font-light">
-            Dedicated programs tailored for all stages of practice and passion.
+          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-aquora-gold to-transparent mx-auto mb-5" />
+          <p className="text-aquora-muted text-sm md:text-base font-light max-w-xl mx-auto">
+            Thoughtfully structured batches instructed by master practitioners in an inspiring sanctuary.
           </p>
         </motion.div>
 
-        <div className="space-y-24 md:space-y-36">
+        {/* Three Editorial Luxury Panels */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-8 items-stretch">
           
-          {/* Yoga Program */}
+          {/* ============================================================ */}
+          {/* 1. YOGA — For Body & Mind (Realistic Male Yogi) */}
+          {/* ============================================================ */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUpVariant}
-            className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center"
+            className="group relative flex flex-col justify-between bg-aquora-surface border border-aquora-gold/25 hover:border-aquora-gold transition-all duration-500 rounded-none overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.6)]"
           >
-            <div className="w-full lg:w-1/2 order-2 lg:order-1">
-              <span className="text-velora-purple-light font-semibold tracking-[0.25em] uppercase text-xs mb-2 block">1. Yoga</span>
-              <h3 className="font-serif text-3xl md:text-4xl text-velora-beige mb-4">Yoga for Body &amp; Mind</h3>
-              <p className="text-velora-muted text-base mb-8 leading-relaxed font-light">
-                Build a healthier mind, stronger body and a calmer you.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
-                <div className="space-y-3.5">
-                  <div className="p-4 bg-velora-surface rounded-lg border border-velora-purple/30 hover:border-velora-beige/40 transition-colors">
-                    <h4 className="font-serif text-base text-velora-foreground font-semibold">Morning Batches</h4>
-                    <p className="text-[11px] font-semibold text-velora-purple-light uppercase tracking-wider mb-1">Mon - Sat</p>
-                    <p className="text-velora-muted text-xs">06:00 AM - 07:00 AM</p>
-                    <p className="text-velora-muted text-xs">07:00 AM - 08:00 AM</p>
-                  </div>
-                  <div className="p-4 bg-velora-surface rounded-lg border border-velora-purple/30 hover:border-velora-beige/40 transition-colors">
-                    <h4 className="font-serif text-base text-velora-foreground font-semibold">Evening Batch</h4>
-                    <p className="text-[11px] font-semibold text-velora-purple-light uppercase tracking-wider mb-1">Mon - Sat</p>
-                    <p className="text-velora-muted text-xs">07:30 PM - 08:30 PM</p>
-                  </div>
-                  <div className="p-4 bg-velora-surface rounded-lg border border-velora-purple/30 hover:border-velora-beige/40 transition-colors">
-                    <h4 className="font-serif text-base text-velora-foreground font-semibold">Exclusive Ladies Batch</h4>
-                    <p className="text-[11px] font-semibold text-velora-purple-light uppercase tracking-wider mb-1">Mon - Sat</p>
-                    <p className="text-velora-muted text-xs">09:00 AM - 10:00 AM</p>
-                  </div>
-                </div>
+            {/* Top Corner Hairlines */}
+            <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-aquora-gold/60 pointer-events-none z-20" />
+            <div className="absolute top-2 right-2 w-3 h-3 border-t border-r border-aquora-gold/60 pointer-events-none z-20" />
+
+            <div>
+              {/* Image Area with Realistic Male Practitioner */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-aquora-black">
+                <Image 
+                  src="/assets/aquora-yoga-photo.png" 
+                  alt="AQUORA Yoga - Male practitioner in meditation" 
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-aquora-surface via-aquora-surface/30 to-transparent" />
                 
-                <div className="bg-velora-surface p-6 rounded-lg border border-velora-purple/30 hover:border-velora-beige/40 transition-colors flex flex-col justify-between">
-                  <div>
-                    <h4 className="font-serif text-base text-velora-foreground font-semibold mb-4">Benefits</h4>
-                    <ul className="space-y-3">
-                      {['Improves Flexibility', 'Reduces Stress', 'Builds Strength', 'Enhances Focus', 'Brings Inner Peace'].map((benefit, i) => (
-                        <li key={i} className="flex items-center gap-2.5">
-                          <span className="w-5 h-5 rounded-full bg-velora-purple/30 border border-velora-purple/50 flex items-center justify-center shrink-0">
-                            <Check className="w-3 h-3 text-velora-beige" />
-                          </span>
-                          <span className="text-velora-foreground/90 text-xs md:text-sm">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
+                {/* Program Tag */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-aquora-black/80 backdrop-blur-md border border-aquora-green/40 text-[10px] uppercase tracking-[0.25em] text-aquora-green-light font-medium">
+                    <Sparkles size={10} className="text-aquora-green-light" />
+                    Mind &amp; Breath
+                  </span>
+                </div>
+              </div>
+
+              {/* Panel Content */}
+              <div className="p-6 sm:p-8">
+                <div className="mb-6">
+                  <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-aquora-green-light block mb-1">
+                    Program 01
+                  </span>
+                  <h3 className="font-serif text-3xl text-aquora-foreground tracking-wide group-hover:text-aquora-gold transition-colors duration-300">
+                    YOGA
+                  </h3>
+                  <p className="font-serif italic text-aquora-gold text-base">
+                    For Body &amp; Mind
+                  </p>
+                </div>
+
+                <p className="text-aquora-muted text-xs sm:text-sm font-light leading-relaxed mb-6">
+                  Build a healthier mind, stronger body, and calmer spirit through mindful asanas, alignment, and focused pranayama.
+                </p>
+
+                {/* Fine Gold Separator */}
+                <div className="w-full h-[1px] bg-aquora-gold/20 mb-6" />
+
+                {/* Approved Batch Information */}
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Calendar size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground">
+                        Morning Batches
+                      </h4>
+                      <p className="text-[11px] text-aquora-muted">Monday – Saturday</p>
+                      <div className="flex flex-col gap-1 mt-1">
+                        <span className="text-xs text-aquora-gold-light font-mono">06:00 AM – 07:00 AM</span>
+                        <span className="text-xs text-aquora-gold-light font-mono">07:00 AM – 08:00 AM</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="pt-4 border-t border-velora-purple/25 mt-4">
-                    <p className="text-[11px] uppercase tracking-wider text-velora-purple-light font-semibold">
-                      Daily mindful practices
-                    </p>
+
+                  <div className="flex items-start gap-3 pt-3 border-t border-aquora-gold/15">
+                    <Clock size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground">
+                        Exclusive Ladies Batch
+                      </h4>
+                      <p className="text-[11px] text-aquora-muted">Monday – Saturday</p>
+                      <p className="text-xs text-aquora-gold-light font-mono mt-0.5">09:00 AM – 10:00 AM</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 pt-3 border-t border-aquora-gold/15">
+                    <Clock size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground">
+                        Evening Batch
+                      </h4>
+                      <p className="text-[11px] text-aquora-muted">Monday – Saturday</p>
+                      <p className="text-xs text-aquora-gold-light font-mono mt-0.5">07:30 PM – 08:30 PM</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              
-              <Button asChild size="md" className="w-full sm:w-auto">
-                <a href="#schedule">
-                  VIEW YOGA CLASSES
+            </div>
+
+            {/* Bottom Card Action */}
+            <div className="p-6 sm:p-8 pt-0">
+              <Button asChild variant="outline" size="sm" className="w-full">
+                <a href="#trial">
+                  ENQUIRE FOR YOGA
                 </a>
               </Button>
             </div>
-            
-            <div className="w-full lg:w-1/2 order-1 lg:order-2">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden relative shadow-2xl border border-velora-purple/40 bg-velora-surface ring-1 ring-velora-beige/15">
-                <Image 
-                  src="/assets/studio-main.jpg" 
-                  alt="Velora Yoga Studio Space" 
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-center"
-                />
-              </div>
-            </div>
           </motion.div>
 
-          {/* Dance Programs */}
+          {/* ============================================================ */}
+          {/* 2. WESTERN DANCE — For Passion (Realistic Female Dancer) */}
+          {/* ============================================================ */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUpVariant}
-            className="flex flex-col lg:flex-row-reverse gap-12 lg:gap-20 items-center pt-12 border-t border-velora-purple/25"
+            className="group relative flex flex-col justify-between bg-aquora-surface border border-aquora-gold/25 hover:border-aquora-gold transition-all duration-500 rounded-none overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.6)]"
           >
-            <div className="w-full lg:w-1/2 order-2 lg:order-1">
-              <div className="space-y-8">
+            {/* Top Corner Hairlines */}
+            <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-aquora-gold/60 pointer-events-none z-20" />
+            <div className="absolute top-2 right-2 w-3 h-3 border-t border-r border-aquora-gold/60 pointer-events-none z-20" />
+
+            <div>
+              {/* Image Area with Realistic Female Western Dancer */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-aquora-black">
+                <Image 
+                  src="/assets/aquora-dance-photo.png" 
+                  alt="AQUORA Western Dance - Female dancer in dynamic pose" 
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-aquora-surface via-aquora-surface/30 to-transparent" />
                 
-                {/* Western Dance */}
-                <div>
-                  <span className="text-velora-purple-light font-semibold tracking-[0.25em] uppercase text-xs mb-2 block">2. Western Dance</span>
-                  <h3 className="font-serif text-3xl md:text-4xl text-velora-beige mb-4">Dance for Passion</h3>
-                  <div className="bg-velora-surface p-5 rounded-lg border border-velora-purple/30 hover:border-velora-beige/40 transition-colors">
-                    <p className="text-xs font-semibold text-velora-purple-light uppercase tracking-wider mb-3">Monday • Wednesday • Friday</p>
-                    <div className="flex flex-wrap gap-2.5">
-                      {['04:00 PM - 05:00 PM', '05:00 PM - 06:00 PM', '06:00 PM - 07:00 PM'].map((time, i) => (
-                        <div key={i} className="px-3.5 py-1.5 border border-velora-purple/40 rounded text-velora-beige bg-velora-surface-card text-xs font-medium">
-                          {time}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                {/* Program Tag */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-aquora-black/80 backdrop-blur-md border border-aquora-purple/40 text-[10px] uppercase tracking-[0.25em] text-aquora-purple-light font-medium">
+                    <Sparkles size={10} className="text-aquora-purple-light" />
+                    Kinetic Rhythm
+                  </span>
                 </div>
-
-                {/* Bharatanatyam */}
-                <div>
-                  <span className="text-velora-purple-light font-semibold tracking-[0.25em] uppercase text-xs mb-2 block">3. Bharatanatyam</span>
-                  <h3 className="font-serif text-3xl md:text-4xl text-velora-beige mb-4">Bharatanatyam for Tradition</h3>
-                  <div className="bg-velora-surface p-5 rounded-lg border border-velora-purple/30 hover:border-velora-beige/40 transition-colors">
-                    <p className="text-xs font-semibold text-velora-purple-light uppercase tracking-wider mb-3">Tuesday • Thursday • Saturday</p>
-                    <div className="flex flex-wrap gap-2.5">
-                      {['04:00 PM - 05:00 PM', '05:00 PM - 06:00 PM', '06:00 PM - 07:00 PM'].map((time, i) => (
-                        <div key={i} className="px-3.5 py-1.5 border border-velora-purple/40 rounded text-velora-beige bg-velora-surface-card text-xs font-medium">
-                          {time}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
               </div>
-              
-              <div className="mt-8">
-                <Button asChild size="md" className="w-full sm:w-auto">
-                  <a href="#schedule">
-                    VIEW DANCE CLASSES
-                  </a>
-                </Button>
+
+              {/* Panel Content */}
+              <div className="p-6 sm:p-8">
+                <div className="mb-6">
+                  <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-aquora-purple-light block mb-1">
+                    Program 02
+                  </span>
+                  <h3 className="font-serif text-3xl text-aquora-foreground tracking-wide group-hover:text-aquora-gold transition-colors duration-300">
+                    WESTERN DANCE
+                  </h3>
+                  <p className="font-serif italic text-aquora-gold text-base">
+                    For Passion
+                  </p>
+                </div>
+
+                <p className="text-aquora-muted text-xs sm:text-sm font-light leading-relaxed mb-6">
+                  Ignite your passion, rhythm, and stage confidence with contemporary, hip-hop, and dynamic modern choreography for all ages.
+                </p>
+
+                {/* Fine Gold Separator */}
+                <div className="w-full h-[1px] bg-aquora-gold/20 mb-6" />
+
+                {/* Approved Batch Information */}
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Calendar size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground">
+                        Schedule Days
+                      </h4>
+                      <p className="text-xs text-aquora-purple-light font-medium mt-0.5">Monday | Wednesday | Friday</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 pt-3 border-t border-aquora-gold/15">
+                    <Clock size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground mb-2">
+                        Available Batches
+                      </h4>
+                      <div className="space-y-1.5 font-mono text-xs text-aquora-gold-light">
+                        <div className="px-2.5 py-1 bg-aquora-surface-card border border-aquora-gold/15 w-fit">
+                          04:00 PM – 05:00 PM
+                        </div>
+                        <div className="px-2.5 py-1 bg-aquora-surface-card border border-aquora-gold/15 w-fit">
+                          05:00 PM – 06:00 PM
+                        </div>
+                        <div className="px-2.5 py-1 bg-aquora-surface-card border border-aquora-gold/15 w-fit">
+                          06:00 PM – 07:00 PM
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <div className="w-full lg:w-1/2 order-1 lg:order-2">
-              <div className="aspect-[4/3] rounded-xl overflow-hidden relative shadow-2xl border border-velora-purple/40 bg-velora-surface ring-1 ring-velora-beige/15">
+
+            {/* Bottom Card Action */}
+            <div className="p-6 sm:p-8 pt-0">
+              <Button asChild variant="outline" size="sm" className="w-full">
+                <a href="#trial">
+                  ENQUIRE FOR DANCE
+                </a>
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* ============================================================ */}
+          {/* 3. BHARATANATYAM — For Tradition (Realistic Female Dancer) */}
+          {/* ============================================================ */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUpVariant}
+            className="group relative flex flex-col justify-between bg-aquora-surface border border-aquora-gold/25 hover:border-aquora-gold transition-all duration-500 rounded-none overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.6)]"
+          >
+            {/* Top Corner Hairlines */}
+            <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-aquora-gold/60 pointer-events-none z-20" />
+            <div className="absolute top-2 right-2 w-3 h-3 border-t border-r border-aquora-gold/60 pointer-events-none z-20" />
+
+            <div>
+              {/* Image Area with Realistic Female Bharatanatyam Dancer */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-aquora-black">
                 <Image 
-                  src="/assets/studio-right.jpg" 
-                  alt="Velora Dance and Barre Studio" 
+                  src="/assets/aquora-bharatanatyam-photo.png" 
+                  alt="AQUORA Bharatanatyam - Classical Indian dancer in purple and gold silk costume" 
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-aquora-surface via-aquora-surface/30 to-transparent" />
+                
+                {/* Program Tag */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-aquora-black/80 backdrop-blur-md border border-aquora-gold/40 text-[10px] uppercase tracking-[0.25em] text-aquora-gold-light font-medium">
+                    <Sparkles size={10} className="text-aquora-gold" />
+                    Classical Heritage
+                  </span>
+                </div>
               </div>
+
+              {/* Panel Content */}
+              <div className="p-6 sm:p-8">
+                <div className="mb-6">
+                  <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-aquora-gold block mb-1">
+                    Program 03
+                  </span>
+                  <h3 className="font-serif text-3xl text-aquora-foreground tracking-wide group-hover:text-aquora-gold transition-colors duration-300">
+                    BHARATANATYAM
+                  </h3>
+                  <p className="font-serif italic text-aquora-gold text-base">
+                    For Tradition
+                  </p>
+                </div>
+
+                <p className="text-aquora-muted text-xs sm:text-sm font-light leading-relaxed mb-6">
+                  Master the sacred grammar of Indian classical dance—from precise aramandi footwork and mudras to expressive storytelling abhinaya.
+                </p>
+
+                {/* Fine Gold Separator */}
+                <div className="w-full h-[1px] bg-aquora-gold/20 mb-6" />
+
+                {/* Approved Batch Information */}
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Calendar size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground">
+                        Schedule Days
+                      </h4>
+                      <p className="text-xs text-aquora-gold font-medium mt-0.5">Tuesday | Thursday | Saturday</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 pt-3 border-t border-aquora-gold/15">
+                    <Clock size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground mb-2">
+                        Available Batches
+                      </h4>
+                      <div className="space-y-1.5 font-mono text-xs text-aquora-gold-light">
+                        <div className="px-2.5 py-1 bg-aquora-surface-card border border-aquora-gold/15 w-fit">
+                          04:00 PM – 05:00 PM
+                        </div>
+                        <div className="px-2.5 py-1 bg-aquora-surface-card border border-aquora-gold/15 w-fit">
+                          05:00 PM – 06:00 PM
+                        </div>
+                        <div className="px-2.5 py-1 bg-aquora-surface-card border border-aquora-gold/15 w-fit">
+                          06:00 PM – 07:00 PM
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Card Action */}
+            <div className="p-6 sm:p-8 pt-0">
+              <Button asChild variant="outline" size="sm" className="w-full">
+                <a href="#trial">
+                  ENQUIRE FOR BHARATANATYAM
+                </a>
+              </Button>
             </div>
           </motion.div>
 

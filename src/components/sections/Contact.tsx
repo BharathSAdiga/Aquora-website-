@@ -1,43 +1,72 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { MapPin, Phone, MessageCircle, Map as MapIcon, ArrowRight, CheckCircle2 } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Map as MapIcon, CheckCircle2, ArrowRight } from "lucide-react";
+
+function InstagramIcon({ size = 16, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
 
 interface FormData {
   fullName: string;
   phone: string;
   program: "Yoga" | "Western Dance" | "Bharatanatyam";
-  batch: string;
+  preferredDay: string;
+  batchTime: string;
+  message?: string;
 }
 
-const PROGRAM_BATCHES: Record<"Yoga" | "Western Dance" | "Bharatanatyam", string[]> = {
-  Yoga: [
-    "Morning (06:00 AM - 07:00 AM)",
-    "Morning (07:00 AM - 08:00 AM)",
-    "Exclusive Ladies Batch (09:00 AM - 10:00 AM)",
-    "Evening (07:30 PM - 08:30 PM)",
-  ],
-  "Western Dance": [
-    "Mon / Wed / Fri (04:00 PM - 05:00 PM)",
-    "Mon / Wed / Fri (05:00 PM - 06:00 PM)",
-    "Mon / Wed / Fri (06:00 PM - 07:00 PM)",
-  ],
-  Bharatanatyam: [
-    "Tue / Thu / Sat (04:00 PM - 05:00 PM)",
-    "Tue / Thu / Sat (05:00 PM - 06:00 PM)",
-    "Tue / Thu / Sat (06:00 PM - 07:00 PM)",
-  ],
+const PROGRAM_BATCH_OPTIONS: Record<"Yoga" | "Western Dance" | "Bharatanatyam", { days: string[]; times: string[] }> = {
+  Yoga: {
+    days: ["Monday – Saturday", "Mon – Sat (Morning)", "Mon – Sat (Ladies Only)", "Mon – Sat (Evening)"],
+    times: [
+      "06:00 AM – 07:00 AM (Morning)",
+      "07:00 AM – 08:00 AM (Morning)",
+      "09:00 AM – 10:00 AM (Ladies Batch)",
+      "07:30 PM – 08:30 PM (Evening)",
+    ],
+  },
+  "Western Dance": {
+    days: ["Monday | Wednesday | Friday"],
+    times: [
+      "04:00 PM – 05:00 PM",
+      "05:00 PM – 06:00 PM",
+      "06:00 PM – 07:00 PM",
+    ],
+  },
+  Bharatanatyam: {
+    days: ["Tuesday | Thursday | Saturday"],
+    times: [
+      "04:00 PM – 05:00 PM",
+      "05:00 PM – 06:00 PM",
+      "06:00 PM – 07:00 PM",
+    ],
+  },
 };
 
 export function Contact() {
   const address = `No. 3/1, 1st Floor, SkyPool Fitness Studio Building, 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, J.P. Nagar, Bengaluru - 560078, Karnataka, India`;
   const encodedAddress = encodeURIComponent(address);
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`;
-  
-  const phoneNumber = "+916366007494";
+  const phoneRaw = "6366007494";
   const displayPhone = "+91 63660 07494";
   const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
@@ -45,7 +74,9 @@ export function Contact() {
     fullName: "",
     phone: "",
     program: "Yoga",
-    batch: PROGRAM_BATCHES.Yoga[0],
+    preferredDay: PROGRAM_BATCH_OPTIONS.Yoga.days[0],
+    batchTime: PROGRAM_BATCH_OPTIONS.Yoga.times[0],
+    message: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -54,302 +85,356 @@ export function Contact() {
     setFormData((prev) => ({
       ...prev,
       program,
-      batch: PROGRAM_BATCHES[program][0],
+      preferredDay: PROGRAM_BATCH_OPTIONS[program].days[0],
+      batchTime: PROGRAM_BATCH_OPTIONS[program].times[0],
     }));
+  };
+
+  const getWhatsAppMessage = () => {
+    return `Hello Aquora Yoga & Dance Studio,
+
+I would like to enquire about a trial class.
+
+Class: ${formData.program}
+Preferred day: ${formData.preferredDay}
+Preferred time: ${formData.batchTime}
+
+Thank you.`;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName.trim() || !formData.phone.trim()) return;
     setIsSubmitted(true);
+    
+    // Open WhatsApp with formatted enquiry text
+    const url = `https://wa.me/91${phoneRaw}?text=${encodeURIComponent(getWhatsAppMessage())}`;
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const whatsappBookingUrl = `https://wa.me/916366007494?text=${encodeURIComponent(
-    `Hello Velora, I would like to book a trial class.\n\nName: ${formData.fullName}\nPhone: ${formData.phone}\nProgram: ${formData.program}\nPreferred Batch: ${formData.batch}`
+  const whatsappDirectUrl = `https://wa.me/91${phoneRaw}?text=${encodeURIComponent(
+    `Hello Aquora Yoga & Dance Studio,\n\nI would like to enquire about a trial class.\n\nClass:\nPreferred day:\nPreferred time:\n\nThank you.`
   )}`;
 
-  const fadeUpVariant = {
-    hidden: { opacity: 0, y: 25 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: "easeOut" as const }
-    }
-  };
-
   return (
-    <section id="contact" className="py-24 md:py-36 bg-velora-bg text-velora-foreground">
+    <section id="contact" className="py-24 md:py-36 bg-aquora-bg text-aquora-foreground relative">
       <Container>
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <span className="text-xs uppercase tracking-[0.3em] font-semibold text-velora-purple-light mb-3 block">
-            Connect With Velora
+          <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-gold mb-3 block">
+            Connect &amp; Experience
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-velora-foreground tracking-wide mb-4">
-            VISIT VELORA
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-aquora-foreground tracking-wide mb-4">
+            VISIT AQUORA
           </h2>
-          <div className="w-20 h-[1.5px] bg-velora-purple/60 mx-auto mb-4"></div>
-          <p className="text-sm md:text-base text-velora-muted font-light">
-            Book a complimentary trial class or visit our sanctuary in JP Nagar, Bengaluru.
+          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-aquora-gold to-transparent mx-auto mb-4" />
+          <p className="text-sm md:text-base text-aquora-muted font-light">
+            Enquire for a trial class, connect with our team, or visit our studio in JP Nagar, Bengaluru.
           </p>
         </div>
 
-        {/* TRIAL BOOKING FORM CARD */}
-        <div id="trial" className="max-w-4xl mx-auto mb-24">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={fadeUpVariant}
-            className="bg-velora-surface p-7 md:p-12 rounded-xl border border-velora-purple/35 shadow-2xl relative overflow-hidden"
-          >
-            <div className="text-center max-w-xl mx-auto mb-8">
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-velora-purple-light block mb-2">
-                Trial Session
-              </span>
-              <h3 className="font-serif text-2xl md:text-3xl text-velora-foreground mb-2">
-                Book Your Trial Class
-              </h3>
-              <p className="text-xs md:text-sm text-velora-muted font-light">
-                Experience mindful movement and artistic expression with our dedicated instructors.
-              </p>
-            </div>
-
-            {isSubmitted ? (
-              <div className="text-center py-8 space-y-4">
-                <div className="w-14 h-14 bg-velora-purple/30 rounded-full flex items-center justify-center mx-auto text-velora-purple-light border border-velora-purple/50">
-                  <CheckCircle2 size={32} />
-                </div>
-                <h4 className="font-serif text-2xl text-velora-beige">Trial Request Received</h4>
-                <p className="text-xs md:text-sm text-velora-muted max-w-md mx-auto">
-                  Thank you, <span className="font-semibold text-velora-beige">{formData.fullName}</span>. We have noted your interest in <span className="font-semibold text-velora-purple-light">{formData.program}</span> for <span className="font-semibold text-velora-purple-light">{formData.batch}</span>.
-                </p>
-                <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-                  <Button asChild size="md" className="w-full sm:w-auto">
-                    <a href={whatsappBookingUrl} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="w-4 h-4 mr-2 inline" />
-                      CONFIRM ON WHATSAPP
-                    </a>
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    size="md" 
-                    onClick={() => setIsSubmitted(false)}
-                    className="w-full sm:w-auto text-xs"
-                  >
-                    Submit Another Request
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Program Selector */}
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-velora-beige mb-2">
-                    1. Select Discipline
-                  </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    {(["Yoga", "Western Dance", "Bharatanatyam"] as const).map((prog) => (
-                      <button
-                        key={prog}
-                        type="button"
-                        onClick={() => handleProgramChange(prog)}
-                        className={`py-3 px-4 rounded-lg text-xs font-medium uppercase tracking-wider border transition-all text-center cursor-pointer ${
-                          formData.program === prog
-                            ? "bg-velora-purple text-velora-beige border-velora-purple shadow-md font-semibold"
-                            : "bg-velora-surface-card text-velora-beige/70 border-velora-purple/25 hover:border-velora-beige/50 hover:text-velora-beige"
-                        }`}
-                      >
-                        {prog}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Batch Selector */}
-                <div>
-                  <label htmlFor="batch-select" className="block text-xs font-semibold uppercase tracking-wider text-velora-beige mb-2">
-                    2. Select Batch &amp; Time
-                  </label>
-                  <select
-                    id="batch-select"
-                    value={formData.batch}
-                    onChange={(e) => setFormData({ ...formData, batch: e.target.value })}
-                    className="w-full py-3 px-4 rounded-lg border border-velora-purple/35 bg-velora-surface-card text-xs md:text-sm text-velora-foreground focus:outline-none focus:ring-2 focus:ring-velora-purple focus:border-velora-beige"
-                  >
-                    {PROGRAM_BATCHES[formData.program].map((batchTime) => (
-                      <option key={batchTime} value={batchTime} className="bg-velora-surface text-velora-foreground">
-                        {batchTime}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Personal Information */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="fullName" className="block text-xs font-semibold uppercase tracking-wider text-velora-beige mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      id="fullName"
-                      type="text"
-                      required
-                      autoComplete="name"
-                      placeholder="e.g. Ananya Rao"
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className="w-full py-3 px-4 rounded-lg border border-velora-purple/35 bg-velora-surface-card text-xs md:text-sm text-velora-foreground placeholder:text-velora-muted/60 focus:outline-none focus:ring-2 focus:ring-velora-purple focus:border-velora-beige"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-velora-beige mb-2">
-                      Phone Number *
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      required
-                      autoComplete="tel"
-                      placeholder="e.g. +91 98765 43210"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full py-3 px-4 rounded-lg border border-velora-purple/35 bg-velora-surface-card text-xs md:text-sm text-velora-foreground placeholder:text-velora-muted/60 focus:outline-none focus:ring-2 focus:ring-velora-purple focus:border-velora-beige"
-                    />
-                  </div>
-                </div>
-
-                {/* Submit button */}
-                <div className="pt-2 text-center">
-                  <Button type="submit" size="lg" className="w-full sm:w-auto px-10 text-xs">
-                    REQUEST TRIAL SESSION
-                  </Button>
-                </div>
-              </form>
-            )}
-          </motion.div>
-        </div>
-
-        {/* LOCATION & MAP SECTION */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+        {/* 3-Column Luxury Architecture: Left Info | Center Map | Right Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16">
           
-          {/* Location Information */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={fadeUpVariant}
-            className="space-y-6 order-2 lg:order-1"
-          >
-            <div className="bg-velora-surface p-6 md:p-8 rounded-xl border border-velora-purple/30 shadow-xl">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-10 h-10 rounded-full bg-velora-purple/30 border border-velora-purple/50 text-velora-purple-light flex items-center justify-center shrink-0 mt-1">
-                  <MapPin className="w-5 h-5" />
+          {/* ============================================================ */}
+          {/* LEFT: Address, Phone, WhatsApp, Instagram & Direct CTAs (col-span-4) */}
+          {/* ============================================================ */}
+          <div className="lg:col-span-4 flex flex-col justify-between bg-aquora-surface border border-aquora-gold/25 p-6 sm:p-8 shadow-[0_15px_35px_rgba(0,0,0,0.6)]">
+            <div>
+              <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-aquora-gold block mb-2">
+                Studio Details
+              </span>
+              <h3 className="font-serif text-2xl text-aquora-foreground mb-6 font-normal">
+                Bengaluru Sanctuary
+              </h3>
+
+              {/* Address */}
+              <div className="flex items-start gap-3.5 mb-6">
+                <div className="w-9 h-9 rounded-full bg-aquora-gold/10 border border-aquora-gold/30 flex items-center justify-center shrink-0 mt-1">
+                  <MapPin size={16} className="text-aquora-gold" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl text-velora-beige mb-2">Studio Location</h3>
-                  <p className="text-velora-muted text-sm leading-relaxed mb-4 font-light">
+                  <h4 className="text-xs uppercase tracking-wider text-aquora-foreground font-semibold mb-1">
+                    Location
+                  </h4>
+                  <address className="not-italic text-xs sm:text-sm text-aquora-muted leading-relaxed font-light">
                     No. 3/1, 1st Floor,<br />
                     SkyPool Fitness Studio Building,<br />
                     4th B Main Road, Dr. Vivekananda Layout,<br />
                     7th Phase, J.P. Nagar,<br />
-                    Bengaluru - 560078,<br />
-                    Karnataka, India
-                  </p>
-                  
-                  <a 
-                    href={directionsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-velora-purple-light hover:text-velora-beige transition-colors group"
-                  >
-                    Get Directions
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                  </a>
+                    Bengaluru - 560078, Karnataka, India
+                  </address>
                 </div>
               </div>
-              
-              <div className="w-full h-[1px] bg-velora-purple/20 mb-6"></div>
-              
-              <div className="flex items-start gap-4 mb-8">
-                <div className="w-10 h-10 rounded-full bg-velora-purple/30 border border-velora-purple/50 text-velora-purple-light flex items-center justify-center shrink-0 mt-1">
-                  <Phone className="w-5 h-5" />
+
+              {/* Phone */}
+              <div className="flex items-center gap-3.5 mb-6">
+                <div className="w-9 h-9 rounded-full bg-aquora-gold/10 border border-aquora-gold/30 flex items-center justify-center shrink-0">
+                  <Phone size={16} className="text-aquora-gold" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl text-velora-beige mb-1">Direct Inquiries</h3>
-                  <a href={`tel:${phoneNumber}`} className="text-velora-foreground hover:text-velora-beige transition-colors text-base font-medium">
-                    {displayPhone}
+                  <h4 className="text-[10px] uppercase tracking-wider text-aquora-gold font-medium">
+                    Phone Direct
+                  </h4>
+                  <a 
+                    href={`tel:+91${phoneRaw}`}
+                    className="text-sm sm:text-base font-serif text-aquora-foreground hover:text-aquora-gold transition-colors font-medium"
+                  >
+                    {phoneRaw}
                   </a>
-                  <p className="text-xs text-velora-muted mt-1 font-light">Mon - Sat: 06:00 AM - 08:30 PM</p>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3.5">
-                <Button 
-                  asChild
-                  size="md"
-                  className="w-full sm:flex-1 text-xs"
-                >
-                  <a href={`tel:${phoneNumber}`}>
-                    CALL US
+              {/* WhatsApp */}
+              <div className="flex items-center gap-3.5 mb-6">
+                <div className="w-9 h-9 rounded-full bg-aquora-green/20 border border-aquora-green/40 flex items-center justify-center shrink-0">
+                  <MessageCircle size={16} className="text-aquora-green-light" />
+                </div>
+                <div>
+                  <h4 className="text-[10px] uppercase tracking-wider text-aquora-green-light font-medium">
+                    WhatsApp Enquiry
+                  </h4>
+                  <a 
+                    href={whatsappDirectUrl}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-sm sm:text-base font-mono text-aquora-foreground hover:text-aquora-green-light transition-colors"
+                  >
+                    {displayPhone}
                   </a>
-                </Button>
-                
-                <Button 
-                  asChild
-                  variant="outline"
-                  size="md"
-                  className="w-full sm:flex-1 text-xs"
-                >
-                  <a href={`https://wa.me/${phoneNumber.replace('+', '')}`} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-4 h-4 mr-2 inline" />
-                    WHATSAPP US
+                </div>
+              </div>
+
+              {/* Instagram */}
+              <div className="flex items-center gap-3.5 mb-8">
+                <div className="w-9 h-9 rounded-full bg-aquora-purple/20 border border-aquora-purple/40 flex items-center justify-center shrink-0">
+                  <InstagramIcon size={16} className="text-aquora-purple-light" />
+                </div>
+                <div>
+                  <h4 className="text-[10px] uppercase tracking-wider text-aquora-purple-light font-medium">
+                    Instagram
+                  </h4>
+                  <a 
+                    href="https://instagram.com/aquora.studio"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-sm sm:text-base font-sans text-aquora-foreground hover:text-aquora-purple-light transition-colors"
+                  >
+                    aquora.studio
                   </a>
-                </Button>
+                </div>
               </div>
             </div>
-          </motion.div>
 
-          {/* Interactive Map */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={fadeUpVariant}
-            className="w-full h-full min-h-[380px] lg:min-h-[440px] rounded-xl overflow-hidden border border-velora-purple/30 shadow-xl order-1 lg:order-2 bg-velora-surface flex flex-col"
-          >
+            {/* Direct Action Buttons */}
+            <div className="space-y-3 pt-6 border-t border-aquora-gold/20">
+              <Button asChild variant="outline" size="sm" className="w-full justify-center">
+                <a href={`tel:+91${phoneRaw}`}>
+                  <Phone size={14} className="mr-2 text-aquora-gold" />
+                  CALL US
+                </a>
+              </Button>
+              <Button asChild variant="secondary" size="sm" className="w-full justify-center">
+                <a href={whatsappDirectUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle size={14} className="mr-2 text-aquora-green-light" />
+                  WHATSAPP US
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="sm" className="w-full justify-center">
+                <a href={directionsUrl} target="_blank" rel="noopener noreferrer">
+                  <MapIcon size={14} className="mr-2 text-aquora-gold" />
+                  GET DIRECTIONS
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* ============================================================ */}
+          {/* CENTER: Interactive / Fallback Map (col-span-4) */}
+          {/* ============================================================ */}
+          <div className="lg:col-span-4 flex flex-col bg-aquora-surface border border-aquora-gold/25 overflow-hidden relative shadow-[0_15px_35px_rgba(0,0,0,0.6)] min-h-[380px] lg:min-h-full">
             {googleMapsApiKey ? (
               <iframe
-                width="100%"
-                height="100%"
-                style={{ border: 0, flexGrow: 1, minHeight: "380px" }}
+                title="AQUORA Yoga & Dance Studio Location"
+                className="w-full h-full min-h-[360px] border-0 filter invert-[90%] hue-rotate-180 contrast-[110%]"
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
                 src={`https://www.google.com/maps/embed/v1/place?key=${googleMapsApiKey}&q=${encodedAddress}`}
-                title="Velora Studio Location"
-              ></iframe>
+              />
             ) : (
-              <div className="flex-1 min-h-[380px] bg-velora-surface flex flex-col items-center justify-center text-center p-8">
-                <div className="w-16 h-16 rounded-full bg-velora-surface-card shadow-xl flex items-center justify-center mb-5 border border-velora-purple/40">
-                  <MapIcon className="w-7 h-7 text-velora-purple-light" />
+              <div className="w-full h-full flex flex-col justify-between p-6 sm:p-8 bg-gradient-to-br from-aquora-surface-card via-aquora-surface to-aquora-black relative">
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:16px_16px]" />
+                
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-full bg-aquora-gold/15 border border-aquora-gold/40 flex items-center justify-center mb-4">
+                    <MapPin size={22} className="text-aquora-gold" />
+                  </div>
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-aquora-gold font-medium block mb-1">
+                    Find Us
+                  </span>
+                  <h4 className="font-serif text-xl sm:text-2xl text-aquora-foreground mb-3 font-normal">
+                    SkyPool Fitness Studio Building
+                  </h4>
+                  <p className="text-xs sm:text-sm text-aquora-muted leading-relaxed font-light mb-6">
+                    Conveniently located on 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, JP Nagar. Easily accessible with ample parking.
+                  </p>
                 </div>
-                <h3 className="font-serif text-xl text-velora-beige mb-2">JP Nagar 7th Phase, Bengaluru</h3>
-                <p className="text-velora-muted text-xs md:text-sm max-w-xs mx-auto mb-6 leading-relaxed font-light">
-                  Dr. Vivekananda Layout, 4th B Main Road, SkyPool Fitness Studio Building
-                </p>
-                <Button asChild variant="outline" size="sm" className="text-xs">
-                  <a href={directionsUrl} target="_blank" rel="noopener noreferrer">
-                    OPEN IN GOOGLE MAPS
+
+                <div className="relative z-10 pt-6 border-t border-aquora-gold/20">
+                  <a
+                    href={directionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-aquora-gold hover:text-aquora-gold-light transition-colors"
+                  >
+                    <span>Open in Google Maps</span>
+                    <ArrowRight size={14} />
                   </a>
-                </Button>
+                </div>
               </div>
             )}
-          </motion.div>
+          </div>
+
+          {/* ============================================================ */}
+          {/* RIGHT: Contact & Trial Class Enquiry Form (col-span-4) */}
+          {/* ============================================================ */}
+          <div id="trial" className="lg:col-span-4 bg-aquora-surface border border-aquora-gold/25 p-6 sm:p-8 shadow-[0_15px_35px_rgba(0,0,0,0.6)] flex flex-col justify-between">
+            <div>
+              <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-aquora-gold block mb-1">
+                Trial Enquiry
+              </span>
+              <h3 className="font-serif text-2xl text-aquora-foreground mb-2 font-normal">
+                Enquire for a Class
+              </h3>
+              <p className="text-xs text-aquora-muted mb-6 font-light">
+                Submit details below to initiate your enquiry directly via WhatsApp.
+              </p>
+
+              {isSubmitted ? (
+                <div className="py-10 text-center space-y-4">
+                  <div className="w-12 h-12 rounded-full bg-aquora-gold/20 border border-aquora-gold/50 flex items-center justify-center mx-auto text-aquora-gold">
+                    <CheckCircle2 size={24} />
+                  </div>
+                  <h4 className="font-serif text-xl text-aquora-foreground font-normal">
+                    Enquiry Prepared!
+                  </h4>
+                  <p className="text-xs text-aquora-muted max-w-xs mx-auto leading-relaxed">
+                    WhatsApp has opened with your formatted enquiry message for {formData.program}.
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => setIsSubmitted(false)}
+                    className="mt-4"
+                  >
+                    SUBMIT ANOTHER ENQUIRY
+                  </Button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Name */}
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-wider text-aquora-muted font-medium mb-1.5">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Your Name"
+                      value={formData.fullName}
+                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-aquora-gold/25 text-aquora-foreground text-xs placeholder:text-aquora-muted/50 focus:outline-none focus:border-aquora-gold"
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-wider text-aquora-muted font-medium mb-1.5">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="e.g. 9876543210"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-aquora-gold/25 text-aquora-foreground text-xs placeholder:text-aquora-muted/50 focus:outline-none focus:border-aquora-gold"
+                    />
+                  </div>
+
+                  {/* Program Selector */}
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-wider text-aquora-muted font-medium mb-1.5">
+                      Interested Program *
+                    </label>
+                    <div className="grid grid-cols-3 gap-1.5">
+                      {(["Yoga", "Western Dance", "Bharatanatyam"] as const).map((prog) => (
+                        <button
+                          type="button"
+                          key={prog}
+                          onClick={() => handleProgramChange(prog)}
+                          className={`py-2 px-1 text-[10px] uppercase tracking-wider font-medium border transition-colors cursor-pointer ${
+                            formData.program === prog
+                              ? "bg-aquora-gold text-aquora-black border-aquora-gold font-semibold"
+                              : "bg-aquora-surface-card text-aquora-muted border-aquora-gold/20 hover:border-aquora-gold/50 hover:text-aquora-foreground"
+                          }`}
+                        >
+                          {prog === "Bharatanatyam" ? "Classical" : prog}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Preferred Day */}
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-wider text-aquora-muted font-medium mb-1.5">
+                      Preferred Day
+                    </label>
+                    <select
+                      value={formData.preferredDay}
+                      onChange={(e) => setFormData({ ...formData, preferredDay: e.target.value })}
+                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-aquora-gold/25 text-aquora-foreground text-xs focus:outline-none focus:border-aquora-gold"
+                    >
+                      {PROGRAM_BATCH_OPTIONS[formData.program].days.map((day) => (
+                        <option key={day} value={day} className="bg-aquora-black text-aquora-foreground">
+                          {day}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Preferred Batch / Time */}
+                  <div>
+                    <label className="block text-[10px] uppercase tracking-wider text-aquora-muted font-medium mb-1.5">
+                      Preferred Time Slot
+                    </label>
+                    <select
+                      value={formData.batchTime}
+                      onChange={(e) => setFormData({ ...formData, batchTime: e.target.value })}
+                      className="w-full px-3.5 py-2.5 bg-aquora-surface-card border border-aquora-gold/25 text-aquora-foreground text-xs focus:outline-none focus:border-aquora-gold"
+                    >
+                      {PROGRAM_BATCH_OPTIONS[formData.program].times.map((time) => (
+                        <option key={time} value={time} className="bg-aquora-black text-aquora-foreground">
+                          {time}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="pt-2">
+                    <Button type="submit" variant="primary" size="md" className="w-full">
+                      SEND ENQUIRY ON WHATSAPP
+                    </Button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
 
         </div>
+
       </Container>
     </section>
   );
