@@ -76,8 +76,12 @@ export function Schedule() {
   );
 
   return (
-    <section id="schedule" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground border-b border-aquora-gold/20 relative">
-      <Container>
+    <section id="schedule" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground border-b border-aquora-gold/20 relative overflow-hidden">
+      {/* Subtle ambient lighting visible through glass */}
+      <div className="absolute top-1/3 -left-20 w-[500px] h-[500px] rounded-full bg-aquora-purple/8 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] rounded-full bg-aquora-green/8 blur-[160px] pointer-events-none" />
+
+      <Container className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-gold mb-3 block">
@@ -98,10 +102,10 @@ export function Schedule() {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2.5 rounded-none text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 cursor-pointer ${
+              className={`px-6 py-2.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 cursor-pointer ${
                 activeFilter === filter
                   ? "bg-aquora-gold text-aquora-black shadow-[0_0_20px_rgba(212,175,55,0.3)] border border-aquora-gold font-semibold"
-                  : "bg-aquora-surface text-aquora-foreground/80 border border-white/10 hover:border-aquora-gold/50 hover:text-aquora-gold-light"
+                  : "glass-card-inner rounded-full text-aquora-foreground/80 hover:border-aquora-gold/50 hover:text-aquora-gold-light"
               }`}
             >
               {filter}
@@ -110,8 +114,8 @@ export function Schedule() {
         </div>
 
         {/* Desktop Editorial Table Layout */}
-        <div className="hidden lg:block max-w-5xl mx-auto mb-16 border border-white/10 bg-aquora-surface shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
-          <div className="grid grid-cols-12 bg-aquora-surface-card border-b border-white/10 py-4 px-8 text-[11px] uppercase tracking-[0.25em] font-semibold text-aquora-gold">
+        <div className="hidden lg:block max-w-5xl mx-auto mb-16 glass-panel-dark rounded-3xl overflow-hidden">
+          <div className="grid grid-cols-12 bg-white/[0.03] backdrop-blur-sm border-b border-white/10 py-4 px-8 text-[11px] uppercase tracking-[0.25em] font-semibold text-aquora-gold">
             <div className="col-span-4">Program &amp; Focus</div>
             <div className="col-span-4">Weekly Schedule</div>
             <div className="col-span-4">Timings / Batches</div>
@@ -121,7 +125,7 @@ export function Schedule() {
             {filteredSchedule.map((item) => (
               <div 
                 key={item.id} 
-                className="grid grid-cols-12 items-center py-6 px-8 hover:bg-aquora-surface-hover/60 transition-colors"
+                className="grid grid-cols-12 items-center py-6 px-8 hover:bg-white/[0.04] transition-colors"
               >
                 <div className="col-span-4 pr-4">
                   <span className={`text-[10px] uppercase tracking-wider block mb-1 font-medium ${item.accentColor}`}>
@@ -137,7 +141,7 @@ export function Schedule() {
                   <span>{item.days}</span>
                 </div>
 
-                <div className="col-span-4 flex flex-col gap-1.5 font-mono text-xs text-aquora-gold-light">
+                <div className="col-span-4 space-y-1.5 font-mono text-xs text-aquora-gold-light">
                   {item.times.map((t, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                       <Clock size={12} className="text-aquora-gold/70 shrink-0" />
@@ -161,7 +165,7 @@ export function Schedule() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.3 }}
-                className="p-6 bg-aquora-surface border border-white/10 hover:border-aquora-gold/40 transition-colors"
+                className="p-6 glass-panel-dark rounded-2xl hover:border-aquora-gold/50 transition-colors"
               >
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <span className={`text-[10px] uppercase tracking-[0.25em] font-medium ${item.accentColor}`}>
@@ -187,7 +191,7 @@ export function Schedule() {
                   </span>
                   <div className="flex flex-col gap-1.5 font-mono text-xs text-aquora-gold-light">
                     {item.times.map((time, idx) => (
-                      <div key={idx} className="flex items-center gap-2 bg-aquora-surface-card px-3 py-1.5 border border-white/10">
+                      <div key={idx} className="flex items-center gap-2 glass-card-inner px-3 py-1.5 rounded-lg border border-white/10">
                         <Clock size={12} className="text-aquora-gold/80 shrink-0" />
                         <span>{time}</span>
                       </div>

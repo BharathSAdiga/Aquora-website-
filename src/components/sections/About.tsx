@@ -54,7 +54,7 @@ export function About() {
             variants={fadeUpVariant}
             className="lg:col-span-6 relative"
           >
-            <div className="relative aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none border border-aquora-gold/25 bg-aquora-surface shadow-[0_25px_60px_rgba(0,0,0,0.8)] overflow-hidden">
+            <div className="relative aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none border border-aquora-gold/25 bg-aquora-surface shadow-[0_25px_60px_rgba(0,0,0,0.8)] rounded-3xl overflow-hidden">
               <Image 
                 src="/assets/aquora-studio-sanctuary.jpg" 
                 alt="AQUORA Yoga & Dance Studio Sanctuary Atmosphere"
@@ -65,7 +65,7 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-aquora-black/80 via-transparent to-transparent" />
 
               {/* Inset Brand Caption */}
-              <div className="absolute bottom-6 left-6 right-6 p-5 bg-aquora-black/80 backdrop-blur-md border border-aquora-gold/20">
+              <div className="absolute bottom-6 left-6 right-6 p-5 glass-panel-dark rounded-2xl">
                 <p className="font-serif italic text-aquora-gold-light text-sm sm:text-base leading-snug">
                   &ldquo;A dedicated space where mindful stillness meets the joy of motion.&rdquo;
                 </p>

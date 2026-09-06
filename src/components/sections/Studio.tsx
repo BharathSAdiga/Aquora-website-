@@ -90,7 +90,11 @@ export function Studio() {
 
   return (
     <section id="studio" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground overflow-hidden relative border-b border-aquora-gold/20">
-      <Container>
+      {/* Ambient lighting behind gallery and cards */}
+      <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] rounded-full bg-aquora-green/10 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-20 w-[500px] h-[500px] rounded-full bg-aquora-gold/8 blur-[160px] pointer-events-none" />
+
+      <Container className="relative z-10">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
           <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-gold mb-3 block">
@@ -108,7 +112,7 @@ export function Studio() {
         {/* Gallery Showcase */}
         <div className="max-w-5xl mx-auto mb-20 md:mb-28">
           {/* Main Display Frame */}
-          <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-none overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.85)] border border-white/15 mb-5 bg-aquora-black">
+          <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.85)] border border-white/15 mb-5 bg-aquora-black">
             <Image
               src={activeImage.src}
               alt={activeImage.alt}
@@ -119,11 +123,11 @@ export function Studio() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-aquora-black/85 via-transparent to-transparent pointer-events-none" />
 
-            <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 z-10">
+            <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 z-10 p-3.5 sm:p-4 glass-pill-dark rounded-2xl max-w-md">
               <span className="text-[10px] uppercase tracking-[0.25em] text-aquora-gold font-medium block mb-1">
                 Studio View
               </span>
-              <p className="text-base sm:text-xl font-serif text-aquora-foreground font-light">
+              <p className="text-sm sm:text-lg font-serif text-aquora-foreground font-light">
                 {activeImage.title}
               </p>
             </div>
@@ -135,7 +139,7 @@ export function Studio() {
               <button
                 key={img.id}
                 onClick={() => setActiveImage(img)}
-                className={`relative aspect-[16/10] overflow-hidden border transition-all duration-300 group cursor-pointer ${
+                className={`relative aspect-[16/10] overflow-hidden rounded-xl border transition-all duration-300 group cursor-pointer ${
                   activeImage.id === img.id
                     ? "border-aquora-gold shadow-[0_0_15px_rgba(212,175,55,0.35)] scale-[1.02]" 
                     : "border-white/10 opacity-60 hover:opacity-100 hover:border-aquora-gold/50"
@@ -167,9 +171,9 @@ export function Studio() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.07, duration: 0.5 }}
-                  className="p-5 bg-aquora-surface/80 border border-white/10 flex flex-col items-center justify-center hover:border-aquora-gold/40 transition-colors"
+                  className="p-5 glass-panel-dark rounded-2xl flex flex-col items-center justify-center hover:border-aquora-gold/50 transition-colors"
                 >
-                  <div className="w-10 h-10 rounded-full bg-aquora-gold/10 border border-aquora-gold/25 flex items-center justify-center mb-3">
+                  <div className="w-10 h-10 rounded-full bg-aquora-gold/15 border border-aquora-gold/30 flex items-center justify-center mb-3 backdrop-blur-sm shadow-sm">
                     <IconComp size={16} className="text-aquora-gold" />
                   </div>
                   <h3 className="font-serif text-xs sm:text-sm text-aquora-foreground mb-1 tracking-wider">

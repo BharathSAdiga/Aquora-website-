@@ -124,7 +124,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-aquora-bg text-aquora-foreground selection:bg-aquora-gold/30 selection:text-aquora-gold-light">
+      <body className="min-h-full flex flex-col font-sans bg-aquora-bg bg-ambient-dark text-aquora-foreground selection:bg-aquora-gold/30 selection:text-aquora-gold-light">
         {children}
       </body>
     </html>

@@ -70,7 +70,7 @@ export function Storytelling() {
             variants={imageVariants}
             className="w-full lg:w-1/2 order-1 lg:order-2"
           >
-            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md border border-aquora-gold/25 bg-aquora-surface-card shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden">
+            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md border border-aquora-gold/25 bg-aquora-surface-card shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-3xl overflow-hidden">
               <Image 
                 src="/assets/aquora-yoga-photo.png" 
                 alt="Mindful Yoga Practice at AQUORA"
@@ -94,7 +94,7 @@ export function Storytelling() {
             variants={imageVariants}
             className="w-full lg:w-1/2 order-1 lg:order-1"
           >
-            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md border border-aquora-gold/25 bg-aquora-surface-card shadow-[0_20px_50px_rgba(0,0,0,0.8)] overflow-hidden">
+            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md border border-aquora-gold/25 bg-aquora-surface-card shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-3xl overflow-hidden">
               <Image 
                 src="/assets/aquora-dance-photo.png" 
                 alt="Western Dance Expression at AQUORA"
@@ -105,7 +105,7 @@ export function Storytelling() {
               <div className="absolute inset-0 bg-gradient-to-t from-aquora-black/80 via-transparent to-transparent" />
               
               {/* Inset for Bharatanatyam traditional classical dance */}
-              <div className="absolute bottom-4 right-4 w-36 h-28 border border-aquora-gold/50 shadow-2xl bg-aquora-black overflow-hidden hidden sm:block">
+              <div className="absolute bottom-4 right-4 w-36 h-28 border border-aquora-gold/50 shadow-2xl bg-aquora-black rounded-2xl overflow-hidden hidden sm:block">
                 <Image 
                   src="/assets/aquora-bharatanatyam-photo.png" 
                   alt="Bharatanatyam Tradition at AQUORA"
