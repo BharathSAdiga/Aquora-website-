@@ -1,105 +1,276 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
-  --color-aquora-bg: #08070A;
-  --color-aquora-black: #040305;
-  --color-aquora-surface: #121016;
-  --color-aquora-surface-card: #181520;
-  --color-aquora-surface-hover: #241E30;
-  
-  --color-aquora-gold: #D4AF37;
-  --color-aquora-gold-light: #F5E9BE;
-  --color-aquora-gold-dark: #9F7F23;
-  --color-aquora-gold-border: rgba(212, 175, 55, 0.32);
-  --color-aquora-gold-glow: rgba(212, 175, 55, 0.15);
-  
-  --color-aquora-purple: #8B3DA0;
-  --color-aquora-purple-light: #C06EE0;
-  --color-aquora-purple-subtle: rgba(139, 61, 160, 0.2);
-  
-  --color-aquora-green: #0A8F6A;
-  --color-aquora-green-light: #2ED8A2;
-  --color-aquora-green-subtle: rgba(10, 143, 106, 0.2);
-  
-  --color-aquora-foreground: #F7F4EE;
-  --color-aquora-muted: #A19B96;
-  --color-aquora-border: rgba(212, 175, 55, 0.25);
-  
+  /* Dynamic Palette Mapped to CSS Variables */
+  --color-aquora-bg: var(--aquora-bg);
+  --color-aquora-black: #050505;
+  --color-aquora-surface: var(--aquora-surface);
+  --color-aquora-surface-card: var(--aquora-surface-card);
+  --color-aquora-surface-hover: var(--aquora-surface-hover);
+
+  /* Warm Luminous Neutrals - Adaptive */
+  --color-aquora-beige: var(--aquora-beige);
+  --color-aquora-beige-light: var(--aquora-beige-light);
+  --color-aquora-beige-muted: var(--aquora-beige-muted);
+  --color-aquora-foreground: var(--aquora-foreground);
+  --color-aquora-muted: var(--aquora-muted);
+
+  /* Gold Accents - Adaptive */
+  --color-aquora-gold: var(--aquora-gold);
+  --color-aquora-gold-light: var(--aquora-gold-light);
+  --color-aquora-gold-dark: var(--aquora-gold-dark);
+
+  /* Green (Yoga & Wellness) - Adaptive */
+  --color-aquora-green: var(--aquora-green);
+  --color-aquora-green-light: var(--aquora-green-light);
+  --color-aquora-green-dark: var(--aquora-green-dark);
+  --color-aquora-green-subtle: var(--aquora-green-subtle);
+
+  /* Purple (Dance & Rhythm) - Adaptive */
+  --color-aquora-purple: var(--aquora-purple);
+  --color-aquora-purple-light: var(--aquora-purple-light);
+  --color-aquora-purple-dark: var(--aquora-purple-dark);
+  --color-aquora-purple-subtle: var(--aquora-purple-subtle);
+
+  --color-aquora-charcoal: var(--aquora-charcoal);
+  --color-aquora-ivory: var(--aquora-ivory);
+
+  --color-aquora-border: var(--aquora-border);
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-:root {
-  --background: var(--color-aquora-bg);
-  --foreground: var(--color-aquora-foreground);
+/* ═══ Dark Theme Default (Obsidian Luxury Sanctuary) ═══ */
+:root,
+html.dark {
   color-scheme: dark;
+  --aquora-bg: #0B0C0C;
+  --aquora-surface: #131415;
+  --aquora-surface-card: #181A1B;
+  --aquora-surface-hover: #222526;
+  --aquora-foreground: #F2EDE4;
+  --aquora-muted: #968C7F;
+  --aquora-charcoal: #F2EDE4;
+  --aquora-ivory: #131415;
+  --aquora-border: rgba(232, 213, 181, 0.09);
+
+  /* Accents in Dark Mode (Luminous & Radiant) */
+  --aquora-beige: #E8D5B5;
+  --aquora-beige-light: #F5E6CC;
+  --aquora-beige-muted: #BFA882;
+  
+  --aquora-gold: #D4AF37;
+  --aquora-gold-light: #E8D39E;
+  --aquora-gold-dark: #A88128;
+
+  --aquora-green: #3A7D5E;
+  --aquora-green-light: #5AAF82;
+  --aquora-green-dark: #1E4E38;
+  --aquora-green-subtle: rgba(58, 125, 94, 0.15);
+
+  --aquora-purple: #7D4C8D;
+  --aquora-purple-light: #A76BB8;
+  --aquora-purple-dark: #5E3570;
+  --aquora-purple-subtle: rgba(125, 76, 141, 0.15);
+
+  --background: var(--aquora-bg);
+  --foreground: var(--aquora-foreground);
+}
+
+/* ═══ Light Theme Mode (Architectural Ivory & Bronze) ═══ */
+html.light {
+  color-scheme: light;
+  --aquora-bg: #FBF9F5;
+  --aquora-surface: #FFFFFF;
+  --aquora-surface-card: #F4EFEB;
+  --aquora-surface-hover: #EBE5DC;
+  --aquora-foreground: #181615;
+  --aquora-muted: #665D54;
+  --aquora-charcoal: #181615;
+  --aquora-ivory: #F4EFEB;
+  --aquora-border: rgba(24, 22, 21, 0.09);
+
+  /* Accents in Light Mode (Deep Jewel & Bronze for Crisp Contrast) */
+  --aquora-beige: #805E23;
+  --aquora-beige-light: #99732F;
+  --aquora-beige-muted: #6B4E1B;
+  
+  --aquora-gold: #8C661A;
+  --aquora-gold-light: #735314;
+  --aquora-gold-dark: #5C410F;
+
+  --aquora-green: #1E6B46;
+  --aquora-green-light: #185E3D;
+  --aquora-green-dark: #10422B;
+  --aquora-green-subtle: rgba(30, 107, 70, 0.1);
+
+  --aquora-purple: #6B2F7E;
+  --aquora-purple-light: #5C256E;
+  --aquora-purple-dark: #451754;
+  --aquora-purple-subtle: rgba(107, 47, 126, 0.1);
+
+  --background: var(--aquora-bg);
+  --foreground: var(--aquora-foreground);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 85px;
+  scroll-padding-top: 90px;
 }
 
 body {
   background-color: var(--color-aquora-bg);
   color: var(--color-aquora-foreground);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom Luxury Gold and Glass Accents */
+/* ═══ Gold Gradient Typography ═══ */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #F5E9BE 0%, #D4AF37 50%, #A37F20 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, #E8D39E 50%, #A88128 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gold-border-glow {
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.08);
+html.light .gold-gradient-text {
+  background: linear-gradient(135deg, #8A641B 0%, #A67B26 50%, #6E4D10 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Subtle luxury ambient atmosphere showing through glass surfaces */
+/* ═══ Glass Panels: Dark Default ═══ */
+.glass-panel-dark,
+.glass-panel-light,
+.glass-panel {
+  background: rgba(20, 21, 22, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(232, 213, 181, 0.08);
+  box-shadow:
+    0 20px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(232, 213, 181, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel-dark:hover,
+.glass-panel-light:hover,
+.glass-panel:hover {
+  background: rgba(26, 28, 29, 0.88);
+  border-color: rgba(232, 213, 181, 0.18);
+  box-shadow:
+    0 25px 55px -12px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(125, 76, 141, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ═══ Glass Panels: Light Mode ═══ */
+html.light .glass-panel-dark,
+html.light .glass-panel-light,
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.90);
+  border: 1px solid rgba(24, 22, 21, 0.08);
+  box-shadow:
+    0 20px 45px -12px rgba(24, 22, 21, 0.07),
+    0 0 0 1px rgba(24, 22, 21, 0.03),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+html.light .glass-panel-dark:hover,
+html.light .glass-panel-light:hover,
+html.light .glass-panel:hover {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(140, 102, 26, 0.25);
+  box-shadow:
+    0 25px 50px -12px rgba(24, 22, 21, 0.12),
+    0 0 20px rgba(140, 102, 26, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+}
+
+/* ═══ Glass Pills: Dark Default ═══ */
+.glass-pill-dark,
+.glass-pill-light,
+.glass-pill {
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(232, 213, 181, 0.1);
+  box-shadow:
+    0 10px 30px -8px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(232, 213, 181, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ═══ Glass Pills: Light Mode ═══ */
+html.light .glass-pill-dark,
+html.light .glass-pill-light,
+html.light .glass-pill {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(26, 24, 23, 0.08);
+  box-shadow:
+    0 10px 30px -8px rgba(26, 24, 23, 0.06),
+    0 0 0 1px rgba(26, 24, 23, 0.02),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ═══ Ambient Backgrounds ═══ */
+.bg-ambient-light,
 .bg-ambient-dark {
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(10, 143, 106, 0.07) 0%, transparent 45%),
-    radial-gradient(circle at 90% 30%, rgba(139, 61, 160, 0.07) 0%, transparent 45%),
-    radial-gradient(circle at 50% 60%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 85%, rgba(10, 143, 106, 0.05) 0%, transparent 45%);
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(58, 125, 94, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 85% 25%, rgba(125, 76, 141, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 50% 70%, rgba(212, 175, 55, 0.03) 0%, transparent 60%);
 }
 
-/* High-End Luxury Dark Glassmorphism */
-.glass-panel-dark {
-  background: rgba(18, 15, 24, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.24);
-  box-shadow: 
-    0 20px 50px -10px rgba(0, 0, 0, 0.7),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4);
+html.light .bg-ambient-light,
+html.light .bg-ambient-dark {
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(58, 125, 94, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 85% 25%, rgba(125, 76, 141, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 50% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 60%);
 }
 
-.glass-panel-dark:hover {
-  background: rgba(24, 20, 32, 0.65);
-  border-color: rgba(212, 175, 55, 0.5);
-  box-shadow: 
-    0 25px 60px -10px rgba(0, 0, 0, 0.85),
-    0 0 25px rgba(212, 175, 55, 0.12),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+/* ═══ Glass Card Info Overlay ═══ */
+.glass-card-info {
+  background: rgba(20, 21, 22, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
+  color: var(--color-aquora-foreground);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.glass-card-inner {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 55, 0.16);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+.glass-card-info:hover {
+  background: rgba(26, 28, 29, 0.96);
 }
 
-.glass-pill-dark {
-  background: rgba(14, 12, 18, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.32);
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+html.light .glass-card-info {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(24, 22, 21, 0.08);
+  box-shadow: 0 20px 45px -10px rgba(24, 22, 21, 0.07);
+  color: #181615;
 }
 
+html.light .glass-card-info:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 25px 50px -10px rgba(24, 22, 21, 0.12);
+}
+
+/* ═══ Batch Pill Chips ═══ */
+.batch-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #F2EDE4;
+  font-weight: 500;
+}
+
+html.light .batch-chip {
+  background: rgba(24, 22, 21, 0.04);
+  border: 1px solid rgba(24, 22, 21, 0.08);
+  color: #181615;
+}

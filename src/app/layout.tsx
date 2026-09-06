@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -41,14 +42,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "AQUORA Yoga & Dance Studio | Move. Breathe. Transform.",
-    description: "A space for mindful movement, creative expression and holistic wellness in JP Nagar, Bengaluru. Offering Yoga, Western Dance and Bharatanatyam.",
+    description: "A luxury sanctuary for mindful movement, creative expression and holistic wellness in JP Nagar, Bengaluru. Offering Yoga, Western Dance and Bharatanatyam.",
     url: "https://aquora.studio",
     siteName: "AQUORA Yoga & Dance Studio",
     images: [
       {
-        url: "/assets/aquora-reference-board.jpeg",
+        url: "/assets/aquora_hero_studio_clean.jpg",
         width: 1280,
-        height: 960,
+        height: 720,
         alt: "AQUORA Yoga & Dance Studio in JP Nagar",
       }
     ],
@@ -58,8 +59,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AQUORA Yoga & Dance Studio",
-    description: "A space for mindful movement, creative expression and holistic wellness in JP Nagar, Bengaluru.",
-    images: ["/assets/aquora-reference-board.jpeg"],
+    description: "A luxury sanctuary for mindful movement, creative expression and holistic wellness in JP Nagar, Bengaluru.",
+    images: ["/assets/aquora_hero_studio_clean.jpg"],
   },
   robots: {
     index: true,
@@ -78,9 +79,9 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "AQUORA Yoga & Dance Studio",
-  "image": "https://aquora.studio/assets/aquora-reference-board.jpeg",
+  "image": "https://aquora.studio/assets/aquora_hero_studio_clean.jpg",
   "url": "https://aquora.studio",
-  "telephone": "+916366007494",
+  "telephone": "+919164267977",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "No. 3/1, 1st Floor, SkyPool Fitness Studio Building, 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, J.P. Nagar",
@@ -117,15 +118,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable} h-full antialiased dark`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${cormorant.variable} dark h-full antialiased`}>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('aquora-theme');if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');document.documentElement.style.colorScheme='light';}else{document.documentElement.classList.remove('light');document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark';}}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-aquora-bg bg-ambient-dark text-aquora-foreground selection:bg-aquora-gold/30 selection:text-aquora-gold-light">
-        {children}
+      <body className="min-h-full flex flex-col font-sans bg-aquora-bg bg-ambient-dark text-aquora-foreground selection:bg-aquora-purple/40 selection:text-aquora-beige">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

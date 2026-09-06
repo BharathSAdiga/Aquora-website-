@@ -4,11 +4,11 @@ import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { Clock, Calendar, Sparkles } from "lucide-react";
+import { Clock, Calendar, Sparkles, ArrowUpRight } from "lucide-react";
 
 export function Classes() {
   const fadeUpVariant: Variants = {
-    hidden: { opacity: 0, y: 25 },
+    hidden: { opacity: 0, y: 24 },
     visible: { 
       opacity: 1, 
       y: 0, 
@@ -17,23 +17,11 @@ export function Classes() {
   };
 
   return (
-    <section id="classes" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground overflow-hidden border-b border-aquora-gold/20 relative">
-      {/* Background Studio Sanctuary Architecture subtly visible through glass cards */}
-      <div className="absolute inset-0 z-0 select-none overflow-hidden opacity-20 pointer-events-none">
-        <Image
-          src="/assets/aquora-studio-sanctuary.jpg"
-          alt="Studio sanctuary background"
-          fill
-          sizes="100vw"
-          className="object-cover object-center filter blur-[1px] brightness-90 contrast-125"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-aquora-bg via-aquora-bg/70 to-aquora-bg" />
-      </div>
-
-      {/* Background ambient lighting visible through translucent glass */}
-      <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full bg-aquora-green/15 blur-[150px] pointer-events-none z-0" />
-      <div className="absolute top-1/3 -right-20 w-[500px] h-[500px] rounded-full bg-aquora-purple/15 blur-[150px] pointer-events-none z-0" />
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-aquora-gold/10 blur-[160px] pointer-events-none z-0" />
+    <section id="classes" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground overflow-hidden relative border-b border-aquora-border">
+      {/* Background ambient lighting visible through dark translucent glass */}
+      <div className="absolute top-1/4 -left-20 w-[550px] h-[550px] rounded-full bg-aquora-green/10 blur-[160px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 -right-20 w-[550px] h-[550px] rounded-full bg-aquora-purple/10 blur-[160px] pointer-events-none z-0" />
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[700px] h-[450px] rounded-full bg-aquora-gold/5 blur-[160px] pointer-events-none z-0" />
 
       <Container className="relative z-10">
         {/* Section Heading */}
@@ -44,112 +32,119 @@ export function Classes() {
           variants={fadeUpVariant}
           className="text-center max-w-3xl mx-auto mb-20 md:mb-28"
         >
-          <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-gold mb-3 block">
+          <span className="text-[11px] uppercase tracking-[0.35em] font-medium text-aquora-beige-muted block mb-3">
             Signature Disciplines
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-aquora-foreground tracking-wide mb-4">
-            OUR PROGRAMS
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-aquora-foreground tracking-tight mb-4">
+            FIND YOUR MOVEMENT.
           </h2>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-aquora-gold to-transparent mx-auto mb-6" />
-          <p className="text-aquora-muted text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
-            Thoughtfully structured batches instructed by master practitioners in an inspiring JP Nagar sanctuary.
+          <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-aquora-beige to-transparent mx-auto mb-6" />
+          <p className="text-aquora-foreground/75 text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed">
+            Three distinct paths of expression, physical mastery, and inner balance guided by master practitioners in JP Nagar.
           </p>
         </motion.div>
 
-        {/* Three Editorial Luxury Panels in 3-Column Grid */}
+        {/* Three Large Visual Experiences */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-8 items-stretch relative z-10">
           
           {/* ============================================================ */}
-          {/* 1. YOGA — For Body & Mind (Male Yogi) */}
+          {/* 1. YOGA — Body & Mind (Green Highlight) */}
           {/* ============================================================ */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUpVariant}
-            className="group relative flex flex-col justify-between glass-panel-dark transition-all duration-500 rounded-3xl overflow-hidden"
+            className="group relative flex flex-col justify-between rounded-3xl overflow-hidden glass-panel-dark transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(58,125,94,0.3)] border border-aquora-green/20 hover:border-aquora-green/50"
           >
-            {/* Corner Bracket Accents matching reference */}
-            <div className="absolute top-3 left-3 w-3.5 h-3.5 border-t border-l border-aquora-gold/30 pointer-events-none z-20" />
-            <div className="absolute top-3 right-3 w-3.5 h-3.5 border-t border-r border-aquora-gold/30 pointer-events-none z-20" />
+            {/* Corner Decorative Accents */}
+            <div className="absolute top-3 left-3 w-3 h-3 border-t border-l border-aquora-green/40 pointer-events-none z-20" />
+            <div className="absolute top-3 right-3 w-3 h-3 border-t border-r border-aquora-green/40 pointer-events-none z-20" />
 
             <div>
-              {/* Image Area with Realistic Male Practitioner */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-aquora-black/50">
+              {/* Large Imagery with Subtle Movement on Hover */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-aquora-surface">
                 <Image 
-                  src="/assets/aquora-yoga-photo.png" 
-                  alt="AQUORA Yoga - Male practitioner in meditation" 
+                  src="/assets/aquora_yoga_woman.jpg" 
+                  alt="AQUORA Yoga - Mindful practice with certified instructor" 
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-aquora-surface-card via-aquora-surface-card/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t dark:from-[#141414] dark:via-[#141414]/40 from-black/55 via-black/20 to-transparent" />
                 
-                {/* Program Tag Overlay */}
+                {/* Floating Discipline Badge */}
                 <div className="absolute top-4 left-4 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 backdrop-blur-md border border-aquora-green/40 text-[10px] uppercase tracking-[0.25em] text-aquora-green-light font-medium shadow-sm rounded-full">
-                    <Sparkles size={10} className="text-aquora-green-light" />
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 dark:bg-[#101010]/85 bg-black/60 backdrop-blur-md border border-aquora-green/30 text-[10px] uppercase tracking-[0.25em] text-aquora-green-light font-semibold shadow-xs rounded-full">
+                    <Sparkles size={11} className="text-aquora-green-light" />
                     Mind &amp; Breath
                   </span>
                 </div>
               </div>
 
-              {/* Panel Content */}
-              <div className="p-7 sm:p-9">
-                <div className="mb-6">
-                  <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-aquora-green-light block mb-1.5">
-                    PROGRAM 01
+              {/* Glass Information Overlay */}
+              <div className="p-7 sm:p-9 -mt-16 relative z-10 mx-3 mb-3 glass-card-info rounded-2xl transition-all duration-500 hover:border-aquora-green/40">
+                <div className="mb-4">
+                  <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-aquora-green-light block mb-1">
+                    DISCIPLINE 01
                   </span>
-                  <h3 className="font-serif text-3xl sm:text-4xl text-aquora-foreground tracking-wide group-hover:text-aquora-gold transition-colors duration-300">
-                    YOGA
-                  </h3>
-                  <p className="font-serif italic text-aquora-gold text-base">
-                    For Body &amp; Mind
+                  <div className="flex items-baseline justify-between">
+                    <h3 className="font-serif text-3xl sm:text-4xl text-aquora-foreground tracking-tight group-hover:translate-x-1 transition-transform duration-300">
+                      YOGA
+                    </h3>
+                    <ArrowUpRight size={18} className="text-aquora-muted group-hover:text-aquora-green-light transition-colors" />
+                  </div>
+                  <p className="font-serif italic text-aquora-green-light/90 text-base">
+                    Body &amp; Mind
                   </p>
                 </div>
 
-                <p className="text-aquora-muted text-xs sm:text-sm font-light leading-relaxed mb-6">
-                  Build a healthier mind, stronger body, and calmer spirit through mindful asanas, alignment, and focused pranayama.
+                <p className="text-aquora-muted text-xs sm:text-sm font-light leading-relaxed mb-5">
+                  Build a healthier mind, stronger body, and calmer spirit through mindful asanas, functional alignment, and pranayama.
                 </p>
 
-                {/* Fine Gold Separator */}
-                <div className="w-full h-[1px] bg-aquora-gold/20 mb-6" />
+                {/* Animated Green Line appearing on hover */}
+                <div className="w-12 group-hover:w-full h-[1px] bg-aquora-green transition-all duration-500 mb-5" />
 
                 {/* Approved Batch Information */}
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Calendar size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                <div className="space-y-3.5 text-aquora-foreground">
+                  <div className="flex items-start gap-2.5">
+                    <Calendar size={13} className="text-aquora-green-light shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground">
+                      <h4 className="text-[11px] font-semibold uppercase tracking-wider text-aquora-foreground">
                         Morning Batches
                       </h4>
-                      <p className="text-[11px] text-aquora-muted">Monday – Saturday</p>
-                      <div className="flex flex-col gap-1.5 mt-1.5 font-mono text-xs text-aquora-gold-light">
-                        <span className="px-3 py-1 glass-card-inner rounded-lg w-fit">06:00 AM – 07:00 AM</span>
-                        <span className="px-3 py-1 glass-card-inner rounded-lg w-fit">07:00 AM – 08:00 AM</span>
+                      <p className="text-[10px] text-aquora-muted font-light">Monday – Saturday</p>
+                      <div className="flex flex-col gap-1 mt-1.5 font-mono text-[11px]">
+                        <span className="px-2.5 py-1 batch-chip rounded-md w-fit">06:00 AM – 07:00 AM</span>
+                        <span className="px-2.5 py-1 batch-chip rounded-md w-fit">07:00 AM – 08:00 AM</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 pt-3 border-t border-aquora-gold/15">
-                    <Clock size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 pt-2.5 border-t dark:border-white/5 border-black/[0.06]">
+                    <Clock size={13} className="text-aquora-green-light shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground">
+                      <h4 className="text-[11px] font-semibold uppercase tracking-wider text-aquora-foreground">
                         Exclusive Ladies Batch
                       </h4>
-                      <p className="text-[11px] text-aquora-muted">Monday – Saturday</p>
-                      <p className="text-xs text-aquora-gold-light font-mono mt-1.5 px-3 py-1 glass-card-inner rounded-lg w-fit">09:00 AM – 10:00 AM</p>
+                      <p className="text-[10px] text-aquora-muted font-light">Monday – Saturday</p>
+                      <p className="text-[11px] font-mono mt-1.5 px-2.5 py-1 batch-chip rounded-md w-fit">
+                        09:00 AM – 10:00 AM
+                      </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 pt-3 border-t border-aquora-gold/15">
-                    <Clock size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 pt-2.5 border-t dark:border-white/5 border-black/[0.06]">
+                    <Clock size={13} className="text-aquora-green-light shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground">
+                      <h4 className="text-[11px] font-semibold uppercase tracking-wider text-aquora-foreground">
                         Evening Batch
                       </h4>
-                      <p className="text-[11px] text-aquora-muted">Monday – Saturday</p>
-                      <p className="text-xs text-aquora-gold-light font-mono mt-1.5 px-3 py-1 glass-card-inner rounded-lg w-fit">07:30 PM – 08:30 PM</p>
+                      <p className="text-[10px] text-aquora-muted font-light">Monday – Saturday</p>
+                      <p className="text-[11px] font-mono mt-1.5 px-2.5 py-1 batch-chip rounded-md w-fit">
+                        07:30 PM – 08:30 PM
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -158,8 +153,8 @@ export function Classes() {
 
             {/* Bottom Card Action */}
             <div className="p-7 sm:p-9 pt-0">
-              <Button asChild variant="outline" size="sm" className="w-full tracking-[0.18em] text-[11px] rounded-full">
-                <a href="#trial">
+              <Button asChild variant="outline" size="sm" className="w-full tracking-[0.18em] text-[11px] rounded-full border-aquora-green/30 text-aquora-green-light hover:bg-aquora-green/20 hover:border-aquora-green hover:text-white">
+                <a href="#contact">
                   ENQUIRE FOR YOGA
                 </a>
               </Button>
@@ -167,87 +162,92 @@ export function Classes() {
           </motion.div>
 
           {/* ============================================================ */}
-          {/* 2. WESTERN DANCE — For Passion (Female Dancer) */}
+          {/* 2. WESTERN DANCE — Movement & Expression (Purple Highlight) */}
           {/* ============================================================ */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUpVariant}
-            className="group relative flex flex-col justify-between glass-panel-dark transition-all duration-500 rounded-3xl overflow-hidden"
+            className="group relative flex flex-col justify-between rounded-3xl overflow-hidden glass-panel-dark transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(125,76,141,0.3)] border border-aquora-purple/20 hover:border-aquora-purple/50"
           >
-            {/* Corner Bracket Accents matching reference */}
-            <div className="absolute top-3 left-3 w-3.5 h-3.5 border-t border-l border-aquora-gold/30 pointer-events-none z-20" />
-            <div className="absolute top-3 right-3 w-3.5 h-3.5 border-t border-r border-aquora-gold/30 pointer-events-none z-20" />
+            {/* Corner Decorative Accents */}
+            <div className="absolute top-3 left-3 w-3 h-3 border-t border-l border-aquora-purple/40 pointer-events-none z-20" />
+            <div className="absolute top-3 right-3 w-3 h-3 border-t border-r border-aquora-purple/40 pointer-events-none z-20" />
 
             <div>
-              {/* Image Area with Realistic Female Western Dancer */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-aquora-black/50">
+              {/* Large Imagery with Subtle Movement on Hover */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-aquora-surface">
                 <Image 
-                  src="/assets/aquora-dance-photo.png" 
-                  alt="AQUORA Western Dance - Female dancer in dynamic pose" 
+                  src="/assets/aquora_dance_men.jpg" 
+                  alt="AQUORA Western Dance - Dynamic contemporary movement" 
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-aquora-surface-card via-aquora-surface-card/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t dark:from-[#141414] dark:via-[#141414]/40 from-black/55 via-black/20 to-transparent" />
                 
-                {/* Program Tag Overlay */}
+                {/* Floating Discipline Badge */}
                 <div className="absolute top-4 left-4 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 backdrop-blur-md border border-aquora-purple/40 text-[10px] uppercase tracking-[0.25em] text-aquora-purple-light font-medium shadow-sm rounded-full">
-                    <Sparkles size={10} className="text-aquora-purple-light" />
-                    Kinetic Rhythm
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 dark:bg-[#101010]/85 bg-black/60 backdrop-blur-md border border-aquora-purple/30 text-[10px] uppercase tracking-[0.25em] text-aquora-purple-light font-semibold shadow-xs rounded-full">
+                    <Sparkles size={11} className="text-aquora-purple-light" />
+                    Movement &amp; Passion
                   </span>
                 </div>
               </div>
 
-              {/* Panel Content */}
-              <div className="p-7 sm:p-9">
-                <div className="mb-6">
-                  <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-aquora-purple-light block mb-1.5">
-                    PROGRAM 02
+              {/* Glass Information Overlay */}
+              <div className="p-7 sm:p-9 -mt-16 relative z-10 mx-3 mb-3 glass-card-info rounded-2xl transition-all duration-500 hover:border-aquora-purple/40">
+                <div className="mb-4">
+                  <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-aquora-purple-light block mb-1">
+                    DISCIPLINE 02
                   </span>
-                  <h3 className="font-serif text-3xl sm:text-4xl text-aquora-foreground tracking-wide group-hover:text-aquora-gold transition-colors duration-300">
-                    WESTERN DANCE
-                  </h3>
-                  <p className="font-serif italic text-aquora-gold text-base">
-                    For Passion
+                  <div className="flex items-baseline justify-between">
+                    <h3 className="font-serif text-3xl sm:text-4xl text-aquora-foreground tracking-tight group-hover:translate-x-1 transition-transform duration-300">
+                      WESTERN DANCE
+                    </h3>
+                    <ArrowUpRight size={18} className="text-aquora-muted group-hover:text-aquora-purple-light transition-colors" />
+                  </div>
+                  <p className="font-serif italic text-aquora-purple-light/90 text-base">
+                    Movement &amp; Expression
                   </p>
                 </div>
 
-                <p className="text-aquora-muted text-xs sm:text-sm font-light leading-relaxed mb-6">
-                  Ignite your passion, rhythm, and stage confidence with contemporary, hip-hop, and dynamic modern choreography for all ages.
+                <p className="text-aquora-muted text-xs sm:text-sm font-light leading-relaxed mb-5">
+                  Ignite your rhythm, musicality, and stage confidence through contemporary choreography, hip-hop, and modern movement.
                 </p>
 
-                {/* Fine Gold Separator */}
-                <div className="w-full h-[1px] bg-aquora-gold/20 mb-6" />
+                {/* Animated Purple Line appearing on hover */}
+                <div className="w-12 group-hover:w-full h-[1px] bg-aquora-purple transition-all duration-500 mb-5" />
 
                 {/* Approved Batch Information */}
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Calendar size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                <div className="space-y-3.5 text-aquora-foreground">
+                  <div className="flex items-start gap-2.5">
+                    <Calendar size={13} className="text-aquora-purple-light shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground">
+                      <h4 className="text-[11px] font-semibold uppercase tracking-wider text-aquora-foreground">
                         Schedule Days
                       </h4>
-                      <p className="text-xs text-aquora-foreground/80 font-medium mt-0.5">Monday | Wednesday | Friday</p>
+                      <p className="text-xs text-aquora-beige font-medium mt-0.5">
+                        Monday | Wednesday | Friday
+                      </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 pt-3 border-t border-aquora-gold/15">
-                    <Clock size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 pt-2.5 border-t dark:border-white/5 border-black/[0.06]">
+                    <Clock size={13} className="text-aquora-purple-light shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground mb-2">
+                      <h4 className="text-[11px] font-semibold uppercase tracking-wider text-aquora-foreground mb-1.5">
                         Available Batches
                       </h4>
-                      <div className="space-y-1.5 font-mono text-xs text-aquora-gold-light">
-                        <div className="px-3 py-1 glass-card-inner rounded-lg w-fit">
+                      <div className="space-y-1 font-mono text-[11px] text-aquora-foreground font-medium">
+                        <div className="px-2.5 py-1 batch-chip rounded-md w-fit">
                           04:00 PM – 05:00 PM
                         </div>
-                        <div className="px-3 py-1 glass-card-inner rounded-lg w-fit">
+                        <div className="px-2.5 py-1 batch-chip rounded-md w-fit">
                           05:00 PM – 06:00 PM
                         </div>
-                        <div className="px-3 py-1 glass-card-inner rounded-lg w-fit">
+                        <div className="px-2.5 py-1 batch-chip rounded-md w-fit">
                           06:00 PM – 07:00 PM
                         </div>
                       </div>
@@ -259,8 +259,8 @@ export function Classes() {
 
             {/* Bottom Card Action */}
             <div className="p-7 sm:p-9 pt-0">
-              <Button asChild variant="outline" size="sm" className="w-full tracking-[0.18em] text-[11px] rounded-full">
-                <a href="#trial">
+              <Button asChild variant="outline" size="sm" className="w-full tracking-[0.18em] text-[11px] rounded-full border-aquora-purple/30 text-aquora-purple-light hover:bg-aquora-purple/20 hover:border-aquora-purple hover:text-white">
+                <a href="#contact">
                   ENQUIRE FOR WESTERN DANCE
                 </a>
               </Button>
@@ -268,87 +268,92 @@ export function Classes() {
           </motion.div>
 
           {/* ============================================================ */}
-          {/* 3. BHARATANATYAM — For Tradition (Classical Dancer) */}
+          {/* 3. BHARATANATYAM — Tradition & Grace (Beige/Gold Highlight) */}
           {/* ============================================================ */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={fadeUpVariant}
-            className="group relative flex flex-col justify-between glass-panel-dark transition-all duration-500 rounded-3xl overflow-hidden"
+            className="group relative flex flex-col justify-between rounded-3xl overflow-hidden glass-panel-dark transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(212,175,55,0.3)] border border-aquora-beige/20 hover:border-aquora-beige/50"
           >
-            {/* Corner Bracket Accents matching reference */}
-            <div className="absolute top-3 left-3 w-3.5 h-3.5 border-t border-l border-aquora-gold/30 pointer-events-none z-20" />
-            <div className="absolute top-3 right-3 w-3.5 h-3.5 border-t border-r border-aquora-gold/30 pointer-events-none z-20" />
+            {/* Corner Decorative Accents */}
+            <div className="absolute top-3 left-3 w-3 h-3 border-t border-l border-aquora-beige/40 pointer-events-none z-20" />
+            <div className="absolute top-3 right-3 w-3 h-3 border-t border-r border-aquora-beige/40 pointer-events-none z-20" />
 
             <div>
-              {/* Image Area with Realistic Classical Bharatanatyam Dancer */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-aquora-black/50">
+              {/* Large Imagery with Subtle Movement on Hover */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-aquora-surface">
                 <Image 
-                  src="/assets/aquora-bharatanatyam-photo.png" 
-                  alt="AQUORA Bharatanatyam - Classical Indian dancer in traditional costume" 
+                  src="/assets/aquora_bharatanatyam_light.jpg" 
+                  alt="AQUORA Bharatanatyam - Classical Indian dance artistry" 
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-85"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-aquora-surface-card via-aquora-surface-card/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t dark:from-[#141414] dark:via-[#141414]/40 from-black/55 via-black/20 to-transparent" />
                 
-                {/* Program Tag Overlay */}
+                {/* Floating Discipline Badge */}
                 <div className="absolute top-4 left-4 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/60 backdrop-blur-md border border-aquora-gold/40 text-[10px] uppercase tracking-[0.25em] text-aquora-gold font-medium shadow-sm rounded-full">
-                    <Sparkles size={10} className="text-aquora-gold" />
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 dark:bg-[#101010]/85 bg-black/60 backdrop-blur-md border border-aquora-beige/30 text-[10px] uppercase tracking-[0.25em] text-aquora-beige font-semibold shadow-xs rounded-full">
+                    <Sparkles size={11} className="text-aquora-beige" />
                     Classical Heritage
                   </span>
                 </div>
               </div>
 
-              {/* Panel Content */}
-              <div className="p-7 sm:p-9">
-                <div className="mb-6">
-                  <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-aquora-gold block mb-1.5">
-                    PROGRAM 03
+              {/* Glass Information Overlay */}
+              <div className="p-7 sm:p-9 -mt-16 relative z-10 mx-3 mb-3 glass-card-info rounded-2xl transition-all duration-500 hover:border-aquora-beige/40">
+                <div className="mb-4">
+                  <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-aquora-beige block mb-1">
+                    DISCIPLINE 03
                   </span>
-                  <h3 className="font-serif text-3xl sm:text-4xl text-aquora-foreground tracking-wide group-hover:text-aquora-gold transition-colors duration-300">
-                    BHARATANATYAM
-                  </h3>
-                  <p className="font-serif italic text-aquora-gold text-base">
-                    For Tradition
+                  <div className="flex items-baseline justify-between">
+                    <h3 className="font-serif text-3xl sm:text-4xl text-aquora-foreground tracking-tight group-hover:translate-x-1 transition-transform duration-300">
+                      BHARATANATYAM
+                    </h3>
+                    <ArrowUpRight size={18} className="text-aquora-muted group-hover:text-aquora-beige transition-colors" />
+                  </div>
+                  <p className="font-serif italic text-aquora-beige/90 text-base">
+                    Tradition &amp; Grace
                   </p>
                 </div>
 
-                <p className="text-aquora-muted text-xs sm:text-sm font-light leading-relaxed mb-6">
-                  Master the sacred grammar of Indian classical dance—from precise aramandi footwork and mudras to storytelling abhinaya.
+                <p className="text-aquora-muted text-xs sm:text-sm font-light leading-relaxed mb-5">
+                  Master the sacred geometry of Indian classical dance—from grounded aramandi footwork and mudras to expressive abhinaya.
                 </p>
 
-                {/* Fine Gold Separator */}
-                <div className="w-full h-[1px] bg-aquora-gold/20 mb-6" />
+                {/* Animated Gold/Beige Line appearing on hover */}
+                <div className="w-12 group-hover:w-full h-[1px] bg-aquora-beige transition-all duration-500 mb-5" />
 
                 {/* Approved Batch Information */}
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Calendar size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                <div className="space-y-3.5 text-aquora-foreground">
+                  <div className="flex items-start gap-2.5">
+                    <Calendar size={13} className="text-aquora-beige shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground">
+                      <h4 className="text-[11px] font-semibold uppercase tracking-wider text-aquora-foreground">
                         Schedule Days
                       </h4>
-                      <p className="text-xs text-aquora-foreground/80 font-medium mt-0.5">Tuesday | Thursday | Saturday</p>
+                      <p className="text-xs text-aquora-beige font-medium mt-0.5">
+                        Tuesday | Thursday | Saturday
+                      </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 pt-3 border-t border-aquora-gold/15">
-                    <Clock size={14} className="text-aquora-gold shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 pt-2.5 border-t dark:border-white/5 border-black/[0.06]">
+                    <Clock size={13} className="text-aquora-beige shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-xs font-semibold uppercase tracking-wider text-aquora-foreground mb-2">
+                      <h4 className="text-[11px] font-semibold uppercase tracking-wider text-aquora-foreground mb-1.5">
                         Available Batches
                       </h4>
-                      <div className="space-y-1.5 font-mono text-xs text-aquora-gold-light">
-                        <div className="px-3 py-1 glass-card-inner rounded-lg w-fit">
+                      <div className="space-y-1 font-mono text-[11px] text-aquora-foreground font-medium">
+                        <div className="px-2.5 py-1 batch-chip rounded-md w-fit">
                           04:00 PM – 05:00 PM
                         </div>
-                        <div className="px-3 py-1 glass-card-inner rounded-lg w-fit">
+                        <div className="px-2.5 py-1 batch-chip rounded-md w-fit">
                           05:00 PM – 06:00 PM
                         </div>
-                        <div className="px-3 py-1 glass-card-inner rounded-lg w-fit">
+                        <div className="px-2.5 py-1 batch-chip rounded-md w-fit">
                           06:00 PM – 07:00 PM
                         </div>
                       </div>
@@ -360,8 +365,8 @@ export function Classes() {
 
             {/* Bottom Card Action */}
             <div className="p-7 sm:p-9 pt-0">
-              <Button asChild variant="outline" size="sm" className="w-full tracking-[0.18em] text-[11px] rounded-full">
-                <a href="#trial">
+              <Button asChild variant="outline" size="sm" className="w-full tracking-[0.18em] text-[11px] rounded-full border-aquora-beige/30 text-aquora-beige hover:bg-aquora-beige/20 hover:border-aquora-beige hover:text-white">
+                <a href="#contact">
                   ENQUIRE FOR BHARATANATYAM
                 </a>
               </Button>

@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { Clock, Calendar } from "lucide-react";
+import { Clock, Calendar, Navigation } from "lucide-react";
+
+const DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("No. 3/1, 1st Floor, SkyPool Fitness Studio Building, 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, J.P. Nagar, Bengaluru - 560078, Karnataka, India")}`;
 
 type Category = "ALL" | "YOGA" | "WESTERN DANCE" | "BHARATANATYAM";
 
@@ -16,6 +18,7 @@ interface ScheduleItem {
   days: string;
   times: string[];
   accentColor: string;
+  badgeBorder: string;
 }
 
 const SCHEDULE_DATA: ScheduleItem[] = [
@@ -27,6 +30,7 @@ const SCHEDULE_DATA: ScheduleItem[] = [
     days: "Monday – Saturday",
     times: ["06:00 AM – 07:00 AM", "07:00 AM – 08:00 AM"],
     accentColor: "text-aquora-green-light",
+    badgeBorder: "border-aquora-green/30 bg-aquora-green/15 text-aquora-green-light",
   },
   {
     id: "yoga-ladies",
@@ -36,6 +40,7 @@ const SCHEDULE_DATA: ScheduleItem[] = [
     days: "Monday – Saturday",
     times: ["09:00 AM – 10:00 AM"],
     accentColor: "text-aquora-green-light",
+    badgeBorder: "border-aquora-green/30 bg-aquora-green/15 text-aquora-green-light",
   },
   {
     id: "yoga-evening",
@@ -45,6 +50,7 @@ const SCHEDULE_DATA: ScheduleItem[] = [
     days: "Monday – Saturday",
     times: ["07:30 PM – 08:30 PM"],
     accentColor: "text-aquora-green-light",
+    badgeBorder: "border-aquora-green/30 bg-aquora-green/15 text-aquora-green-light",
   },
   {
     id: "dance-western",
@@ -54,6 +60,7 @@ const SCHEDULE_DATA: ScheduleItem[] = [
     days: "Monday | Wednesday | Friday",
     times: ["04:00 PM – 05:00 PM", "05:00 PM – 06:00 PM", "06:00 PM – 07:00 PM"],
     accentColor: "text-aquora-purple-light",
+    badgeBorder: "border-aquora-purple/30 bg-aquora-purple/15 text-aquora-purple-light",
   },
   {
     id: "dance-bharatanatyam",
@@ -62,7 +69,8 @@ const SCHEDULE_DATA: ScheduleItem[] = [
     badge: "For Tradition",
     days: "Tuesday | Thursday | Saturday",
     times: ["04:00 PM – 05:00 PM", "05:00 PM – 06:00 PM", "06:00 PM – 07:00 PM"],
-    accentColor: "text-aquora-gold",
+    accentColor: "text-aquora-beige",
+    badgeBorder: "border-aquora-beige/30 bg-aquora-beige/15 text-aquora-beige",
   },
 ];
 
@@ -75,37 +83,53 @@ export function Schedule() {
     (item) => activeFilter === "ALL" || item.category === activeFilter
   );
 
+  const fadeUpVariant: Variants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.7, ease: "easeOut" }
+    }
+  };
+
   return (
-    <section id="schedule" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground border-b border-aquora-gold/20 relative overflow-hidden">
-      {/* Subtle ambient lighting visible through glass */}
-      <div className="absolute top-1/3 -left-20 w-[500px] h-[500px] rounded-full bg-aquora-purple/8 blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] rounded-full bg-aquora-green/8 blur-[160px] pointer-events-none" />
+    <section id="schedule" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground border-b border-aquora-border relative overflow-hidden">
+      {/* Background atmospheric glows */}
+      <div className="absolute top-1/3 -left-20 w-[550px] h-[550px] rounded-full bg-aquora-purple/10 blur-[170px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-[550px] h-[550px] rounded-full bg-aquora-green/10 blur-[170px] pointer-events-none" />
 
       <Container className="relative z-10">
+        
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-gold mb-3 block">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={fadeUpVariant}
+          className="text-center max-w-3xl mx-auto mb-14 md:mb-18"
+        >
+          <span className="text-[11px] uppercase tracking-[0.35em] font-medium text-aquora-beige-muted block mb-3">
             Weekly Timetable
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-aquora-foreground mb-4 tracking-wide">
-            CLASS SCHEDULE
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-aquora-foreground tracking-tight mb-4">
+            YOUR WEEK. YOUR MOVEMENT.
           </h2>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-aquora-gold to-transparent mx-auto mb-6" />
-          <p className="text-aquora-muted text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
-            Plan your dedicated practice across morning, afternoon, and evening sessions.
+          <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-aquora-beige to-transparent mx-auto mb-6" />
+          <p className="text-aquora-foreground/75 text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed">
+            Thoughtfully structured morning, afternoon, and evening sessions in our architectural JP Nagar studio.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Filter Navigation Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-16">
+        {/* Filter Navigation Glass Tabs */}
+        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3.5 mb-16">
           {FILTERS.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2.5 rounded-full text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 cursor-pointer ${
+              className={`px-6 py-2.5 rounded-full text-xs uppercase tracking-[0.22em] font-semibold transition-all duration-300 cursor-pointer ${
                 activeFilter === filter
-                  ? "bg-aquora-gold text-aquora-black shadow-[0_0_20px_rgba(212,175,55,0.3)] border border-aquora-gold font-semibold"
-                  : "glass-card-inner rounded-full text-aquora-foreground/80 hover:border-aquora-gold/50 hover:text-aquora-gold-light"
+                  ? "bg-aquora-beige text-aquora-black shadow-[0_8px_25px_rgba(232,213,181,0.3)] scale-[1.02]"
+                  : "glass-pill-dark text-aquora-muted hover:text-aquora-beige hover:border-aquora-beige/40"
               }`}
             >
               {filter}
@@ -113,39 +137,43 @@ export function Schedule() {
           ))}
         </div>
 
-        {/* Desktop Editorial Table Layout */}
-        <div className="hidden lg:block max-w-5xl mx-auto mb-16 glass-panel-dark rounded-3xl overflow-hidden">
-          <div className="grid grid-cols-12 bg-white/[0.03] backdrop-blur-sm border-b border-white/10 py-4 px-8 text-[11px] uppercase tracking-[0.25em] font-semibold text-aquora-gold">
-            <div className="col-span-4">Program &amp; Focus</div>
-            <div className="col-span-4">Weekly Schedule</div>
-            <div className="col-span-4">Timings / Batches</div>
+        {/* Desktop Editorial Horizontal Schedule Table */}
+        <div className="hidden lg:block max-w-5xl mx-auto mb-16 glass-panel-dark rounded-3xl overflow-hidden border border-aquora-border shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+          {/* Table Header */}
+          <div className="grid grid-cols-12 dark:bg-white/5 bg-black/[0.03] backdrop-blur-md border-b border-aquora-border py-4.5 px-8 text-[11px] uppercase tracking-[0.25em] font-semibold text-aquora-beige">
+            <div className="col-span-5">Program &amp; Focus</div>
+            <div className="col-span-3">Days</div>
+            <div className="col-span-4">Batch Timings</div>
           </div>
 
-          <div className="divide-y divide-white/5">
+          {/* Table Rows */}
+          <div className="divide-y divide-aquora-border">
             {filteredSchedule.map((item) => (
               <div 
                 key={item.id} 
-                className="grid grid-cols-12 items-center py-6 px-8 hover:bg-white/[0.04] transition-colors"
+                className="grid grid-cols-12 items-center py-6 px-8 dark:hover:bg-white/5 hover:bg-black/[0.02] transition-colors group"
               >
-                <div className="col-span-4 pr-4">
-                  <span className={`text-[10px] uppercase tracking-wider block mb-1 font-medium ${item.accentColor}`}>
+                <div className="col-span-5 pr-4">
+                  <span className={`text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border inline-block mb-1.5 font-medium ${item.badgeBorder}`}>
                     {item.badge}
                   </span>
-                  <h3 className="font-serif text-lg text-aquora-foreground font-normal">
+                  <h3 className="font-serif text-xl text-aquora-foreground font-normal group-hover:text-aquora-beige transition-colors">
                     {item.name}
                   </h3>
                 </div>
 
-                <div className="col-span-4 flex items-center gap-2.5 text-sm text-aquora-foreground/80 font-light">
+                <div className="col-span-3 flex items-center gap-2.5 text-xs text-aquora-foreground/80 font-light">
                   <Calendar size={14} className="text-aquora-gold shrink-0" />
                   <span>{item.days}</span>
                 </div>
 
-                <div className="col-span-4 space-y-1.5 font-mono text-xs text-aquora-gold-light">
+                <div className="col-span-4 space-y-1.5 font-mono text-xs text-aquora-foreground">
                   {item.times.map((t, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <Clock size={12} className="text-aquora-gold/70 shrink-0" />
-                      <span>{t}</span>
+                      <Clock size={12} className="text-aquora-gold shrink-0" />
+                      <span className="px-2.5 py-1 dark:bg-white/5 bg-black/[0.04] dark:border-white/10 border-black/[0.08] rounded-md font-medium">
+                        {t}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -154,7 +182,7 @@ export function Schedule() {
           </div>
         </div>
 
-        {/* Mobile / Tablet Stacked Schedule Cards */}
+        {/* Mobile / Tablet Stacked Glass Schedule Cards */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-5 mb-16">
           <AnimatePresence>
             {filteredSchedule.map((item) => (
@@ -165,34 +193,34 @@ export function Schedule() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.3 }}
-                className="p-6 glass-panel-dark rounded-2xl hover:border-aquora-gold/50 transition-colors"
+                className="p-6 sm:p-7 glass-panel-dark rounded-3xl border border-aquora-border shadow-sm hover:border-aquora-beige/30 transition-all"
               >
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className={`text-[10px] uppercase tracking-[0.25em] font-medium ${item.accentColor}`}>
+                  <span className={`text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border font-medium ${item.badgeBorder}`}>
                     {item.badge}
                   </span>
-                  <span className="text-[10px] uppercase tracking-wider text-aquora-muted">
+                  <span className="text-[10px] uppercase tracking-wider text-aquora-muted font-medium">
                     {item.category}
                   </span>
                 </div>
 
-                <h3 className="font-serif text-xl text-aquora-foreground mb-3 font-normal">
+                <h3 className="font-serif text-2xl text-aquora-foreground mb-3 font-normal">
                   {item.name}
                 </h3>
 
-                <div className="flex items-center gap-2 text-xs text-aquora-foreground/80 mb-4 pb-3 border-b border-white/10 font-light">
+                <div className="flex items-center gap-2 text-xs text-aquora-foreground/80 mb-4 pb-3 border-b border-aquora-border font-light">
                   <Calendar size={13} className="text-aquora-gold shrink-0" />
                   <span>{item.days}</span>
                 </div>
 
                 <div className="space-y-2">
-                  <span className="text-[10px] uppercase tracking-widest text-aquora-gold font-medium block">
+                  <span className="text-[10px] uppercase tracking-widest text-aquora-beige font-semibold block">
                     Available Batches:
                   </span>
-                  <div className="flex flex-col gap-1.5 font-mono text-xs text-aquora-gold-light">
+                  <div className="flex flex-col gap-1.5 font-mono text-xs text-aquora-foreground">
                     {item.times.map((time, idx) => (
-                      <div key={idx} className="flex items-center gap-2 glass-card-inner px-3 py-1.5 rounded-lg border border-white/10">
-                        <Clock size={12} className="text-aquora-gold/80 shrink-0" />
+                      <div key={idx} className="flex items-center gap-2 dark:bg-white/5 bg-black/[0.04] px-3 py-1.5 rounded-lg border dark:border-white/10 border-black/[0.08]">
+                        <Clock size={12} className="text-aquora-gold shrink-0" />
                         <span>{time}</span>
                       </div>
                     ))}
@@ -204,16 +232,18 @@ export function Schedule() {
         </motion.div>
 
         {/* Action Prompt */}
-        <div className="text-center pt-8 border-t border-aquora-gold/20 max-w-xl mx-auto">
-          <p className="font-serif italic text-lg text-aquora-gold-light mb-5 font-light">
-            Ready to experience a trial class with our instructors?
+        <div className="text-center pt-8 border-t border-aquora-border max-w-xl mx-auto">
+          <p className="font-serif italic text-lg text-aquora-beige mb-5 font-light">
+            Ready to visit our architectural sanctuary in JP Nagar?
           </p>
-          <Button asChild size="md" className="tracking-[0.2em] text-xs">
-            <a href="#trial">
-              BOOK A TRIAL CLASS
+          <Button asChild size="md" variant="primary" className="tracking-[0.22em] text-xs rounded-full">
+            <a href={DIRECTIONS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+              <Navigation size={14} />
+              <span>GET DIRECTIONS</span>
             </a>
           </Button>
         </div>
+
       </Container>
     </section>
   );

@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { MapPin, Phone, MessageCircle } from "lucide-react";
+import { MapPin, Phone, MessageCircle, ArrowUpRight } from "lucide-react";
 
-function InstagramIcon({ size = 14, className = "" }: { size?: number; className?: string }) {
+function InstagramIcon({ size = 15, className = "" }: { size?: number; className?: string }) {
   return (
     <svg
       width={size}
@@ -23,56 +23,97 @@ function InstagramIcon({ size = 14, className = "" }: { size?: number; className
   );
 }
 
+function GithubIcon({ size = 15, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+    </svg>
+  );
+}
+
 export function Footer() {
-  const phoneRaw = "6366007494";
-  const displayPhone = "+91 63660 07494";
+  const phoneRaw = "9164267977";
+  const displayPhone = "+91 91642 67977";
   const whatsappUrl = `https://wa.me/91${phoneRaw}?text=${encodeURIComponent(
-    `Hello Aquora Yoga & Dance Studio,\n\nI would like to enquire about a trial class.\n\nThank you.`
+    `Hello Aquora Yoga & Dance Studio,\n\nI would like to visit the studio and get directions.\n\nThank you.`
   )}`;
 
   return (
-    <footer className="bg-aquora-black text-aquora-foreground pt-20 pb-12 border-t border-aquora-gold/25" aria-label="Site Footer">
-      <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-16">
-          
-          {/* Brand Column */}
-          <div className="flex flex-col items-start space-y-4">
-            <Link href="/" className="inline-flex items-center gap-3.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aquora-gold rounded-sm group">
-              <div className="relative h-11 w-48 shrink-0 flex items-center">
-                <Image
-                  src="/assets/aquora-logo-clean.png"
-                  alt="AQUORA Yoga & Dance Studio"
-                  width={765}
-                  height={177}
-                  className="w-full h-full object-contain object-left group-hover:brightness-110 transition-all duration-300"
-                />
+    <footer className="dark:bg-[#070707] bg-[#F4EFEB] text-aquora-foreground pt-24 pb-14 border-t border-aquora-border relative overflow-hidden" aria-label="Site Footer">
+      {/* Delicate ambient gradients: purple & green */}
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-aquora-green/10 blur-[170px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-aquora-purple/10 blur-[170px] pointer-events-none" />
+
+      <Container className="relative z-10">
+        
+        {/* Large Editorial Headline Section with Generous Whitespace */}
+        <div className="mb-20 pb-16 border-b border-aquora-border">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="relative h-10 w-10 shrink-0">
+                  <Image
+                    src="/assets/aquora-crest-transparent.png"
+                    alt="AQUORA Crest"
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-serif text-2xl tracking-[0.22em] font-semibold text-aquora-beige leading-none">
+                    AQUORA
+                  </span>
+                  <span className="text-[8px] uppercase tracking-[0.3em] text-aquora-muted font-light mt-1">
+                    YOGA &amp; DANCE STUDIO
+                  </span>
+                </div>
               </div>
-            </Link>
-            
-            <p className="font-serif italic text-sm text-aquora-gold-light/90 max-w-[280px] leading-relaxed pt-1">
-              MOVE. BREATHE. TRANSFORM.
-            </p>
-            <p className="text-xs text-aquora-muted font-light max-w-[280px] leading-relaxed">
-              A dedicated sanctuary for mindful movement, creative expression and holistic wellness.
-            </p>
+
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-aquora-foreground tracking-tight">
+                MOVE. BREATHE. <span className="italic font-light gold-gradient-text">TRANSFORM.</span>
+              </h2>
+            </div>
+
+            <div className="max-w-xs">
+              <p className="text-xs sm:text-sm text-aquora-muted font-light leading-relaxed">
+                An architectural sanctuary in JP Nagar, Bengaluru dedicated to conscious movement, expressive dance, and classical heritage.
+              </p>
+            </div>
           </div>
+        </div>
+
+        {/* Navigation Columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
           
-          {/* Quick Links */}
+          {/* Navigation */}
           <div className="flex flex-col items-start">
-            <h3 className="font-serif text-lg mb-5 text-aquora-gold tracking-wider">Explore</h3>
-            <nav aria-label="Footer Navigation" className="flex flex-col space-y-2.5 items-start">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-aquora-beige mb-5 block">
+              Navigation
+            </span>
+            <nav aria-label="Footer Navigation" className="flex flex-col space-y-3 items-start">
               {[
                 { name: 'Home', href: '/' },
-                { name: 'About', href: '#about' },
-                { name: 'Classes', href: '#classes' },
-                { name: 'Schedule', href: '#schedule' },
-                { name: 'The Studio', href: '#studio' },
-                { name: 'Visit & Contact', href: '#contact' }
+                { name: 'About Philosophy', href: '#about' },
+                { name: 'Disciplines & Classes', href: '#classes' },
+                { name: 'Weekly Schedule', href: '#schedule' },
+                { name: 'The Sanctuary Studio', href: '#studio' },
+                { name: 'Visit & Enquire', href: '#contact' }
               ].map((item) => (
                 <Link 
                   key={item.name} 
                   href={item.href}
-                  className="text-xs tracking-wider uppercase text-aquora-muted hover:text-aquora-gold-light transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-aquora-gold rounded-sm py-0.5"
+                  className="text-xs tracking-wider uppercase text-aquora-foreground/75 hover:text-aquora-beige transition-colors py-0.5"
                 >
                   {item.name}
                 </Link>
@@ -80,49 +121,45 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Classes Column */}
+          {/* Classes */}
           <div className="flex flex-col items-start">
-            <h3 className="font-serif text-lg mb-5 text-aquora-gold tracking-wider">Classes</h3>
-            <div className="flex flex-col space-y-2.5 text-xs text-aquora-muted">
-              <a href="#classes" className="hover:text-aquora-gold-light transition-colors">
-                Yoga (For Body &amp; Mind)
+            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-aquora-beige mb-5 block">
+              Classes
+            </span>
+            <div className="flex flex-col space-y-3 text-xs text-aquora-foreground/75">
+              <a href="#classes" className="hover:text-aquora-green-light transition-colors">
+                Yoga — Body &amp; Mind
               </a>
-              <a href="#classes" className="hover:text-aquora-gold-light transition-colors">
-                Western Dance (For Passion)
+              <a href="#classes" className="hover:text-aquora-purple-light transition-colors">
+                Western Dance — Passion
               </a>
-              <a href="#classes" className="hover:text-aquora-gold-light transition-colors">
-                Bharatanatyam (For Tradition)
+              <a href="#classes" className="hover:text-aquora-beige transition-colors">
+                Bharatanatyam — Tradition
               </a>
-              <div className="pt-3 border-t border-aquora-gold/15 mt-2">
-                <span className="text-[10px] uppercase tracking-widest text-aquora-gold block mb-1">
-                  Connect on Social
-                </span>
-                <a 
-                  href="https://instagram.com/aquora.studio" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs text-aquora-foreground hover:text-aquora-purple-light transition-colors font-medium"
-                >
-                  <InstagramIcon size={14} className="text-aquora-purple-light" />
-                  <span>aquora.studio</span>
-                </a>
-              </div>
+              <a href="#classes" className="hover:text-white transition-colors">
+                Exclusive Ladies Batches
+              </a>
+              <a href="#classes" className="hover:text-white transition-colors">
+                All Age Groups Welcome
+              </a>
             </div>
           </div>
 
-          {/* Contact & Location */}
+          {/* Contact */}
           <div className="flex flex-col items-start">
-            <h3 className="font-serif text-lg mb-5 text-aquora-gold tracking-wider">Contact</h3>
-            <address className="not-italic text-xs text-aquora-muted space-y-3 flex flex-col items-start leading-relaxed">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-aquora-beige mb-5 block">
+              Contact
+            </span>
+            <address className="not-italic text-xs text-aquora-muted space-y-3.5 flex flex-col items-start leading-relaxed">
               <div className="flex items-start gap-2.5 max-w-[280px]">
-                <MapPin className="w-4 h-4 text-aquora-gold shrink-0 mt-0.5" aria-hidden="true" />
+                <MapPin className="w-4 h-4 text-aquora-beige shrink-0 mt-0.5" aria-hidden="true" />
                 <p>
-                  No. 3/1, 1st Floor, SkyPool Fitness Studio Building, 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, J.P. Nagar, Bengaluru - 560078, Karnataka, India
+                  No. 3/1, 1st Floor, SkyPool Fitness Studio Building, 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, J.P. Nagar, Bengaluru - 560078
                 </p>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-aquora-gold shrink-0" aria-hidden="true" />
-                <a href={`tel:+91${phoneRaw}`} className="hover:text-aquora-gold-light transition-colors font-mono">
+                <Phone className="w-4 h-4 text-aquora-beige shrink-0" aria-hidden="true" />
+                <a href={`tel:+91${phoneRaw}`} className="text-aquora-foreground hover:text-aquora-beige transition-colors font-medium">
                   {phoneRaw}
                 </a>
               </div>
@@ -132,8 +169,7 @@ export function Footer() {
                   href={whatsappUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="hover:text-aquora-green-light transition-colors"
-                  aria-label="Message on WhatsApp"
+                  className="text-aquora-foreground hover:text-aquora-green-light transition-colors font-medium"
                 >
                   WhatsApp: {displayPhone}
                 </a>
@@ -141,15 +177,50 @@ export function Footer() {
             </address>
           </div>
 
+          {/* Instagram Social */}
+          <div className="flex flex-col items-start">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-aquora-beige mb-5 block">
+              Community
+            </span>
+            <p className="text-xs text-aquora-muted font-light mb-4">
+              Follow our daily movement practice and behind-the-scenes moments:
+            </p>
+            <div className="flex flex-col gap-2.5 w-full">
+              <a 
+                href="https://instagram.com/aquorastudio" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full glass-panel-dark border border-aquora-border text-xs text-aquora-beige hover:text-aquora-purple-light hover:border-aquora-purple/50 transition-all group"
+              >
+                <InstagramIcon size={15} className="text-aquora-purple-light" />
+                <span className="font-semibold tracking-wider">@aquorastudio</span>
+                <ArrowUpRight size={13} className="text-aquora-muted group-hover:translate-x-0.5 transition-transform" />
+              </a>
+              <a 
+                href="https://github.com/BharathSAdiga/Aquoradancenyoga" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full glass-panel-dark border border-aquora-border text-xs text-aquora-muted hover:text-aquora-foreground hover:border-aquora-beige/50 transition-all group"
+              >
+                <GithubIcon size={15} className="text-aquora-muted group-hover:text-aquora-foreground" />
+                <span className="font-medium tracking-wider">Aquoradancenyoga</span>
+                <ArrowUpRight size={13} className="text-aquora-muted group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            </div>
+          </div>
+
         </div>
         
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-aquora-gold/20 flex flex-col sm:flex-row justify-between items-center gap-3 text-[11px] text-aquora-muted/70">
+        {/* Minimal Luxury Bottom Bar */}
+        <div className="pt-8 border-t border-aquora-border flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-aquora-muted">
           <p>&copy; {new Date().getFullYear()} AQUORA YOGA &amp; DANCE STUDIO. All rights reserved.</p>
-          <p className="text-aquora-gold/80 tracking-widest uppercase text-[10px]">
-            JP NAGAR • BENGALURU
-          </p>
+          <div className="flex items-center gap-6">
+            <span className="text-aquora-beige font-medium tracking-widest uppercase text-[10px]">
+              JP NAGAR 7TH PHASE • BENGALURU
+            </span>
+          </div>
         </div>
+
       </Container>
     </footer>
   );

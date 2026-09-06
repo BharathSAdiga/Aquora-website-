@@ -1,192 +1,172 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { Wind, ShieldCheck, Users, Sparkles } from "lucide-react";
-
-interface StudioImage {
-  id: string;
-  title: string;
-  src: string;
-  alt: string;
-}
-
-const STUDIO_IMAGES: StudioImage[] = [
-  { 
-    id: "sanctuary", 
-    title: "Main Sanctuary & Architectural Floor", 
-    src: "/assets/aquora-studio-sanctuary.jpg", 
-    alt: "AQUORA Studio Main Sanctuary Interior" 
-  },
-  { 
-    id: "mirrors", 
-    title: "Full-Length Mirrors & Practice Barre", 
-    src: "/assets/studio-right.jpg", 
-    alt: "AQUORA Studio Mirrors and Barre" 
-  },
-  { 
-    id: "presentation", 
-    title: "Performance & Presentation Floor", 
-    src: "/assets/studio-front.jpg", 
-    alt: "AQUORA Studio Front Presentation Space" 
-  },
-  { 
-    id: "ambient", 
-    title: "Warm Ambient Lighting & Acoustics", 
-    src: "/assets/studio-left.jpg", 
-    alt: "AQUORA Studio Ambient Space" 
-  },
-  { 
-    id: "aerial", 
-    title: "High Ceiling Natural Air Flow Perspective", 
-    src: "/assets/studio-view.jpg", 
-    alt: "AQUORA Studio Practice Perspective" 
-  },
-];
-
-const STUDIO_FEATURES = [
-  {
-    icon: Sparkles,
-    title: "YOGA",
-    subtitle: "For Body & Mind",
-    color: "text-aquora-green-light",
-  },
-  {
-    icon: Sparkles,
-    title: "DANCE",
-    subtitle: "For Passion",
-    color: "text-aquora-purple-light",
-  },
-  {
-    icon: Sparkles,
-    title: "BHARATANATYAM",
-    subtitle: "For Tradition",
-    color: "text-aquora-gold",
-  },
-  {
-    icon: Users,
-    title: "ALL AGE GROUPS",
-    subtitle: "Welcome",
-    color: "text-aquora-gold-light",
-  },
-  {
-    icon: Wind,
-    title: "VENTILATION",
-    subtitle: "Natural Air Flow",
-    color: "text-aquora-gold-light",
-  },
-  {
-    icon: ShieldCheck,
-    title: "SANCTUARY",
-    subtitle: "Safe & Focused",
-    color: "text-aquora-gold-light",
-  },
-];
+import { Users, Sparkles, Sun, ShieldCheck } from "lucide-react";
 
 export function Studio() {
-  const [activeImage, setActiveImage] = useState<StudioImage>(STUDIO_IMAGES[0]);
+  const fadeUpVariant: Variants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.7, ease: "easeOut" }
+    }
+  };
+
+  const OVERLAYS = [
+    {
+      title: "YOGA",
+      subtitle: "For Body & Mind",
+      icon: Sparkles,
+      color: "text-aquora-green-light",
+      borderColor: "border-aquora-green/20 hover:border-aquora-green/50",
+      desc: "Dedicated morning & evening batches for alignment, pranayama & stillness."
+    },
+    {
+      title: "DANCE",
+      subtitle: "For Passion",
+      icon: Sparkles,
+      color: "text-aquora-purple-light",
+      borderColor: "border-aquora-purple/20 hover:border-aquora-purple/50",
+      desc: "Contemporary & western choreography on shock-absorbing engineered timber."
+    },
+    {
+      title: "BHARATANATYAM",
+      subtitle: "For Tradition",
+      icon: Sparkles,
+      color: "text-aquora-beige",
+      borderColor: "border-aquora-beige/20 hover:border-aquora-beige/50",
+      desc: "Authentic classical training, mudras, tala & abhinaya for all levels."
+    },
+    {
+      title: "ALL AGE GROUPS",
+      subtitle: "Welcome",
+      icon: Users,
+      color: "text-white",
+      borderColor: "border-white/10 hover:border-white/30",
+      desc: "Inclusive, encouraging environment welcoming children, youth & adults."
+    },
+  ];
 
   return (
-    <section id="studio" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground overflow-hidden relative border-b border-aquora-gold/20">
-      {/* Ambient lighting behind gallery and cards */}
-      <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] rounded-full bg-aquora-green/10 blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -left-20 w-[500px] h-[500px] rounded-full bg-aquora-gold/8 blur-[160px] pointer-events-none" />
+    <section id="studio" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground overflow-hidden relative border-b border-aquora-border">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/4 -right-20 w-[550px] h-[550px] rounded-full bg-aquora-green/10 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-20 w-[550px] h-[550px] rounded-full bg-aquora-purple/10 blur-[160px] pointer-events-none" />
 
       <Container className="relative z-10">
+        
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-gold mb-3 block">
-            The Sanctuary
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={fadeUpVariant}
+          className="text-center max-w-3xl mx-auto mb-16 md:mb-24"
+        >
+          <span className="text-[11px] uppercase tracking-[0.35em] font-medium text-aquora-beige-muted block mb-3">
+            Sanctuary Architecture
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-aquora-foreground mb-4 tracking-wide">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-aquora-foreground tracking-tight mb-4">
             THE AQUORA SPACE
           </h2>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-aquora-gold to-transparent mx-auto mb-6" />
-          <p className="text-sm md:text-base font-light tracking-wide text-aquora-muted max-w-xl mx-auto leading-relaxed">
-            Crafted for mindful movement, pristine acoustics, natural air flow, and deep focus in JP Nagar.
+          <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-aquora-beige to-transparent mx-auto mb-6" />
+          <p className="text-aquora-foreground/75 text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed">
+            An architectural sanctuary crafted with natural timber floors, expansive mirrors, acoustic isolation, and tranquil lighting in JP Nagar.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Gallery Showcase */}
-        <div className="max-w-5xl mx-auto mb-20 md:mb-28">
-          {/* Main Display Frame */}
-          <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.85)] border border-white/15 mb-5 bg-aquora-black">
+        {/* Large Architectural Centerpiece Display */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={fadeUpVariant}
+          className="relative rounded-3xl overflow-hidden border border-aquora-border shadow-[0_25px_60px_rgba(0,0,0,0.8)] mb-14 bg-aquora-surface group"
+        >
+          {/* Studio Image */}
+          <div className="relative aspect-[16/9] md:aspect-[21/9] w-full">
             <Image
-              src={activeImage.src}
-              alt={activeImage.alt}
+              src="/assets/aquora_studio_interior_light.jpg"
+              alt="The AQUORA Space - Architectural wellness and dance studio interior"
               fill
-              className="object-cover transition-all duration-700 filter contrast-[1.03]"
+              className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.02] opacity-75"
               priority
               sizes="(max-width: 1280px) 100vw, 1200px"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-aquora-black/85 via-transparent to-transparent pointer-events-none" />
+            {/* Subtle dark vignette */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/90 via-transparent to-black/40 pointer-events-none" />
+          </div>
 
-            <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 z-10 p-3.5 sm:p-4 glass-pill-dark rounded-2xl max-w-md">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-aquora-gold font-medium block mb-1">
-                Studio View
-              </span>
-              <p className="text-sm sm:text-lg font-serif text-aquora-foreground font-light">
-                {activeImage.title}
-              </p>
+          {/* Floating Glass Badges directly overlaying image on desktop */}
+          <div className="absolute top-6 left-6 hidden md:flex items-center gap-3 z-10">
+            <div className="px-4 py-2 rounded-full glass-pill-dark text-aquora-beige text-[11px] uppercase tracking-widest font-medium shadow-xs flex items-center gap-2 border border-aquora-border">
+              <Sun size={13} className="text-aquora-gold" />
+              <span>Natural Morning Lighting</span>
+            </div>
+            <div className="px-4 py-2 rounded-full glass-pill-dark text-aquora-beige text-[11px] uppercase tracking-widest font-medium shadow-xs flex items-center gap-2 border border-aquora-border">
+              <ShieldCheck size={13} className="text-aquora-green-light" />
+              <span>Acoustic Isolation &amp; Sprung Floors</span>
             </div>
           </div>
 
-          {/* Editorial Thumbnail Rail */}
-          <div className="grid grid-cols-5 gap-2 sm:gap-4">
-            {STUDIO_IMAGES.map((img) => (
-              <button
-                key={img.id}
-                onClick={() => setActiveImage(img)}
-                className={`relative aspect-[16/10] overflow-hidden rounded-xl border transition-all duration-300 group cursor-pointer ${
-                  activeImage.id === img.id
-                    ? "border-aquora-gold shadow-[0_0_15px_rgba(212,175,55,0.35)] scale-[1.02]" 
-                    : "border-white/10 opacity-60 hover:opacity-100 hover:border-aquora-gold/50"
-                }`}
-                aria-label={`View ${img.title}`}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  sizes="200px"
-                />
-                <div className="absolute inset-0 bg-black/25 group-hover:bg-transparent transition-colors" />
-              </button>
-            ))}
+          {/* Inset Bottom Label */}
+          <div className="absolute bottom-6 left-6 right-6 md:right-auto z-10 p-5 glass-panel-dark rounded-2xl max-w-md shadow-lg border border-aquora-border">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-aquora-gold font-semibold block mb-1">
+              Studio Specification
+            </span>
+            <p className="text-base sm:text-lg font-serif text-aquora-beige font-normal">
+              Main Practice Sanctuary &amp; Dance Floor
+            </p>
+            <p className="text-xs text-aquora-muted font-light mt-1">
+              Engineered timber flooring with joint shock attenuation, full-length mirrors, and natural ventilation.
+            </p>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Feature Highlights Grid */}
-        <div className="pt-14 border-t border-aquora-gold/20 max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 text-center">
-            {STUDIO_FEATURES.map((item, index) => {
-              const IconComp = item.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.07, duration: 0.5 }}
-                  className="p-5 glass-panel-dark rounded-2xl flex flex-col items-center justify-center hover:border-aquora-gold/50 transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-full bg-aquora-gold/15 border border-aquora-gold/30 flex items-center justify-center mb-3 backdrop-blur-sm shadow-sm">
-                    <IconComp size={16} className="text-aquora-gold" />
+        {/* Four Subtle Glass Information Overlays Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {OVERLAYS.map((item, index) => {
+            const IconComp = item.icon;
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08, duration: 0.6 }}
+                className={`p-7 rounded-3xl glass-panel-dark border ${item.borderColor} hover:shadow-[0_20px_45px_rgba(0,0,0,0.6)] transition-all duration-300 flex flex-col justify-between`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-9 h-9 rounded-full dark:bg-white/5 bg-black/[0.04] border dark:border-white/10 border-black/[0.08] flex items-center justify-center shadow-xs">
+                      <IconComp size={15} className={item.color} />
+                    </div>
+                    <span className="text-[10px] font-mono tracking-widest text-aquora-muted">
+                      0{index + 1}
+                    </span>
                   </div>
-                  <h3 className="font-serif text-xs sm:text-sm text-aquora-foreground mb-1 tracking-wider">
+
+                  <h3 className="font-serif text-2xl text-aquora-foreground tracking-wide mb-1 font-normal">
                     {item.title}
                   </h3>
-                  <p className={`text-[10px] sm:text-[11px] uppercase tracking-wider font-light ${item.color}`}>
+                  <p className={`text-xs uppercase tracking-widest font-medium mb-3 ${item.color}`}>
                     {item.subtitle}
                   </p>
-                </motion.div>
-              );
-            })}
-          </div>
+                </div>
+
+                <div className="pt-3 border-t border-aquora-border">
+                  <p className="text-xs text-aquora-muted font-light leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
+
       </Container>
     </section>
   );

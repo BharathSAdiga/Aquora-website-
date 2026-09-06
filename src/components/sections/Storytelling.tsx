@@ -1,155 +1,128 @@
 "use client";
 
-import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 
+const WELLNESS_PILLARS = [
+  {
+    word: "MOVE",
+    accent: "text-aquora-charcoal",
+    highlight: "from-aquora-charcoal to-aquora-charcoal/70",
+    desc: "Liberate the physical body through conscious, functional movement and graceful kinetic flow.",
+    number: "01",
+  },
+  {
+    word: "BREATHE",
+    accent: "text-aquora-green",
+    highlight: "from-aquora-green to-aquora-green-light",
+    desc: "Align your internal rhythm with intentional pranayama, releasing tension and anchoring awareness.",
+    number: "02",
+  },
+  {
+    word: "CONNECT",
+    accent: "text-aquora-gold-dark",
+    highlight: "from-aquora-gold to-aquora-gold-dark",
+    desc: "Cultivate community and self-attunement within an inclusive, inspiring JP Nagar collective.",
+    number: "03",
+  },
+  {
+    word: "EXPRESS",
+    accent: "text-aquora-purple",
+    highlight: "from-aquora-purple to-aquora-purple-light",
+    desc: "Awaken authentic emotional release through dynamic choreography and timeless classical mudras.",
+    number: "04",
+  },
+];
+
 export function Storytelling() {
-  const textVariants: Variants = {
-    hidden: { opacity: 0, y: 25 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.18,
+        delayChildren: 0.1,
+      },
+    },
   };
 
-  const imageVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.97 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
+  const wordVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   return (
-    <section className="py-28 md:py-36 bg-aquora-surface/40 text-aquora-foreground overflow-hidden border-y border-aquora-gold/15">
-      <Container>
+    <section className="py-28 md:py-44 bg-aquora-ivory/60 text-aquora-foreground relative overflow-hidden border-b border-aquora-charcoal/5">
+      {/* Soft atmospheric gradient background */}
+      <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-aquora-sage/40 blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-aquora-gold/8 blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/2 right-10 w-[400px] h-[400px] rounded-full bg-aquora-purple-subtle/50 blur-[180px] pointer-events-none" />
+
+      <Container className="relative z-10">
         
-        {/* YOGA Section (Text Left, Image Right) */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-28 md:mb-36">
-          
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={textVariants}
-            className="w-full lg:w-1/2 order-2 lg:order-1"
-          >
-            <div className="max-w-lg">
-              <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-green-light mb-3 block">
-                Mindful Practice
-              </span>
-              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-aquora-foreground leading-[1.12] mb-6">
-                Breathe.<br />Stretch.<br />
-                <span className="italic gold-gradient-text font-normal">Balance.</span>
-              </h2>
-              
-              <div className="w-16 h-[1px] bg-aquora-gold/40 mb-8" />
-              
-              <p className="text-aquora-muted text-base sm:text-lg mb-8 leading-relaxed font-light">
-                Discover a grounded practice designed to restore vitality, align posture, and cultivate deep stillness in everyday life.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-6 border-t border-aquora-gold/15">
-                {['Flexibility & Agility', 'Functional Strength', 'Stress Reduction', 'Mindful Focus', 'Inner Composure'].map((benefit, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-aquora-foreground/90 font-light">
-                    <span className="w-1.5 h-1.5 rounded-full bg-aquora-gold shrink-0" />
-                    <span>{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={imageVariants}
-            className="w-full lg:w-1/2 order-1 lg:order-2"
-          >
-            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md border border-aquora-gold/25 bg-aquora-surface-card shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-3xl overflow-hidden">
-              <Image 
-                src="/assets/aquora-yoga-photo.png" 
-                alt="Mindful Yoga Practice at AQUORA"
-                fill
-                className="object-cover object-top filter contrast-[1.03]"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-aquora-black/80 via-transparent to-transparent" />
-            </div>
-          </motion.div>
-          
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-28">
+          <span className="text-[11px] uppercase tracking-[0.35em] font-medium text-aquora-gold block mb-3">
+            Holistic Experience
+          </span>
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-aquora-charcoal tracking-tight mb-4">
+            MORE THAN A CLASS.
+          </h2>
+          <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-aquora-gold to-transparent mx-auto mb-6" />
+          <p className="text-aquora-muted text-base md:text-lg font-light tracking-wide">
+            It is a space to:
+          </p>
         </div>
 
-        {/* DANCE Section (Image Left, Text Right) */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={imageVariants}
-            className="w-full lg:w-1/2 order-1 lg:order-1"
-          >
-            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:max-w-md border border-aquora-gold/25 bg-aquora-surface-card shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-3xl overflow-hidden">
-              <Image 
-                src="/assets/aquora-dance-photo.png" 
-                alt="Western Dance Expression at AQUORA"
-                fill
-                className="object-cover object-top filter contrast-[1.03]"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-aquora-black/80 via-transparent to-transparent" />
-              
-              {/* Inset for Bharatanatyam traditional classical dance */}
-              <div className="absolute bottom-4 right-4 w-36 h-28 border border-aquora-gold/50 shadow-2xl bg-aquora-black rounded-2xl overflow-hidden hidden sm:block">
-                <Image 
-                  src="/assets/aquora-bharatanatyam-photo.png" 
-                  alt="Bharatanatyam Tradition at AQUORA"
-                  fill
-                  className="object-cover object-top"
-                  sizes="150px"
-                />
-              </div>
-            </div>
-          </motion.div>
+        {/* Four Large Typographic Words */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {WELLNESS_PILLARS.map((item) => (
+            <motion.div
+              key={item.word}
+              variants={wordVariants}
+              className="group p-8 sm:p-10 rounded-3xl glass-panel-light border border-white/90 hover:shadow-[0_25px_50px_-12px_rgba(30,28,26,0.09)] transition-all duration-500 flex flex-col justify-between min-h-[320px]"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-aquora-charcoal/10">
+                  <span className="text-[10px] font-mono tracking-widest text-aquora-muted">
+                    {item.number}
+                  </span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-aquora-gold" />
+                </div>
 
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={textVariants}
-            className="w-full lg:w-1/2 order-2 lg:order-2"
-          >
-            <div className="max-w-lg">
-              <span className="text-xs uppercase tracking-[0.35em] font-medium text-aquora-purple-light mb-3 block">
-                Dance &amp; Artistry
-              </span>
-              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-aquora-foreground leading-[1.12] mb-6">
-                Move.<br />Express.<br />
-                <span className="italic gold-gradient-text font-normal">Be You.</span>
-              </h2>
-              
-              <div className="w-16 h-[1px] bg-aquora-gold/40 mb-8" />
-              
-              <p className="text-aquora-muted text-base sm:text-lg mb-8 leading-relaxed font-light">
-                From rhythmic precision in classical Bharatanatyam to expressive contemporary Western choreography, discover your authentic movement with confidence.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-6 border-t border-aquora-gold/15">
-                {['Build Self-Confidence', 'Learn Technical Skills', 'Express Your Creativity', 'Welcoming All Age Groups'].map((benefit, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-aquora-foreground/90 font-light">
-                    <span className="w-1.5 h-1.5 rounded-full bg-aquora-gold shrink-0" />
-                    <span>{benefit}</span>
-                  </div>
-                ))}
+                <h3 className={`font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight mb-4 transition-transform duration-500 group-hover:translate-x-1 ${item.accent}`}>
+                  {item.word}
+                </h3>
               </div>
-            </div>
-          </motion.div>
-          
+
+              <div>
+                <div className="w-8 group-hover:w-full h-[1px] bg-aquora-gold/40 transition-all duration-500 mb-4" />
+                <p className="text-xs sm:text-sm text-aquora-muted font-light leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Bottom Editorial Closing Note */}
+        <div className="mt-20 md:mt-28 text-center max-w-2xl mx-auto">
+          <p className="font-serif italic text-lg sm:text-xl text-aquora-charcoal/85 leading-relaxed font-light">
+            &ldquo;We created AQUORA as an antidote to routine—an open floor where breath, discipline, and creativity breathe in perfect equilibrium.&rdquo;
+          </p>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-aquora-gold font-medium mt-4 block">
+            AQUORA YOGA &amp; DANCE STUDIO • JP NAGAR
+          </span>
         </div>
 
       </Container>

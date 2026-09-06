@@ -8,13 +8,13 @@ import { Calendar, Smartphone, QrCode, Sparkles, ArrowRight, ShieldCheck } from 
 
 export const metadata = {
   title: "Studio Apps & Digital Portal | AQUORA Yoga & Dance Studio",
-  description: "Access the AQUORA studio portal, manage class schedules, book trial sessions, and connect with instructors in JP Nagar, Bengaluru.",
+  description: "Access the AQUORA studio portal, manage class schedules, get directions, and connect with instructors in JP Nagar, Bengaluru.",
 };
 
 export default function AppsPage() {
-  const phoneRaw = "6366007494";
+  const phoneRaw = "9164267977";
   const whatsappUrl = `https://wa.me/91${phoneRaw}?text=${encodeURIComponent(
-    `Hello Aquora Yoga & Dance Studio,\n\nI would like to enquire about the Studio Apps and Class Booking Portal.\n\nThank you.`
+    `Hello Aquora Yoga & Dance Studio,\n\nI would like to enquire about visiting the studio and getting directions.\n\nThank you.`
   )}`;
 
   return (
@@ -109,23 +109,25 @@ export default function AppsPage() {
                   <Sparkles size={22} />
                 </div>
                 <span className="text-[10px] uppercase tracking-[0.25em] text-aquora-gold font-medium block mb-2">
-                  New Practitioners
+                  Sanctuary Visit
                 </span>
                 <h2 className="font-serif text-2xl text-aquora-foreground mb-3 font-normal group-hover:text-aquora-gold transition-colors">
-                  Trial Class Pass
+                  Studio Location
                 </h2>
                 <p className="text-xs sm:text-sm text-aquora-muted font-light leading-relaxed mb-6">
-                  Book your introductory trial experience directly with our studio coordinator. Experience master instruction before committing to full terms.
+                  Visit our JP Nagar 7th Phase sanctuary in person. Experience our architectural space and navigate directly using Google Maps.
                 </p>
               </div>
               <div className="pt-4 border-t border-aquora-gold/15">
-                <Link
-                  href="/#trial"
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("No. 3/1, 1st Floor, SkyPool Fitness Studio Building, 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, J.P. Nagar, Bengaluru - 560078, Karnataka, India")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-aquora-gold hover:text-aquora-gold-light transition-colors"
                 >
-                  <span>Book Trial Pass</span>
+                  <span>Get Directions</span>
                   <ArrowRight size={14} />
-                </Link>
+                </a>
               </div>
             </div>
 
