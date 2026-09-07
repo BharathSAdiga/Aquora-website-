@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { MapPin, Phone, MessageCircle, Navigation, CheckCircle2, ArrowRight, Mail } from "lucide-react";
+import { MapPin, Clock, Sparkles, Navigation, CheckCircle2, ArrowRight, Mail } from "lucide-react";
 
 function InstagramIcon({ size = 16, className = "" }: { size?: number; className?: string }) {
   return (
@@ -68,7 +68,6 @@ export function Contact() {
   const encodedAddress = encodeURIComponent(address);
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`;
   const phoneRaw = "9164267977";
-  const displayPhone = "+91 91642 67977";
   const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   const [formData, setFormData] = useState<FormData>({
@@ -114,10 +113,6 @@ Thank you.`;
     const url = `https://wa.me/91${phoneRaw}?text=${encodeURIComponent(getWhatsAppMessage())}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
-
-  const directWhatsAppUrl = `https://wa.me/91${phoneRaw}?text=${encodeURIComponent(
-    `Hello Aquora Yoga & Dance Studio,\n\nI would like to visit the studio and get directions.\n\nThank you.`
-  )}`;
 
   const fadeUpVariant: Variants = {
     hidden: { opacity: 0, y: 24 },
@@ -201,38 +196,36 @@ Thank you.`;
 
               {/* Contact Details Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {/* Phone */}
+                {/* Studio Hours */}
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
                   <div className="flex items-center gap-2.5 mb-1.5">
-                    <Phone size={14} className="text-aquora-beige" />
+                    <Clock size={14} className="text-aquora-beige" />
                     <span className="text-[10px] uppercase tracking-widest text-aquora-muted font-medium">
-                      Phone Direct
+                      Studio Hours
                     </span>
                   </div>
-                  <a 
-                    href={`tel:+91${phoneRaw}`}
-                    className="text-base font-serif text-aquora-foreground hover:text-aquora-beige transition-colors font-medium block"
-                  >
-                    {phoneRaw}
-                  </a>
+                  <p className="text-xs text-aquora-foreground font-medium">
+                    Mon – Sat: 6:00 AM – 8:30 PM
+                  </p>
+                  <p className="text-[11px] text-aquora-muted">
+                    Sun: Workshops &amp; Masterclasses
+                  </p>
                 </div>
 
-                {/* WhatsApp */}
+                {/* Admissions */}
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
                   <div className="flex items-center gap-2.5 mb-1.5">
-                    <MessageCircle size={14} className="text-aquora-green-light" />
-                    <span className="text-[10px] uppercase tracking-widest text-aquora-green-light font-medium">
-                      WhatsApp
+                    <Sparkles size={14} className="text-aquora-gold" />
+                    <span className="text-[10px] uppercase tracking-widest text-aquora-gold font-medium">
+                      Admissions
                     </span>
                   </div>
-                  <a 
-                    href={directWhatsAppUrl}
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm font-mono text-aquora-foreground hover:text-aquora-green-light transition-colors block"
-                  >
-                    {displayPhone}
-                  </a>
+                  <p className="text-xs text-aquora-foreground font-medium">
+                    All Ages &amp; Skill Levels
+                  </p>
+                  <p className="text-[11px] text-aquora-muted">
+                    Dedicated Ladies Batches
+                  </p>
                 </div>
               </div>
 
@@ -326,24 +319,18 @@ Thank you.`;
               </div>
             </div>
 
-            {/* CTAs: GET DIRECTIONS, CALL AQUORA, WHATSAPP */}
-            <div className="grid grid-cols-3 gap-2.5 pt-4 border-t border-aquora-border">
-              <Button asChild variant="outline" size="sm" className="w-full justify-center tracking-[0.14em] text-[10px] px-2 rounded-full border-aquora-beige/30 text-aquora-beige hover:bg-aquora-beige/20 hover:border-aquora-beige">
+            {/* CTAs: GET DIRECTIONS, EMAIL STUDIO */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-aquora-border">
+              <Button asChild variant="outline" size="sm" className="w-full justify-center tracking-[0.14em] text-[10px] px-3 rounded-full border-aquora-beige/30 text-aquora-beige hover:bg-aquora-beige/20 hover:border-aquora-beige">
                 <a href={directionsUrl} target="_blank" rel="noopener noreferrer">
                   <Navigation size={12} className="mr-1.5 text-aquora-gold shrink-0" />
-                  <span className="truncate">DIRECTIONS</span>
+                  <span>GET DIRECTIONS</span>
                 </a>
               </Button>
-              <Button asChild variant="outline" size="sm" className="w-full justify-center tracking-[0.14em] text-[10px] px-2 rounded-full border-aquora-beige/30 text-aquora-beige hover:bg-aquora-beige/20 hover:border-aquora-beige">
-                <a href={`tel:+91${phoneRaw}`}>
-                  <Phone size={12} className="mr-1.5 text-aquora-gold shrink-0" />
-                  <span className="truncate">CALL</span>
-                </a>
-              </Button>
-              <Button asChild variant="secondary" size="sm" className="w-full justify-center tracking-[0.14em] text-[10px] px-2 rounded-full border-aquora-green/30 text-aquora-green-light hover:bg-aquora-green/20">
-                <a href={directWhatsAppUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle size={12} className="mr-1.5 text-aquora-green-light shrink-0" />
-                  <span className="truncate">WHATSAPP</span>
+              <Button asChild variant="secondary" size="sm" className="w-full justify-center tracking-[0.14em] text-[10px] px-3 rounded-full border-aquora-gold/30 text-aquora-gold hover:bg-aquora-gold/20">
+                <a href="mailto:aquorayogadancestudio@gmail.com">
+                  <Mail size={12} className="mr-1.5 text-aquora-gold shrink-0" />
+                  <span>EMAIL STUDIO</span>
                 </a>
               </Button>
             </div>
@@ -513,13 +500,11 @@ Thank you.`;
                       SEND ENQUIRY
                     </Button>
                     <a
-                      href={directWhatsAppUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-full py-2.5 text-[11px] uppercase tracking-[0.18em] font-semibold text-aquora-green-light hover:text-white transition-colors gap-2"
+                      href="mailto:aquorayogadancestudio@gmail.com"
+                      className="inline-flex items-center justify-center w-full py-2.5 text-[11px] uppercase tracking-[0.18em] font-semibold text-aquora-gold hover:text-white transition-colors gap-2"
                     >
-                      <MessageCircle size={14} className="text-aquora-green-light" />
-                      <span>CHAT ON WHATSAPP</span>
+                      <Mail size={14} className="text-aquora-gold" />
+                      <span>EMAIL US DIRECTLY</span>
                     </a>
                   </div>
 

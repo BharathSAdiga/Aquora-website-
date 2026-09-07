@@ -184,12 +184,10 @@ export function Navbar() {
             </a>
           </Button>
           <a
-            href="https://wa.me/919164267977"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-center text-[11px] uppercase tracking-widest text-aquora-muted hover:text-aquora-beige transition-colors py-1 font-mono"
+            href="mailto:aquorayogadancestudio@gmail.com"
+            className="text-center text-[11px] uppercase tracking-widest text-aquora-muted hover:text-aquora-beige transition-colors py-1 truncate"
           >
-            WhatsApp: +91 91642 67977
+            aquorayogadancestudio@gmail.com
           </a>
         </div>
       </div>

@@ -141,7 +141,7 @@ Verify that the direct WhatsApp links work across mobile and desktop:
    - Contact section "WHATSAPP US" button
    - Footer WhatsApp link
    - Trial Enquiry Form submit button
-2. The URL must target `https://wa.me/916366007494`.
+2. The URL opens WhatsApp with the studio inquiry message.
 3. In the Trial Enquiry Form, verify that the submitted name, phone number, chosen program, and preferred batch are pre-filled in the WhatsApp message text without falsely claiming a confirmed booking.
 
 ---
@@ -164,7 +164,7 @@ Test the site on mobile viewports (e.g. 375px, 390px, 430px) using Chrome DevToo
 - [ ] No horizontal scrolling or content cutoff occurs (`overflow-x: hidden`).
 - [ ] Tap targets for buttons and form fields are comfortable (minimum 44px height).
 - [ ] Architectural gallery thumbnails in "The Aquora Space" respond to touch.
-- [ ] Phone call buttons trigger `tel:+916366007494` directly.
+- [ ] Contact details and inquiry buttons trigger direct studio communication correctly.
 
 ---
 

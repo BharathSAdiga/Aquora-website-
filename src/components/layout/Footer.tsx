@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { MapPin, Phone, MessageCircle, ArrowUpRight, Mail } from "lucide-react";
+import { MapPin, ArrowUpRight, Mail } from "lucide-react";
 
 function InstagramIcon({ size = 15, className = "" }: { size?: number; className?: string }) {
   return (
@@ -25,10 +25,8 @@ function InstagramIcon({ size = 15, className = "" }: { size?: number; className
 
 
 export function Footer() {
-  const phoneRaw = "9164267977";
-  const displayPhone = "+91 91642 67977";
-  const whatsappUrl = `https://wa.me/91${phoneRaw}?text=${encodeURIComponent(
-    `Hello Aquora Yoga & Dance Studio,\n\nI would like to visit the studio and get directions.\n\nThank you.`
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    "No. 3/1, 1st Floor, SkyPool Fitness Studio Building, 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, J.P. Nagar, Bengaluru - 560078, Karnataka, India"
   )}`;
 
   return (
@@ -141,20 +139,22 @@ export function Footer() {
                 </p>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-aquora-beige shrink-0" aria-hidden="true" />
-                <a href={`tel:+91${phoneRaw}`} className="text-aquora-foreground hover:text-aquora-beige transition-colors font-medium">
-                  {phoneRaw}
+                <Mail className="w-4 h-4 text-aquora-gold shrink-0" aria-hidden="true" />
+                <a 
+                  href="mailto:aquorayogadancestudio@gmail.com" 
+                  className="text-aquora-foreground hover:text-aquora-gold transition-colors font-medium break-all"
+                >
+                  aquorayogadancestudio@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <MessageCircle className="w-4 h-4 text-aquora-green-light shrink-0" aria-hidden="true" />
+              <div className="flex items-center gap-2.5 pt-1">
                 <a 
-                  href={whatsappUrl} 
-                  target="_blank" 
+                  href={directionsUrl}
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="text-aquora-foreground hover:text-aquora-green-light transition-colors font-medium"
+                  className="text-aquora-beige hover:text-white transition-colors text-[11px] uppercase tracking-widest underline decoration-aquora-beige/40 underline-offset-4"
                 >
-                  WhatsApp: {displayPhone}
+                  Get Directions in Google Maps →
                 </a>
               </div>
             </address>

@@ -85,7 +85,7 @@ const localBusinessSchema = {
   "name": "AQUORA Yoga & Dance Studio",
   "image": "https://aquora.studio/assets/aquora_hero_studio_clean.jpg",
   "url": "https://aquora.studio",
-  "telephone": "+919164267977",
+  "email": "aquorayogadancestudio@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "No. 3/1, 1st Floor, SkyPool Fitness Studio Building, 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, J.P. Nagar",

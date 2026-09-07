@@ -19,7 +19,7 @@
 - **Address**: No. 3/1, 1st Floor, SkyPool Fitness Studio Building, 4th B Main Road, Dr. Vivekananda Layout, 7th Phase, J.P. Nagar, Bengaluru - 560078
 - **Hours**: Monday – Saturday, 06:00 AM – 08:30 PM (Sundays reserved for workshops)
 - **Instagram**: [@aquorastudio](https://instagram.com/aquorastudio)
-- **Phone / WhatsApp**: [+91 91642 67977](https://wa.me/919164267977)
+- **Email**: aquorayogadancestudio@gmail.com
 
 ---
 
