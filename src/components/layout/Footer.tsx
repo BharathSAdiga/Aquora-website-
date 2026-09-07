@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { MapPin, Phone, MessageCircle, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, MessageCircle, ArrowUpRight, Mail } from "lucide-react";
 
 function InstagramIcon({ size = 15, className = "" }: { size?: number; className?: string }) {
   return (
@@ -23,23 +23,6 @@ function InstagramIcon({ size = 15, className = "" }: { size?: number; className
   );
 }
 
-function GithubIcon({ size = 15, className = "" }: { size?: number; className?: string }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-    </svg>
-  );
-}
 
 export function Footer() {
   const phoneRaw = "9164267977";
@@ -197,14 +180,12 @@ export function Footer() {
                 <ArrowUpRight size={13} className="text-aquora-muted group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a 
-                href="https://github.com/BharathSAdiga/Aquoradancenyoga" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full glass-panel-dark border border-aquora-border text-xs text-aquora-muted hover:text-aquora-foreground hover:border-aquora-beige/50 transition-all group"
+                href="mailto:aquorayogadancestudio@gmail.com" 
+                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full glass-panel-dark border border-aquora-border text-xs text-aquora-beige hover:text-aquora-gold hover:border-aquora-gold/50 transition-all group"
               >
-                <GithubIcon size={15} className="text-aquora-muted group-hover:text-aquora-foreground" />
-                <span className="font-medium tracking-wider">Aquoradancenyoga</span>
-                <ArrowUpRight size={13} className="text-aquora-muted group-hover:translate-x-0.5 transition-transform" />
+                <Mail size={15} className="text-aquora-gold shrink-0" />
+                <span className="font-medium tracking-wider truncate">aquorayogadancestudio@gmail.com</span>
+                <ArrowUpRight size={13} className="text-aquora-muted group-hover:translate-x-0.5 transition-transform shrink-0" />
               </a>
             </div>
           </div>

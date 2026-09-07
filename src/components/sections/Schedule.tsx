@@ -128,8 +128,8 @@ export function Schedule() {
               onClick={() => setActiveFilter(filter)}
               className={`px-6 py-2.5 rounded-full text-xs uppercase tracking-[0.22em] font-semibold transition-all duration-300 cursor-pointer ${
                 activeFilter === filter
-                  ? "bg-aquora-beige text-aquora-black shadow-[0_8px_25px_rgba(232,213,181,0.3)] scale-[1.02]"
-                  : "glass-pill-dark text-aquora-muted hover:text-aquora-beige hover:border-aquora-beige/40"
+                  ? "dark:bg-aquora-beige dark:text-aquora-black bg-gradient-to-r from-[#1A633E] to-[#278654] text-white shadow-[0_8px_25px_rgba(26,99,62,0.35)] dark:shadow-[0_8px_25px_rgba(232,213,181,0.3)] scale-[1.02]"
+                  : "glass-pill-dark text-aquora-muted dark:hover:text-aquora-beige hover:text-aquora-green-light dark:hover:border-aquora-beige/40 hover:border-aquora-green/40"
               }`}
             >
               {filter}

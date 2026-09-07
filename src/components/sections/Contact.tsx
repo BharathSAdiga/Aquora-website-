@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { MapPin, Phone, MessageCircle, Navigation, CheckCircle2, ArrowRight } from "lucide-react";
+import { MapPin, Phone, MessageCircle, Navigation, CheckCircle2, ArrowRight, Mail } from "lucide-react";
 
 function InstagramIcon({ size = 16, className = "" }: { size?: number; className?: string }) {
   return (
@@ -234,6 +234,33 @@ Thank you.`;
                     {displayPhone}
                   </a>
                 </div>
+              </div>
+
+              {/* Email Address */}
+              <div className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 mb-4">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-8 h-8 rounded-full bg-aquora-gold/15 border border-aquora-gold/30 flex items-center justify-center shrink-0">
+                    <Mail size={14} className="text-aquora-gold" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[10px] uppercase tracking-wider text-aquora-gold font-semibold block">
+                      Email Direct
+                    </span>
+                    <a 
+                      href="mailto:aquorayogadancestudio@gmail.com" 
+                      className="text-xs sm:text-sm text-aquora-foreground hover:text-aquora-gold transition-colors truncate block"
+                    >
+                      aquorayogadancestudio@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <a 
+                  href="mailto:aquorayogadancestudio@gmail.com" 
+                  className="text-[10px] uppercase tracking-widest text-aquora-beige hover:text-aquora-gold font-semibold transition-colors flex items-center gap-1 shrink-0 ml-2"
+                >
+                  <span>Email</span>
+                  <ArrowRight size={12} />
+                </a>
               </div>
 
               {/* Instagram */}

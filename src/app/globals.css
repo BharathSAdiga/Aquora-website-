@@ -119,13 +119,33 @@ html.light {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background-color: var(--color-aquora-bg);
   color: var(--color-aquora-foreground);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ═══ GPU Compositing & Smooth Rendering ═══ */
+.gpu-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.ambient-glow {
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  contain: paint;
+  will-change: transform;
 }
 
 /* ═══ Gold Gradient Typography ═══ */
@@ -146,9 +166,11 @@ html.light .gold-gradient-text {
 .glass-panel-light,
 .glass-panel {
   background: rgba(20, 21, 22, 0.78);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(232, 213, 181, 0.08);
+  transform: translateZ(0);
+  backface-visibility: hidden;
   box-shadow:
     0 20px 50px -12px rgba(0, 0, 0, 0.6),
     0 0 0 1px rgba(232, 213, 181, 0.04),
@@ -195,9 +217,11 @@ html.light .glass-panel:hover {
 .glass-pill-light,
 .glass-pill {
   background: rgba(18, 18, 18, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(232, 213, 181, 0.1);
+  transform: translateZ(0);
+  backface-visibility: hidden;
   box-shadow:
     0 10px 30px -8px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(232, 213, 181, 0.04),
@@ -237,9 +261,11 @@ html.light .bg-ambient-dark {
 /* ═══ Glass Card Info Overlay ═══ */
 .glass-card-info {
   background: rgba(20, 21, 22, 0.92);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateZ(0);
+  backface-visibility: hidden;
   box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
   color: var(--color-aquora-foreground);
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;

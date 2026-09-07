@@ -2,7 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { Container } from "@/components/ui/Container";
-import { Sparkles, Award, ShieldCheck, Flame, Compass, HeartHandshake } from "lucide-react";
+import { Sparkles, Award, ShieldCheck, Compass, HeartHandshake } from "lucide-react";
 
 export function About() {
   const fadeUpVariant: Variants = {
@@ -62,8 +62,8 @@ export function About() {
           variants={fadeUpVariant}
           className="max-w-3xl mb-20 md:mb-24"
         >
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full glass-pill-dark text-aquora-beige text-[10px] uppercase tracking-[0.3em] font-semibold border border-aquora-beige/15">
-            <Sparkles size={11} className="text-aquora-gold" />
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full glass-pill-dark dark:text-aquora-beige text-aquora-green-light text-[10px] uppercase tracking-[0.3em] font-semibold border dark:border-aquora-beige/15 border-aquora-green/25">
+            <Sparkles size={11} className="dark:text-aquora-gold text-aquora-green-light" />
             <span>THE AQUORA PEDIGREE</span>
           </div>
 

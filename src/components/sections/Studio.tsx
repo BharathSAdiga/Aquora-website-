@@ -92,8 +92,8 @@ export function Studio() {
               src="/assets/aquora_studio_interior_light.jpg"
               alt="The AQUORA Space - Architectural wellness and dance studio interior"
               fill
+              loading="lazy"
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.02] opacity-75"
-              priority
               sizes="(max-width: 1280px) 100vw, 1200px"
             />
             {/* Subtle dark vignette */}

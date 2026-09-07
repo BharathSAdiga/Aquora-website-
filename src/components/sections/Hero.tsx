@@ -41,12 +41,12 @@ export function Hero() {
         <div className="md:hidden absolute inset-0 bg-gradient-to-t from-aquora-bg via-aquora-bg/85 via-55% to-aquora-bg/25 z-10 h-full" />
         
         <Image
-          src="/assets/aquora_hero_dancer.jpg"
-          alt="AQUORA Yoga & Dance Studio Sanctuary - Mindful Movement & Dance"
+          src="/assets/aquora_hero_indian_dancer.jpg"
+          alt="AQUORA Yoga & Dance Studio Sanctuary - Indian dancer practicing mindful movement"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[72%_center] lg:object-[74%_center] opacity-75 lg:opacity-85 dark:opacity-65 dark:lg:opacity-75"
+          className="object-cover object-[78%_center] lg:object-[78%_center] opacity-80 lg:opacity-90 dark:opacity-70 dark:lg:opacity-80"
         />
 
         {/* Atmospheric Ambient Glows: Green & Purple */}
@@ -69,9 +69,9 @@ export function Hero() {
             {/* Small Eyebrow with Sparkle */}
             <motion.div 
               variants={itemVariants} 
-              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full glass-pill-dark text-aquora-beige font-medium tracking-[0.28em] text-[10px] uppercase shadow-xs border border-aquora-beige/15"
+              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full glass-pill-dark dark:text-aquora-beige text-aquora-green-light font-medium tracking-[0.28em] text-[10px] uppercase shadow-xs border dark:border-aquora-beige/15 border-aquora-green/25"
             >
-              <Sparkles size={11} className="text-aquora-gold" />
+              <Sparkles size={11} className="dark:text-aquora-gold text-aquora-green-light" />
               <span>AQUORA YOGA &amp; DANCE STUDIO</span>
             </motion.div>
 

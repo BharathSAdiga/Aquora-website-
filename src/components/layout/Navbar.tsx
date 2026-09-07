@@ -24,8 +24,15 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     
     handleScroll();
@@ -45,10 +52,10 @@ export function Navbar() {
   }, [isMobileMenuOpen]);
 
   return (
-    <header className="fixed top-5 sm:top-7 inset-x-0 z-50 px-4 sm:px-6 pointer-events-none">
+    <header className="fixed top-5 sm:top-7 inset-x-0 z-50 px-4 sm:px-6 pointer-events-none transform-gpu">
       <div
         className={cn(
-          "max-w-6xl mx-auto rounded-full transition-all duration-500 ease-out pointer-events-auto flex items-center justify-between px-6 sm:px-8 py-2.5 sm:py-3",
+          "max-w-6xl mx-auto rounded-full transition-all duration-500 ease-out pointer-events-auto flex items-center justify-between px-6 sm:px-8 py-2.5 sm:py-3 transform-gpu",
           isScrolled
             ? "dark:bg-[#111111]/88 bg-white/85 backdrop-blur-2xl dark:border-aquora-beige/15 border-black/10 shadow-[0_20px_50px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_0_1px_rgba(232,213,181,0.06)]"
             : "dark:bg-[#141414]/75 bg-white/75 backdrop-blur-xl dark:border-aquora-beige/10 border-black/8 shadow-[0_15px_40px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.03)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.6),0_0_0_1px_rgba(232,213,181,0.04)]"

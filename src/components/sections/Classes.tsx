@@ -65,8 +65,8 @@ export function Classes() {
               {/* Large Imagery with Subtle Movement on Hover */}
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-aquora-surface">
                 <Image 
-                  src="/assets/aquora_yoga_woman.jpg" 
-                  alt="AQUORA Yoga - Mindful practice with certified instructor" 
+                  src="/assets/aquora_yoga_indian.jpg" 
+                  alt="AQUORA Yoga - Mindful practice guided by certified Indian instructor" 
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-90"
@@ -179,8 +179,8 @@ export function Classes() {
               {/* Large Imagery with Subtle Movement on Hover */}
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-aquora-surface">
                 <Image 
-                  src="/assets/aquora_dance_men.jpg" 
-                  alt="AQUORA Western Dance - Dynamic contemporary movement" 
+                  src="/assets/aquora_dance_male_indian.jpg" 
+                  alt="AQUORA Western Dance - Dynamic contemporary movement and athletic leap by Indian male dancer" 
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-90"
@@ -285,8 +285,8 @@ export function Classes() {
               {/* Large Imagery with Subtle Movement on Hover */}
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-aquora-surface">
                 <Image 
-                  src="/assets/aquora_bharatanatyam_light.jpg" 
-                  alt="AQUORA Bharatanatyam - Classical Indian dance artistry" 
+                  src="/assets/aquora_bharatanatyam_indian.jpg" 
+                  alt="AQUORA Bharatanatyam - Classical Indian dance artistry and traditional mudras" 
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-85"
