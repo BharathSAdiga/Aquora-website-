@@ -17,7 +17,7 @@ export function Classes() {
   };
 
   return (
-    <section id="classes" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground overflow-hidden relative border-b border-aquora-border">
+    <section id="classes" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground overflow-hidden relative border-b border-aquora-border section-optimize">
       {/* Background ambient lighting visible through dark translucent glass */}
       <div className="absolute top-1/4 -left-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-green/10 blur-[140px] sm:blur-[160px] pointer-events-none z-0" />
       <div className="absolute top-1/2 -right-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-purple/10 blur-[140px] sm:blur-[160px] pointer-events-none z-0" />
@@ -68,7 +68,8 @@ export function Classes() {
                   src="/assets/aquora_yoga_indian.jpg" 
                   alt="AQUORA Yoga - Mindful practice guided by certified Indian instructor" 
                   fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t dark:from-[#141414] dark:via-[#141414]/40 from-black/55 via-black/20 to-transparent" />
@@ -182,7 +183,8 @@ export function Classes() {
                   src="/assets/aquora_dance_male_indian.jpg" 
                   alt="AQUORA Western Dance - Dynamic contemporary movement and athletic leap by Indian male dancer" 
                   fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t dark:from-[#141414] dark:via-[#141414]/40 from-black/55 via-black/20 to-transparent" />
@@ -288,7 +290,8 @@ export function Classes() {
                   src="/assets/aquora_bharatanatyam_indian.jpg" 
                   alt="AQUORA Bharatanatyam - Classical Indian dance artistry and traditional mudras" 
                   fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  loading="lazy"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-85"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t dark:from-[#141414] dark:via-[#141414]/40 from-black/55 via-black/20 to-transparent" />

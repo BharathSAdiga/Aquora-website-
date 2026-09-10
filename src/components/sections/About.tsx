@@ -46,7 +46,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground relative overflow-hidden border-b border-aquora-border">
+    <section id="about" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground relative overflow-hidden border-b border-aquora-border section-optimize">
       {/* Subtle organic ambient gradients */}
       <div className="absolute top-1/3 left-0 -translate-y-1/2 w-[450px] sm:w-[600px] h-[450px] sm:h-[600px] rounded-full bg-aquora-green/10 blur-[140px] sm:blur-[170px] pointer-events-none" />
       <div className="absolute top-2/3 right-0 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-purple/10 blur-[140px] sm:blur-[170px] pointer-events-none" />

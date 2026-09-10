@@ -51,7 +51,7 @@ export function Studio() {
   ];
 
   return (
-    <section id="studio" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground overflow-hidden relative border-b border-aquora-border">
+    <section id="studio" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground overflow-hidden relative border-b border-aquora-border section-optimize">
       {/* Ambient background glow */}
       <div className="absolute top-1/4 -right-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-green/10 blur-[140px] sm:blur-[160px] pointer-events-none" />
       <div className="absolute bottom-1/4 -left-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-purple/10 blur-[140px] sm:blur-[160px] pointer-events-none" />
@@ -94,7 +94,7 @@ export function Studio() {
               fill
               loading="lazy"
               className="object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.02] opacity-75"
-              sizes="(max-width: 1280px) 100vw, 1200px"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
             />
             {/* Subtle dark vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/90 via-transparent to-black/40 pointer-events-none" />

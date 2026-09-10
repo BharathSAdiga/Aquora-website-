@@ -8,15 +8,17 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   preload: true,
+  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
 });
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "600"],
   style: ["normal", "italic"],
   display: "swap",
   preload: true,
+  fallback: ["Georgia", "Cambria", "Times New Roman", "serif"],
 });
 
 export const metadata: Metadata = {

@@ -45,7 +45,8 @@ export function Hero() {
           alt="AQUORA Yoga & Dance Studio Sanctuary - Indian dancer practicing mindful movement"
           fill
           priority
-          sizes="100vw"
+          fetchPriority="high"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1920px"
           className="object-cover object-[75%_center] lg:object-[78%_center] opacity-80 lg:opacity-90 dark:opacity-70 dark:lg:opacity-80"
         />
 

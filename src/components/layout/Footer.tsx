@@ -48,6 +48,7 @@ export function Footer() {
                     alt="AQUORA Crest"
                     width={80}
                     height={80}
+                    loading="lazy"
                     className="w-full h-full object-contain"
                   />
                 </div>

@@ -80,6 +80,7 @@ export function Contact() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loadMap, setLoadMap] = useState(false);
 
   const handleProgramChange = (program: "Yoga" | "Western Dance" | "Bharatanatyam") => {
     setFormData((prev) => ({
@@ -124,7 +125,7 @@ Thank you.`;
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground relative overflow-hidden">
+    <section id="contact" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground relative overflow-hidden section-optimize">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 -left-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-gold/8 blur-[140px] sm:blur-[160px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-sage/40 blur-[140px] sm:blur-[160px] pointer-events-none" />
@@ -281,7 +282,7 @@ Thank you.`;
 
               {/* Google Maps Container */}
               <div className="rounded-2xl overflow-hidden border dark:border-white/10 border-black/10 relative aspect-[16/9] w-full dark:bg-[#121212] bg-[#F5F2EB] mb-6 sm:mb-8">
-                {googleMapsApiKey ? (
+                {googleMapsApiKey && loadMap ? (
                   <iframe
                     title="AQUORA Yoga & Dance Studio Location"
                     className="w-full h-full border-0 filter invert-[0.9] hue-rotate-180 contrast-[1.1]"
@@ -304,15 +305,26 @@ Thank you.`;
                       </p>
                     </div>
 
-                    <a
-                      href={directionsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs uppercase tracking-[0.18em] font-semibold text-aquora-beige hover:text-white transition-colors"
-                    >
-                      <span>Open in Google Maps</span>
-                      <ArrowRight size={12} />
-                    </a>
+                    <div className="flex items-center gap-3 relative z-10 flex-wrap">
+                      {googleMapsApiKey && !loadMap && (
+                        <button
+                          type="button"
+                          onClick={() => setLoadMap(true)}
+                          className="px-3.5 py-1.5 rounded-full text-[10.5px] sm:text-xs uppercase tracking-[0.16em] font-semibold dark:bg-white/10 bg-black/10 hover:dark:bg-white/20 hover:bg-black/20 text-aquora-beige transition-all cursor-pointer touch-press"
+                        >
+                          Load Interactive Map
+                        </button>
+                      )}
+                      <a
+                        href={directionsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs uppercase tracking-[0.18em] font-semibold text-aquora-beige hover:text-white transition-colors"
+                      >
+                        <span>Open in Google Maps</span>
+                        <ArrowRight size={12} />
+                      </a>
+                    </div>
                   </div>
                 )}
               </div>
