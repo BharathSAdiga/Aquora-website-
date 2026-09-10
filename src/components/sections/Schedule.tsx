@@ -93,12 +93,12 @@ export function Schedule() {
   };
 
   return (
-    <section id="schedule" className="py-28 md:py-40 bg-aquora-bg text-aquora-foreground border-b border-aquora-border relative overflow-hidden">
+    <section id="schedule" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground border-b border-aquora-border relative overflow-hidden">
       {/* Background atmospheric glows */}
-      <div className="absolute top-1/3 -left-20 w-[550px] h-[550px] rounded-full bg-aquora-purple/10 blur-[170px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-[550px] h-[550px] rounded-full bg-aquora-green/10 blur-[170px] pointer-events-none" />
+      <div className="absolute top-1/3 -left-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-purple/10 blur-[140px] sm:blur-[170px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-green/10 blur-[140px] sm:blur-[170px] pointer-events-none" />
 
-      <Container className="relative z-10">
+      <Container className="relative z-10 px-4 sm:px-6">
         
         {/* Header */}
         <motion.div 
@@ -106,27 +106,27 @@ export function Schedule() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUpVariant}
-          className="text-center max-w-3xl mx-auto mb-14 md:mb-18"
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-18"
         >
-          <span className="text-[11px] uppercase tracking-[0.35em] font-medium text-aquora-beige-muted block mb-3">
+          <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.35em] font-medium text-aquora-beige-muted block mb-3">
             Weekly Timetable
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-aquora-foreground tracking-tight mb-4">
+          <h2 className="font-serif text-3xl xs:text-4xl sm:text-5xl md:text-6xl text-aquora-foreground tracking-tight mb-4">
             YOUR WEEK. YOUR MOVEMENT.
           </h2>
-          <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-aquora-beige to-transparent mx-auto mb-6" />
-          <p className="text-aquora-foreground/75 text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed">
+          <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-aquora-beige to-transparent mx-auto mb-5 sm:mb-6" />
+          <p className="text-aquora-foreground/75 text-sm sm:text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed">
             Thoughtfully structured morning, afternoon, and evening sessions in our architectural JP Nagar studio.
           </p>
         </motion.div>
 
-        {/* Filter Navigation Glass Tabs */}
-        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3.5 mb-16">
+        {/* Filter Navigation Glass Tabs with Mobile Horizontal Swipe */}
+        <div className="flex items-center gap-2 sm:gap-3.5 mb-10 sm:mb-16 overflow-x-auto scrollbar-none pb-2 sm:pb-0 px-1 sm:justify-center">
           {FILTERS.map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2.5 rounded-full text-xs uppercase tracking-[0.22em] font-semibold transition-all duration-300 cursor-pointer ${
+              className={`shrink-0 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-[10.5px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.22em] font-semibold transition-all duration-300 cursor-pointer touch-press ${
                 activeFilter === filter
                   ? "dark:bg-aquora-beige dark:text-aquora-black bg-gradient-to-r from-[#1A633E] to-[#278654] text-white shadow-[0_8px_25px_rgba(26,99,62,0.35)] dark:shadow-[0_8px_25px_rgba(232,213,181,0.3)] scale-[1.02]"
                   : "glass-pill-dark text-aquora-muted dark:hover:text-aquora-beige hover:text-aquora-green-light dark:hover:border-aquora-beige/40 hover:border-aquora-green/40"
@@ -183,7 +183,7 @@ export function Schedule() {
         </div>
 
         {/* Mobile / Tablet Stacked Glass Schedule Cards */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-5 mb-16">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-4 sm:gap-5 mb-12 sm:mb-16">
           <AnimatePresence>
             {filteredSchedule.map((item) => (
               <motion.div
@@ -193,28 +193,28 @@ export function Schedule() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.3 }}
-                className="p-6 sm:p-7 glass-panel-dark rounded-3xl border border-aquora-border shadow-sm hover:border-aquora-beige/30 transition-all"
+                className="p-5 sm:p-7 glass-panel-dark rounded-3xl border border-aquora-border shadow-sm hover:border-aquora-beige/30 transition-all"
               >
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className={`text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border font-medium ${item.badgeBorder}`}>
+                <div className="flex items-center justify-between gap-2 mb-2.5">
+                  <span className={`text-[9.5px] sm:text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border font-medium ${item.badgeBorder}`}>
                     {item.badge}
                   </span>
-                  <span className="text-[10px] uppercase tracking-wider text-aquora-muted font-medium">
+                  <span className="text-[9.5px] sm:text-[10px] uppercase tracking-wider text-aquora-muted font-medium">
                     {item.category}
                   </span>
                 </div>
 
-                <h3 className="font-serif text-2xl text-aquora-foreground mb-3 font-normal">
+                <h3 className="font-serif text-xl sm:text-2xl text-aquora-foreground mb-2 sm:mb-3 font-normal">
                   {item.name}
                 </h3>
 
-                <div className="flex items-center gap-2 text-xs text-aquora-foreground/80 mb-4 pb-3 border-b border-aquora-border font-light">
+                <div className="flex items-center gap-2 text-xs text-aquora-foreground/80 mb-3.5 pb-2.5 border-b border-aquora-border font-light">
                   <Calendar size={13} className="text-aquora-gold shrink-0" />
                   <span>{item.days}</span>
                 </div>
 
-                <div className="space-y-2">
-                  <span className="text-[10px] uppercase tracking-widest text-aquora-beige font-semibold block">
+                <div className="space-y-1.5 sm:space-y-2">
+                  <span className="text-[9.5px] sm:text-[10px] uppercase tracking-widest text-aquora-beige font-semibold block">
                     Available Batches:
                   </span>
                   <div className="flex flex-col gap-1.5 font-mono text-xs text-aquora-foreground">
@@ -232,13 +232,13 @@ export function Schedule() {
         </motion.div>
 
         {/* Action Prompt */}
-        <div className="text-center pt-8 border-t border-aquora-border max-w-xl mx-auto">
-          <p className="font-serif italic text-lg text-aquora-beige mb-5 font-light">
+        <div className="text-center pt-6 sm:pt-8 border-t border-aquora-border max-w-xl mx-auto">
+          <p className="font-serif italic text-base sm:text-lg text-aquora-beige mb-4 sm:mb-5 font-light">
             Ready to visit our architectural sanctuary in JP Nagar?
           </p>
-          <Button asChild size="md" variant="primary" className="tracking-[0.22em] text-xs rounded-full">
+          <Button asChild size="md" variant="primary" className="tracking-[0.2em] text-xs h-12 px-8 rounded-full touch-press justify-center">
             <a href={DIRECTIONS_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
-              <Navigation size={14} />
+              <Navigation size={14} className="text-aquora-gold" />
               <span>GET DIRECTIONS</span>
             </a>
           </Button>
