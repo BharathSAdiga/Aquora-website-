@@ -58,9 +58,9 @@ export function Storytelling() {
   return (
     <section className="py-28 md:py-44 bg-aquora-ivory/60 text-aquora-foreground relative overflow-hidden border-b border-aquora-charcoal/5">
       {/* Soft atmospheric gradient background */}
-      <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-aquora-sage/40 blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-aquora-gold/8 blur-[180px] pointer-events-none" />
-      <div className="absolute top-1/2 right-10 w-[400px] h-[400px] rounded-full bg-aquora-purple-subtle/50 blur-[180px] pointer-events-none" />
+      <div className="hidden md:block absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-aquora-sage/40 blur-[180px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-aquora-gold/8 blur-[180px] pointer-events-none" />
+      <div className="hidden md:block absolute top-1/2 right-10 w-[400px] h-[400px] rounded-full bg-aquora-purple-subtle/50 blur-[180px] pointer-events-none" />
 
       <Container className="relative z-10">
         

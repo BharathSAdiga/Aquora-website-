@@ -51,9 +51,9 @@ export function Hero() {
         />
 
         {/* Atmospheric Ambient Glows: Green & Purple */}
-        <div className="absolute top-16 left-10 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-aquora-green/15 blur-[120px] sm:blur-[140px] pointer-events-none z-10" />
-        <div className="absolute bottom-10 right-10 sm:right-20 w-72 sm:w-80 h-72 sm:h-80 rounded-full bg-aquora-purple/15 blur-[110px] sm:blur-[130px] pointer-events-none z-10" />
-        <div className="absolute top-1/2 left-1/3 w-64 sm:w-72 h-64 sm:h-72 rounded-full bg-aquora-gold/5 blur-[100px] sm:blur-[120px] pointer-events-none z-10" />
+        <div className="hidden md:block absolute top-16 left-10 w-96 h-96 rounded-full bg-aquora-green/15 blur-[140px] pointer-events-none z-10" />
+        <div className="hidden md:block absolute bottom-10 right-20 w-80 h-80 rounded-full bg-aquora-purple/15 blur-[130px] pointer-events-none z-10" />
+        <div className="hidden md:block absolute top-1/2 left-1/3 w-72 h-72 rounded-full bg-aquora-gold/5 blur-[120px] pointer-events-none z-10" />
       </div>
 
       {/* Hero Content Container */}

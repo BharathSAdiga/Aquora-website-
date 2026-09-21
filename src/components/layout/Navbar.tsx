@@ -23,37 +23,37 @@ const NAV_LINKS = [
 ];
 
 const menuVariants = {
-  hidden: { opacity: 0, y: -20 },
+  hidden: { opacity: 0, y: -10 },
   visible: { 
     opacity: 1, 
     y: 0,
     transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
-      staggerChildren: 0.1,
-      delayChildren: 0.1
+      duration: 0.25,
+      ease: "easeOut" as const,
+      staggerChildren: 0.05,
+      delayChildren: 0.05
     }
   },
   exit: { 
     opacity: 0, 
-    y: -20,
+    y: -10,
     transition: {
-      duration: 0.3,
-      ease: [0.22, 1, 0.36, 1],
-      staggerChildren: 0.05,
+      duration: 0.2,
+      ease: "easeIn" as const,
+      staggerChildren: 0.03,
       staggerDirection: -1
     }
   }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, x: -20 },
+  hidden: { opacity: 0, x: -10 },
   visible: { 
     opacity: 1, 
     x: 0,
-    transition: { duration: 0.4, ease: "easeOut" }
+    transition: { duration: 0.2, ease: "easeOut" as const }
   },
-  exit: { opacity: 0, x: -10, transition: { duration: 0.2 } }
+  exit: { opacity: 0, x: -5, transition: { duration: 0.15 } }
 };
 
 export function Navbar() {
@@ -184,7 +184,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Full-Screen Frosted Glass Mobile Navigation Overlay */}
+      {/* Optimized Mobile Navigation Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
@@ -193,12 +193,8 @@ export function Navbar() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="fixed inset-0 h-[100dvh] dark:bg-[#090909]/98 bg-[#FAF7F2]/98 backdrop-blur-3xl z-40 lg:hidden flex flex-col justify-between p-6 sm:p-8 pt-28 pb-10 pointer-events-auto overflow-y-auto"
+            className="fixed inset-0 h-[100dvh] dark:bg-[#111111]/95 bg-white/95 backdrop-blur-md z-40 lg:hidden flex flex-col justify-between p-6 sm:p-8 pt-28 pb-10 pointer-events-auto overflow-y-auto"
           >
-            {/* Ambient Glows in Mobile Drawer */}
-            <div className="absolute top-10 left-4 w-72 h-72 rounded-full bg-aquora-green/20 blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-16 right-4 w-72 h-72 rounded-full bg-aquora-purple/20 blur-[120px] pointer-events-none" />
-
             {/* Top Header info in Drawer */}
             <motion.div variants={itemVariants} className="relative z-10 flex flex-col items-center text-center space-y-4 pt-4">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 text-[10px] uppercase tracking-[0.25em] text-aquora-beige font-semibold shadow-sm">
@@ -207,23 +203,19 @@ export function Navbar() {
               </div>
             </motion.div>
 
-            {/* Numbered Editorial Navigation Links */}
+            {/* Clean Typography Navigation Links */}
             <div className="relative z-10 my-auto py-8">
-              <ul className="flex flex-col items-center space-y-3 sm:space-y-4 w-full max-w-sm mx-auto">
+              <ul className="flex flex-col items-center space-y-4 sm:space-y-6 w-full max-w-sm mx-auto">
                 {NAV_LINKS.map((link) => (
                   <motion.li key={link.name} variants={itemVariants} className="w-full">
                     <Link
                       href={link.href}
-                      className="flex items-center justify-between py-3 px-6 rounded-3xl dark:hover:bg-white/5 hover:bg-black/5 active:scale-95 transition-all group border border-transparent dark:hover:border-white/5 hover:border-black/5"
+                      className="flex items-center justify-center py-2 px-4 transition-all group"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <span className="font-mono text-xs text-aquora-muted tracking-widest group-hover:text-aquora-gold transition-colors">
-                        {link.num}
-                      </span>
                       <span className="font-serif text-3xl sm:text-4xl tracking-wide text-aquora-foreground group-hover:text-aquora-beige transition-colors">
                         {link.name}
                       </span>
-                      <span className="w-2 h-2 rounded-full bg-transparent group-hover:bg-aquora-gold transition-colors" />
                     </Link>
                   </motion.li>
                 ))}

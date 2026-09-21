@@ -127,8 +127,8 @@ Thank you.`;
   return (
     <section id="contact" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground relative overflow-hidden section-optimize">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 -left-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-gold/8 blur-[140px] sm:blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-sage/40 blur-[140px] sm:blur-[160px] pointer-events-none" />
+      <div className="hidden md:block absolute top-1/4 -left-20 w-[550px] h-[550px] rounded-full bg-aquora-gold/8 blur-[160px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-1/4 -right-20 w-[550px] h-[550px] rounded-full bg-aquora-sage/40 blur-[160px] pointer-events-none" />
 
       <Container className="relative z-10 px-4 sm:px-6">
         

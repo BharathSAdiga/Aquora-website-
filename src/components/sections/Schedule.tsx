@@ -95,8 +95,8 @@ export function Schedule() {
   return (
     <section id="schedule" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground border-b border-aquora-border relative overflow-hidden section-optimize">
       {/* Background atmospheric glows */}
-      <div className="absolute top-1/3 -left-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-purple/10 blur-[140px] sm:blur-[170px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-green/10 blur-[140px] sm:blur-[170px] pointer-events-none" />
+      <div className="hidden md:block absolute top-1/3 -left-20 w-[550px] h-[550px] rounded-full bg-aquora-purple/10 blur-[170px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-1/4 -right-20 w-[550px] h-[550px] rounded-full bg-aquora-green/10 blur-[170px] pointer-events-none" />
 
       <Container className="relative z-10 px-4 sm:px-6">
         

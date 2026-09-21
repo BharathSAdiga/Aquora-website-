@@ -32,8 +32,8 @@ export function Footer() {
   return (
     <footer className="dark:bg-[#070707] bg-[#F4EFEB] text-aquora-foreground pt-16 sm:pt-24 pb-24 sm:pb-14 border-t border-aquora-border relative overflow-hidden" aria-label="Site Footer">
       {/* Delicate ambient gradients: purple & green */}
-      <div className="absolute top-0 right-1/4 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] rounded-full bg-aquora-green/10 blur-[140px] sm:blur-[170px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] rounded-full bg-aquora-purple/10 blur-[140px] sm:blur-[170px] pointer-events-none" />
+      <div className="hidden md:block absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-aquora-green/10 blur-[170px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-aquora-purple/10 blur-[170px] pointer-events-none" />
 
       <Container className="relative z-10 px-4 sm:px-6">
         

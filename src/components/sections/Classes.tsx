@@ -19,9 +19,9 @@ export function Classes() {
   return (
     <section id="classes" className="py-20 sm:py-28 md:py-40 bg-aquora-bg text-aquora-foreground overflow-hidden relative border-b border-aquora-border section-optimize">
       {/* Background ambient lighting visible through dark translucent glass */}
-      <div className="absolute top-1/4 -left-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-green/10 blur-[140px] sm:blur-[160px] pointer-events-none z-0" />
-      <div className="absolute top-1/2 -right-20 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] rounded-full bg-aquora-purple/10 blur-[140px] sm:blur-[160px] pointer-events-none z-0" />
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[500px] sm:w-[700px] h-[350px] sm:h-[450px] rounded-full bg-aquora-gold/5 blur-[140px] sm:blur-[160px] pointer-events-none z-0" />
+      <div className="hidden md:block absolute top-1/4 -left-20 w-[550px] h-[550px] rounded-full bg-aquora-green/10 blur-[160px] pointer-events-none z-0" />
+      <div className="hidden md:block absolute top-1/2 -right-20 w-[550px] h-[550px] rounded-full bg-aquora-purple/10 blur-[160px] pointer-events-none z-0" />
+      <div className="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2 w-[700px] h-[450px] rounded-full bg-aquora-gold/5 blur-[160px] pointer-events-none z-0" />
 
       <Container className="relative z-10 px-4 sm:px-6">
         {/* Section Heading */}
