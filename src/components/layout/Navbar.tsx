@@ -137,16 +137,23 @@ export function Navbar() {
   return (
     <>
       {/* ═══ Main Floating Navbar Bar ═══ */}
-      <header className="fixed top-3 sm:top-6 inset-x-0 z-50 px-3 sm:px-6 pointer-events-none transform-gpu">
+      <header
+        className={cn(
+          "fixed top-0 inset-x-0 z-50 w-full transition-all duration-300 ease-out transform-gpu",
+          /* Solid 100% opaque background on mobile to prevent any see-through / text bleeding */
+          "dark:bg-[#0B0C0E] bg-white border-b dark:border-white/10 border-black/10 shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.85)]",
+          /* Restore floating capsule island on tablet & desktop */
+          "sm:top-6 sm:px-6 sm:bg-transparent sm:dark:bg-transparent sm:border-b-0 sm:shadow-none sm:pointer-events-none"
+        )}
+      >
         <div
           className={cn(
-            "max-w-6xl mx-auto rounded-full transition-all duration-300 ease-out pointer-events-auto flex items-center justify-between px-4 sm:px-8 py-2.5 sm:py-3 transform-gpu relative z-50",
-            /* Solid 100% opaque background on mobile to prevent see-through / text bleeding; premium frosted on desktop */
-            "dark:bg-[#0E0F12] bg-white sm:dark:bg-[#111215]/95 sm:bg-white/95 sm:backdrop-blur-xl",
+            "w-full flex items-center justify-between px-4 py-3 sm:px-8 sm:py-3 transition-all duration-300 ease-out transform-gpu relative z-50",
+            /* Desktop floating capsule styling */
+            "sm:max-w-6xl sm:mx-auto sm:rounded-full sm:pointer-events-auto sm:border sm:backdrop-blur-xl sm:dark:bg-[#111215]/95 sm:bg-white/95",
             isScrolled
-              ? "dark:border-aquora-beige/25 border-black/15 shadow-[0_12px_32px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.06)] dark:shadow-[0_18px_45px_rgba(0,0,0,0.92),0_0_0_1px_rgba(232,213,181,0.14)]"
-              : "dark:border-aquora-beige/15 border-black/10 shadow-[0_8px_24px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.75),0_0_0_1px_rgba(232,213,181,0.08)]",
-            "border"
+              ? "sm:dark:border-aquora-beige/25 sm:border-black/15 sm:shadow-[0_12px_32px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.06)] sm:dark:shadow-[0_18px_45px_rgba(0,0,0,0.92),0_0_0_1px_rgba(232,213,181,0.14)]"
+              : "sm:dark:border-aquora-beige/15 sm:border-black/10 sm:shadow-[0_8px_24px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)] sm:dark:shadow-[0_12px_36px_rgba(0,0,0,0.75),0_0_0_1px_rgba(232,213,181,0.08)]"
           )}
         >
           {/* Logo Left: Crest + Typography */}
@@ -243,7 +250,7 @@ export function Navbar() {
             <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-aquora-gold/5 rounded-full blur-[120px] pointer-events-none" />
 
             {/* ── Top Header Row with Logo & Close Button ── */}
-            <div className="relative z-20 shrink-0 px-5 pt-4 pb-3 flex items-center justify-between border-b dark:border-white/10 border-black/10 dark:bg-[#0E0F12]/80 bg-white/80 backdrop-blur-md">
+            <div className="relative z-20 shrink-0 px-5 pt-4 pb-3 flex items-center justify-between border-b dark:border-white/10 border-black/10 dark:bg-[#0E0F12] bg-[#FAF8F5]">
               <Link 
                 href="/" 
                 className="flex items-center gap-2.5"
@@ -340,7 +347,7 @@ export function Navbar() {
             {/* ── Bottom Action & Contact Strip ── */}
             <motion.div 
               variants={itemVariants}
-              className="relative z-20 shrink-0 px-4 pt-3 pb-6 border-t dark:border-white/10 border-black/10 dark:bg-[#0E0F12]/90 bg-white/90 backdrop-blur-md flex flex-col gap-2.5"
+              className="relative z-20 shrink-0 px-4 pt-3 pb-6 border-t dark:border-white/10 border-black/10 dark:bg-[#0E0F12] bg-[#FAF8F5] flex flex-col gap-2.5"
             >
               {/* Primary Dual CTA Buttons */}
               <div className="grid grid-cols-2 gap-2.5">
