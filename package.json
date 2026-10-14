@@ -11,6 +11,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "package:vps": "next build && node scripts/prepare-vps-package.mjs",
     "lint": "eslint"
   },
   "dependencies": {
