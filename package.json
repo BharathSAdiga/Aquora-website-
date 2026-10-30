@@ -4,9 +4,9 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/BharathSAdiga/Aquoradancenyoga.git"
+    "url": "https://github.com/BharathSAdiga/Aquora-website-.git"
   },
-  "homepage": "https://github.com/BharathSAdiga/Aquoradancenyoga#readme",
+  "homepage": "https://github.com/BharathSAdiga/Aquora-website-#readme",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
