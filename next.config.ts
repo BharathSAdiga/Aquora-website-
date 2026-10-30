@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
+const isStandalone = process.env.BUILD_MODE === "standalone";
+
 const nextConfig: NextConfig = {
-  output: "standalone",
+  output: isStandalone ? "standalone" : "export",
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
@@ -9,10 +11,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
   images: {
-    formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
-    deviceSizes: [375, 640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    unoptimized: true,
   },
 };
 
