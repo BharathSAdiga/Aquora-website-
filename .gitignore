@@ -17,6 +17,7 @@
 /.next/
 /out/
 /hosting-package/
+/website-deployment-ready/
 *.zip
 
 # production
