@@ -196,3 +196,4 @@ Upload either:
 fs.writeFileSync(path.join(target, "README.md"), readmeContent);
 
 console.log("AQUORA-STANDALONE created successfully!");
+

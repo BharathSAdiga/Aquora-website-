@@ -80,7 +80,7 @@ export function Storytelling() {
 
         {/* Four Large Typographic Words */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-4 xl:gap-6 max-w-7xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -90,17 +90,17 @@ export function Storytelling() {
             <motion.div
               key={item.word}
               variants={wordVariants}
-              className="group p-8 sm:p-10 rounded-3xl glass-panel-light border border-white/90 hover:shadow-[0_25px_50px_-12px_rgba(30,28,26,0.09)] transition-all duration-500 flex flex-col justify-between min-h-[320px]"
+              className="group p-6 sm:p-7 lg:p-5 xl:p-7 2xl:p-8 rounded-3xl glass-panel-light border border-white/90 hover:shadow-[0_25px_50px_-12px_rgba(30,28,26,0.09)] transition-all duration-500 flex flex-col justify-between min-h-[300px] sm:min-h-[320px] overflow-hidden"
             >
               <div>
-                <div className="flex items-center justify-between mb-8 pb-4 border-b border-aquora-charcoal/10">
+                <div className="flex items-center justify-between mb-6 lg:mb-7 pb-4 border-b border-aquora-charcoal/10">
                   <span className="text-[10px] font-mono tracking-widest text-aquora-muted">
                     {item.number}
                   </span>
                   <div className="w-1.5 h-1.5 rounded-full bg-aquora-gold" />
                 </div>
 
-                <h3 className={`font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight mb-4 transition-transform duration-500 group-hover:translate-x-1 ${item.accent}`}>
+                <h3 className={`font-serif text-3xl sm:text-4xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-normal tracking-tight mb-4 transition-transform duration-500 group-hover:translate-x-1 ${item.accent}`}>
                   {item.word}
                 </h3>
               </div>
