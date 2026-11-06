@@ -1,21 +1,25 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 
-const inter = Inter({
+// Exact Latin font assets observed on the live Vercel deployment. Local files
+// keep production builds reproducible when Google Fonts is unreachable.
+const inter = localFont({
+  src: "./fonts/inter-latin.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
+  weight: "100 900",
   display: "swap",
   preload: true,
   fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
 });
 
-const cormorant = Cormorant_Garamond({
+const cormorant = localFont({
+  src: [
+    { path: "./fonts/cormorant-garamond-latin.woff2", weight: "300 600", style: "normal" },
+    { path: "./fonts/cormorant-garamond-italic-latin.woff2", weight: "300 600", style: "italic" },
+  ],
   variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["300", "400", "600"],
-  style: ["normal", "italic"],
   display: "swap",
   preload: true,
   fallback: ["Georgia", "Cambria", "Times New Roman", "serif"],

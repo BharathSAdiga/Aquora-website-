@@ -18,6 +18,7 @@
 /out/
 /hosting-package/
 /website-deployment-ready/
+/TVM-HOSTING-PACKAGE/
 *.zip
 
 # production

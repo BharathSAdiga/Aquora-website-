@@ -9,10 +9,20 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
+    ...(isStandalone ? { cpus: 1 } : {}),
   },
   images: {
     unoptimized: true,
   },
+  ...(isStandalone
+    ? {
+        // Development-only UI resources are not used by the production server.
+        // Excluding them also avoids Windows filesystem edge cases while tracing.
+        outputFileTracingExcludes: {
+          "/*": ["./node_modules/next/dist/next-devtools/**/*"],
+        },
+      }
+    : {}),
 };
 
 export default nextConfig;
