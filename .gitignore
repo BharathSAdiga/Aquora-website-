@@ -19,6 +19,7 @@
 /hosting-package/
 /website-deployment-ready/
 /TVM-HOSTING-PACKAGE/
+/AQUORA-STANDALONE/
 *.zip
 
 # production
