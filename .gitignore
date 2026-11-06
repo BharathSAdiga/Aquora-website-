@@ -19,7 +19,8 @@
 /hosting-package/
 /website-deployment-ready/
 /TVM-HOSTING-PACKAGE/
-/AQUORA-STANDALONE/
+/AQUORA-STANDALONE/.next/
+/AQUORA-STANDALONE/node_modules/
 *.zip
 
 # production
